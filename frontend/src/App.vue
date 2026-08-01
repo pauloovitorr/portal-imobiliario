@@ -9,7 +9,7 @@ const route = useRoute();
 
 
 // Mapeia usando componentes ASSÍNCRONOS (Lazy Loading)
-const layouts: Record<string, any> = {
+const layouts: Record<string, Component> = {
   // O arquivo do layout SÓ SERÁ BAIXADO se essa chave for chamada!
   GeralLayout: defineAsyncComponent(() => import('@/layouts/GeralLayout.vue'))
 }
