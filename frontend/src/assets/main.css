@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap");
+@import "./base.css";
+
+:root {
+  /* ==========================================================================
+     1. TIPOGRAFIA & FAMÍLIA DE FONTE
+     ========================================================================== */
+  --font-primary:
+    "Anek Latin", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+
+  /* Font Weights */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Scale de Fontes (Escalar e Responsivo) */
+  --text-xs: 0.75rem; /* 12px - Legendas / Badges */
+  --text-sm: 0.875rem; /* 14px - Textos secundários / Metadados */
+  --text-base: 1rem; /* 16px - Corpo de texto padrão */
+  --text-lg: 1.125rem; /* 18px - Destaques / Subtítulos curtos */
+  --text-xl: 1.25rem; /* 20px - Títulos de Cards */
+  --text-2xl: 1.5rem; /* 24px - Preços e Seções */
+  --text-3xl: 2rem; /* 32px - Títulos da Página */
+  --text-4xl: 2.75rem; /* 44px - Banner Principal / Hero */
+
+  /* Line Heights */
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* ==========================================================================
+     2. PALETA DE CORES (PALETTE)
+     ========================================================================== */
+
+  /***
+  /* Accent / Destaque & Conversão (Sunset Coral) 
+  --color-accent-400: #ff6b4a; /* Badges / Destaques 
+  --color-accent-500: #f95738; /* Botões principais de Ação / CTA 
+  --color-accent-600: #e03e1f; /* Hover CTA 
+  */
+
+
+  /* Accent / Destaque & Conversão (Burgundy Velvet) */
+  --color-accent-400: #a82046; /* Badges / Destaques */
+  --color-accent-500: #800f2f; /* Botões principais de Ação / CTA */
+  --color-accent-600: #590d22; /* Hover CTA */
+
+/* Neutros (Warm Rose-Gray / Elegante e Sofisticado) */
+--color-neutral-0: #ffffff;
+--color-neutral-50: #fdfbfb;  /* Fundo da aplicação (Suave e aconchegante) */
+--color-neutral-100: #f5f2f3; /* Fundo de cards secundários / Inputs */
+--color-neutral-200: #e8e2e4; /* Bordas sutis */
+--color-neutral-300: #d4cbcf; /* Bordas de inputs */
+--color-neutral-500: #786c72; /* Texto secundário / Ícones */
+--color-neutral-700: #42383c; /* Texto corpo principal */
+--color-neutral-900: #1f171a; /* Títulos e destaques (Quase preto, mas aveludado) */
+
+  /* Feedback / Status */
+  --color-success: #10b981; /* Imóvel Disponível / Vendido */
+  --color-warning: #f59e0b; /* Reservado / Em análise */
+  --color-danger: #ef4444; /* Excluir / Favorito ativo */
+
+  /* Semânticas de Superfície e Texto (Facilita Dark Mode no futuro) */
+  --bg-app: var(--color-neutral-50);
+  --bg-surface: var(--color-neutral-0);
+  --border-color: var(--color-neutral-200);
+  --text-main: var(--color-neutral-900);
+  --text-muted: var(--color-neutral-500);
+
+  /* ==========================================================================
+     3. BORDAS & RAIO (BORDER RADIUS)
+     ========================================================================== */
+  --radius-sm: 0.375rem; /* 6px  - Badges e Tag pequenas */
+  --radius-md: 0.5rem; /* 8px  - Inputs e Botões comuns */
+  --radius-lg: 0.75rem; /* 12px - Cards de Imóveis */
+  --radius-xl: 1rem; /* 16px - Modais e Seções de Filtro */
+  --radius-full: 9999px; /* Pílulas / Badges circulares */
+
+  /* ==========================================================================
+     4. SOMBRAS & ELEVAÇÃO (SHADOWS)
+     ========================================================================== */
+  --shadow-sm: 0 1px 1px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md:
+    0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg:
+    0 10px 15px -3px rgba(15, 23, 42, 0.1),
+    0 4px 6px -4px rgba(15, 23, 42, 0.05);
+  --shadow-hover:
+    0 20px 25px -5px rgba(15, 23, 42, 0.12),
+    0 8px 10px -6px rgba(15, 23, 42, 0.04);
+
+  /* ==========================================================================
+     5. TRANSIÇÕES & ANIMAÇÕES
+     ========================================================================== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ==========================================================================
+     6. Z-INDEX SYSTEM
+     ========================================================================== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-tooltip: 1080;
+}
+
+/* Aplicando a fonte global no body */
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
