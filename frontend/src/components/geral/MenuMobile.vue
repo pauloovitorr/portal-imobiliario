@@ -165,7 +165,7 @@ const handleClose = (): void => {
   border: none;
   color: var(--color-neutral-700);
   cursor: pointer;
-  padding: 0.5rem;
+  padding: var(--padding-btn-sm);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -209,7 +209,7 @@ const handleClose = (): void => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0.875rem;
+  padding: 0.875rem 1rem;
   font-size: var(--text-base);
   font-weight: var(--font-medium);
   color: var(--color-neutral-700);
@@ -225,12 +225,18 @@ const handleClose = (): void => {
 .nav-mobile-link:hover,
 .nav-mobile-trigger:hover {
   background-color: var(--color-neutral-100);
-  color: var(--color-accent-500);
+  color: var(--color-neutral-900);
+}
+
+.nav-mobile-link:active,
+.nav-mobile-trigger:active {
+  transform: scale(0.98);
 }
 
 .nav-mobile-trigger.is-open {
   color: var(--color-accent-500);
   background-color: var(--color-neutral-100);
+  font-weight: var(--font-semibold);
 }
 
 /* Rotação do Ícone de Seta */
