@@ -102,6 +102,8 @@ const handleClick = (): void => {
   padding: 0 1.5rem;
 }
 
+
+
 .logo-icon img {
   max-width: 160px;
   display: block;

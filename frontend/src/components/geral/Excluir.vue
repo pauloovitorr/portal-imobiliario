@@ -125,6 +125,7 @@ const executarBusca = () => {
   border-radius: var(--radius-full);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: var(--shadow-sm);
+  margin-top: 300px;
 }
 
 .segmented-item {

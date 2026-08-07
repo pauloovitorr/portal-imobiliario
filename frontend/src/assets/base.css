@@ -175,7 +175,7 @@
   --padding-btn-md: var(--padding-sm) var(--padding-lg); /* 12px 20px */
   --padding-btn-lg: var(--padding-md) var(--padding-xl); /* 16px 24px */
 
-  --padding-input: 0 var(--padding-md); /* 0 16px */
+
   --padding-card: var(--padding-lg) var(--padding-xl); /* 20px 24px */
   --padding-modal: var(--padding-xl); /* 24px */
   --padding-drawer: var(--padding-xl); /* 24px (Gaveta Mobile) */

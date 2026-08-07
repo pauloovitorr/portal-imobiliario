@@ -32,6 +32,21 @@ const toggleMenu = (): void => {
   z-index: var(--z-fixed);
 }
 
+/* .navbar-header {
+  position: fixed;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  background-color: var(--bg-glass-segmented);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-glass-segmented);
+  box-shadow: var(--shadow-md);
+  z-index: var(--z-fixed);
+  width: 96%;
+} */
+
 
 
 /* Botão Hambúrguer Mobile */
