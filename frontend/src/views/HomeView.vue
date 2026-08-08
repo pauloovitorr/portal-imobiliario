@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Hero from '@/components/geral/Hero.vue';
+import ImovelDestaquesHome from '@/components/geral/ImovelDestaquesHome.vue';
 
 
 </script>
@@ -7,9 +8,8 @@ import Hero from '@/components/geral/Hero.vue';
 
 <template>
     <Hero />
+    <ImovelDestaquesHome />
 </template>
 
 
-<style scoped>
-
-</style>
+<style scoped></style>

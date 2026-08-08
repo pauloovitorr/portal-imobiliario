@@ -1,11 +1,16 @@
 <script setup lang="ts">
 
+const props = defineProps<{
+    tipoFinalidade: 'comprar' | 'alugar' | 'temporada'
+}>();
+
 </script>
 
 
 <template>
     <div class="container-opcoes">
         <form action="" method="post">
+            <input type="hidden" :value="tipoFinalidade">
             <div class="form-group tp-imovel">
                 <label for="tipo-imovel">Tipo de Imóvel</label>
                 <select name="tipo-imovel" id="tipo-imovel">
@@ -16,21 +21,18 @@
             </div>
 
             <div class="form-group bairro">
-                <label for="tipo-imovel">Cidade</label>
-                <select name="tipo-imovel" id="tipo-imovel">
-                    <option value="">Apartamento</option>
-                    <option value="">Casa</option>
-                    <option value="">Sala</option>
+                <label for="cidade">Cidade</label>
+                <select name="cidade" id="cidade">
+                    <option value="">Presidente Prudente</option>
+
                 </select>
             </div>
 
 
             <div class="form-group cidade">
-                <label for="tipo-imovel">Bairro</label>
-                <select name="tipo-imovel" id="tipo-imovel">
-                    <option value="">Apartamento</option>
-                    <option value="">Casa</option>
-                    <option value="">Sala</option>
+                <label for="bairro">Bairro</label>
+                <select name="bairro" id="bairro">
+                    <option value="">Centro</option>
                 </select>
             </div>
 

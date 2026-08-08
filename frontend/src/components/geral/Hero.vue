@@ -17,7 +17,8 @@ import PesquisaPrincipal from './PesquisaPrincipal.vue';
 <style scoped>
 .container-hero {
     width: 100%;
-    height: calc(100vh - 80px);
+    height: calc(85vh - 80px);
     position: relative;
+    /* border: 1px solid blue; */
 }
 </style>

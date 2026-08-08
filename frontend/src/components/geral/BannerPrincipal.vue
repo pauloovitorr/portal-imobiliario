@@ -14,7 +14,7 @@ import BannerImg from '@/assets/imgs/geral/1.png';
 <style scoped>
 .banner {
     width: 100%;
-    height: calc(100vh - 80px);
+    height: calc(85vh - 80px);
     position: absolute;
     top: 0;
     left: 0;

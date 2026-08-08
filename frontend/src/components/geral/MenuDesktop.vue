@@ -93,13 +93,13 @@ const handleClick = (): void => {
 <style scoped>
 /* Contêiner Principal */
 .navbar-container {
-  max-width: 1280px;
+  max-width: var(--max-width);
   margin: 0 auto;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem;
+  padding: 0 var(--padding-xl)
 }
 
 

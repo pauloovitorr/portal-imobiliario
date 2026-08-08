@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
 
-// filtros de finalidade
-const tipoFinalidade = ref<'comprar' | 'alugar' | 'temporada'>('comprar');
+const tipoFinalidade = defineModel<'comprar' | 'alugar' | 'temporada'>('tipoFinalidade', {
+    required: true
+})
+
+
 </script>
 
 
@@ -52,11 +54,11 @@ const tipoFinalidade = ref<'comprar' | 'alugar' | 'temporada'>('comprar');
     box-shadow: var(--shadow-md);
 }
 
-@media (max-width:330px){
-.container-finalidade{
-    flex-direction: column;
-    width: 100%;
-    border-radius: var(--radius-xl);
-}
+@media (max-width:330px) {
+    .container-finalidade {
+        flex-direction: column;
+        width: 100%;
+        border-radius: var(--radius-xl);
+    }
 }
 </style>

@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import FiltroContainerFinalidade from './Filtro-Container-finalidade.vue';
-import FiltroContainerOpcoes from './Filtro-Container-Opcoes.vue';
+import { ref } from 'vue';
+import FiltroContainerFinalidade from './FiltroContainerFinalidade.vue';
+import FiltroContainerOpcoes from './FiltroContainerOpcoes.vue';
+
+
+// filtros de finalidade
+const tipoFinalidade = ref<'comprar' | 'alugar' | 'temporada'>('comprar');
 </script>
 
 <template>
@@ -11,8 +16,8 @@ import FiltroContainerOpcoes from './Filtro-Container-Opcoes.vue';
                 Encontre o seu <span class="highlight">lugar</span>
             </h1>
 
-            <FiltroContainerFinalidade />
-            <FiltroContainerOpcoes />
+            <FiltroContainerFinalidade v-model:tipoFinalidade="tipoFinalidade" />
+            <FiltroContainerOpcoes  :tipoFinalidade="tipoFinalidade" />
         </div>
     </div>
 </template>
@@ -43,11 +48,11 @@ import FiltroContainerOpcoes from './Filtro-Container-Opcoes.vue';
     font-family: var(--font-primary);
     font-size: var(--text-3xl);
     font-weight: var(--font-medium);
-    
+
     line-height: var(--leading-tight);
     letter-spacing: -0.02em;
     margin-bottom: var(--padding-2xs);
-    
+
 
     color: var(--color-neutral-0);
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);

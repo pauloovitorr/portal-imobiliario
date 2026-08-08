@@ -27,7 +27,6 @@ const toggleMenu = (): void => {
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
-  position: relative;
   position: relative; /* Ou position: sticky / fixed dependendo do layout */
   z-index: var(--z-fixed);
 }
