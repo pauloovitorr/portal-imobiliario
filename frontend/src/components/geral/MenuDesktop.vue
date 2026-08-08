@@ -230,8 +230,8 @@ const handleClick = (): void => {
 }
 
 .dropdown-link:hover {
-  background-color: var(--color-accent-500);
-  color: var(--color-neutral-0);
+  background-color: var(--color-neutral-0);
+  /* color: var(--color-neutral-0); */
 }
 
 /* Ações Desktop */
