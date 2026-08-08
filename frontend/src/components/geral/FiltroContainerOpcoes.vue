@@ -128,7 +128,7 @@ const props = defineProps<{
     font-size: var(--text-base);
     font-weight: var(--font-medium);
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(128, 15, 47, 0.25);
+    box-shadow: 0 2px 6px rgba(128, 15, 47, 0.25);
     transition: all var(--transition-fast);
 }
 
