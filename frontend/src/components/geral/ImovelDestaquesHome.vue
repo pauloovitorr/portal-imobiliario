@@ -13,7 +13,7 @@ import CardImovel from './CardImovel.vue';
             </div>
             <div>
                 <h3>Acabaram de chegar
-                    <span class="graca">e merecem toda a sua atenção</span>
+                    <span class="detalhe">e merecem toda a sua atenção</span>
                 </h3>
             </div>
         </div>
@@ -35,7 +35,7 @@ import CardImovel from './CardImovel.vue';
     margin: 0 auto;
     margin-top: 32px;
     margin-bottom: 32px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: var(--padding-xl)
 }
 
@@ -44,7 +44,7 @@ import CardImovel from './CardImovel.vue';
     display: flex;
     flex-direction: column;
     gap: 8px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* padding: var(--padding-xl) 0; */
 }
 
@@ -73,13 +73,13 @@ import CardImovel from './CardImovel.vue';
 }
 
 .titulo-section h3 {
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     font-weight: var(--font-medium);
     color: var(--color-neutral-900);
 }
 
-.graca {
-    color: var(--color-neutral-700);
+.detalhe {
+    color: var(--color-neutral-500);
 }
 
 .imoveis-container {
