@@ -7,10 +7,10 @@ import CardImovelImagem from './CardImovelImagem.vue';
 
 <template>
     <div class="card-imovel">
-       
-        <CardImovelImagem/>
-        <CardImovelDescricao/>
-        
+
+        <CardImovelImagem />
+        <CardImovelDescricao />
+
     </div>
 </template>
 
@@ -23,7 +23,10 @@ import CardImovelImagem from './CardImovelImagem.vue';
     background-color: var(--bg-surface);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
+    transition: var(--transition-normal);
 }
 
-
+.card-imovel:hover {
+    transform: translateY(-4px);
+}
 </style>

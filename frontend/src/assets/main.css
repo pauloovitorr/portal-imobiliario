@@ -71,3 +71,10 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--color-neutral-100);
   color: var(--color-neutral-900);
 }
+
+.espaco-container {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding: var(--padding-xl);
+  /* border: 1px solid red; */
+}

@@ -37,12 +37,13 @@ defineProps<{
 }
 
 .titulo-section-text {
-    font-family: var(--font-secondary);
+    /* font-family: var(--font-secondary); */
     font-weight: var(--font-medium);
     color: var(--color-neutral-400);
     position: relative;
     padding-left: var(--padding-2xs);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
+    letter-spacing: 1px;
 }
 
 /* .titulo-section-text:hover{
@@ -64,6 +65,7 @@ defineProps<{
     font-size: var(--text-2xl);
     font-weight: var(--font-medium);
     color: var(--color-neutral-900);
+    font-family: var(--font-secondary);
 }
 
 .detalhe {

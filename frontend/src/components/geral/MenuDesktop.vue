@@ -32,7 +32,7 @@ const handleClick = (): void => {
             <span>Comprar</span>
             <ChevronDown class="icon-arrow" />
           </div>
-          
+
           <div class="dropdown-menu">
             <ul class="dropdown-list">
               <li><a href="#" class="dropdown-link">Casas</a></li>
@@ -65,7 +65,7 @@ const handleClick = (): void => {
           <a href="#" class="nav-link">Notícias</a>
         </li>
       </ul>
-      
+
     </nav>
 
     <div class="actions-desktop">
@@ -122,7 +122,7 @@ const handleClick = (): void => {
   gap: 1.5rem;
   list-style: none;
   margin: 0;
-  padding: 0; 
+  padding: 0;
   height: 100%;
 }
 
@@ -174,17 +174,20 @@ const handleClick = (): void => {
   left: 50%;
   transform: translateX(-50%) translateY(10px) scale(0.95);
   min-width: 220px;
-  
 
-  background-color: var(--bg-glass-card);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  /* background-color: var(--bg-glass-card);
+    backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%); */
+
+  background-color: var(--color-neutral-0);
+
   border: 1px solid var(--border-glass-card);
   border-radius: var(--radius-xl);
-  
+
   box-shadow: var(--shadow-hover);
   padding: 0.5rem;
-  
+
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
@@ -230,8 +233,8 @@ const handleClick = (): void => {
 }
 
 .dropdown-link:hover {
-  background-color: var(--color-neutral-0);
-  /* color: var(--color-neutral-0); */
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-900);
 }
 
 /* Ações Desktop */
@@ -299,6 +302,7 @@ const handleClick = (): void => {
 
 /* Responsividade */
 @media (max-width: 900px) {
+
   .nav-desktop,
   .actions-desktop {
     display: none;

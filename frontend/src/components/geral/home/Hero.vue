@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BannerPrincipal from './BannerPrincipal.vue';
+import BannerPrincipal from '@/components/geral/home/BannerPrincipal.vue';
 import Excluir from './Excluir.vue';
 import PesquisaPrincipal from './PesquisaPrincipal.vue';
 

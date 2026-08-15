@@ -38,11 +38,11 @@ onUnmounted(() => {
         <!-- <span class="tag-imagem">1016</span> -->
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
-                <li class="glide__slide"><img :src="Imovel" alt="" /></li>
-                <li class="glide__slide"><img :src="Imovel" alt="" /></li>
-                <li class="glide__slide"><img :src="Imovel" alt="" /></li>
-                <li class="glide__slide"><img :src="Imovel" alt="" /></li>
-                <li class="glide__slide"><img :src="Imovel" alt="" /></li>
+                <li class="glide__slide"><img :src="Imovel" loading="lazy" alt="" /></li>
+                <li class="glide__slide"><img :src="Imovel" loading="lazy" alt="" /></li>
+                <li class="glide__slide"><img :src="Imovel" loading="lazy" alt="" /></li>
+                <li class="glide__slide"><img :src="Imovel" loading="lazy" alt="" /></li>
+                <li class="glide__slide"><img :src="Imovel" loading="lazy" alt="" /></li>
             </ul>
         </div>
 
