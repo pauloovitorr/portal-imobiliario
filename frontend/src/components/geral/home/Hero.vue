@@ -19,6 +19,7 @@ import PesquisaPrincipal from './PesquisaPrincipal.vue';
     width: 100%;
     height: calc(85vh - 80px);
     position: relative;
+    margin-bottom: 32px;
     /* border: 1px solid blue; */
 }
 </style>

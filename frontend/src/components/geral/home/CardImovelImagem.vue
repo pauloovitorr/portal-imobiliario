@@ -164,11 +164,13 @@ onUnmounted(() => {
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
+    transition: var(--transition-normal);
 }
 
 .glide__bullet--active {
     background-color: #ffffff;
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
+    width: 20px;
+    border-radius: 30px;
 }
 </style>

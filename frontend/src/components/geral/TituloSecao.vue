@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { ChevronRight } from '@lucide/vue';
 defineProps<{
     titulo: string
     subtitulo: string
     detalhe: string
+    link: string
 }>()
 </script>
 
@@ -15,13 +17,22 @@ defineProps<{
             </span>
         </div>
 
-        <div>
+        <div class="container-frase">
             <h3>
                 {{ subtitulo }}
                 <span class="detalhe">
                     {{ detalhe }}
                 </span>
             </h3>
+
+
+            <div>
+                <a :href="link" class="link-ver-tudo">
+                    <span>Ver tudo</span>
+
+                    <ChevronRight class="icone-seta" />
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -61,6 +72,12 @@ defineProps<{
     border-radius: 2px;
 }
 
+.container-frase {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .titulo-section h3 {
     font-size: var(--text-2xl);
     font-weight: var(--font-medium);
@@ -70,5 +87,34 @@ defineProps<{
 
 .detalhe {
     color: var(--color-neutral-500);
+}
+
+
+
+.link-ver-tudo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);    
+    color: var(--color-neutral-600);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color var(--transition-normal);
+}
+
+
+.link-ver-tudo:hover {
+    color: var(--color-neutral-900);
+}
+
+
+.link-ver-tudo .icone-seta {
+    transition: transform var(--transition-normal), color var(--transition-normal);
+}
+
+.link-ver-tudo:hover .icone-seta {
+    transform: translateX(6px);
+    color: var(--color-accent-500);
 }
 </style>

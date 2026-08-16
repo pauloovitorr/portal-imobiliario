@@ -6,7 +6,10 @@ import { Heart } from '@lucide/vue'
 <template>
     <div class="container-descricao">
         <div class="finalidade-imovel-container">
-            <span class="tipo-imovel">APARTAMENTO</span>
+            <div class="container-tags">
+                <span>Venda</span>
+                <span>Presidente Prudente</span>
+            </div>
             <Heart class="icone-favoritar" />
         </div>
 
@@ -55,6 +58,20 @@ import { Heart } from '@lucide/vue'
     font-weight: var(--font-medium);
     color: var(--text-main);
     margin-bottom: var(--padding-sm);
+}
+
+.container-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.container-tags span {
+    color: var(--color-neutral-600);
+    padding: var(--padding-3xs) var(--padding-2xs);
+    background-color: var(--color-neutral-100);
+    border-radius: 8px;
+    letter-spacing: 0.5px;
 }
 
 .icone-favoritar {
@@ -121,7 +138,7 @@ import { Heart } from '@lucide/vue'
     justify-content: center;
     height: 2.5rem;
     padding: 0 var(--padding-lg);
-   
+
     font-family: var(--font-primary);
     font-size: 13px;
     font-weight: var(--font-medium);
@@ -143,6 +160,4 @@ import { Heart } from '@lucide/vue'
     background-color: var(--color-accent-600);
     transform: translateY(-1px);
 }
-
-
 </style>

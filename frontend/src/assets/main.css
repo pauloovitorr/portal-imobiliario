@@ -72,9 +72,9 @@ body::-webkit-scrollbar-thumb {
   color: var(--color-neutral-900);
 }
 
-.espaco-container {
-  margin-top: 32px;
-  margin-bottom: 32px;
+.estilo-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
   padding: var(--padding-xl);
   /* border: 1px solid red; */
 }

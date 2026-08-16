@@ -7,10 +7,10 @@ import TituloSecao from '../TituloSecao.vue';
 
 
 <template>
-    <section class="imovel-destaque-container espaco-container">
+    <section class="imovel-destaque-container estilo-container">
 
         <TituloSecao titulo="Os Mais Desejados" subtitulo="Encontre o Seu Refúgio"
-            detalhe="com todo o espaço e conforto que você merece" />
+            detalhe="com todo o espaço e conforto que você merece" link="" />
 
         <div class="imoveis-container" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
             data-aos-easing="ease-in-out">
@@ -23,10 +23,10 @@ import TituloSecao from '../TituloSecao.vue';
 
 
 
-    <section class="imovel-destaque-container espaco-container">
+    <section class="imovel-destaque-container estilo-container">
 
         <TituloSecao titulo="Exclusividade & Requinte" subtitulo="Seleção de Alto Padrão"
-            detalhe="para quem busca o extraordinário" />
+            detalhe="para quem busca o extraordinário" link="" />
 
         <div class="imoveis-container" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
             data-aos-easing="ease-in-out">
@@ -40,12 +40,12 @@ import TituloSecao from '../TituloSecao.vue';
 
 
 <style scoped>
-.imovel-destaque-container {
+/* .imovel-destaque-container {
     max-width: var(--max-width);
     margin: 0 auto;
     margin-top: 32px;
     margin-bottom: 32px;
-}
+} */
 
 
 
