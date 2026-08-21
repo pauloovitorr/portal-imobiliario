@@ -11,11 +11,11 @@ defineProps<{
 
 <template>
     <div class="titulo-section">
-        <div>
+       
             <span class="titulo-section-text">
                 {{ titulo }}
             </span>
-        </div>
+        
 
         <div class="container-frase">
             <h3>
@@ -55,6 +55,7 @@ defineProps<{
     padding-left: var(--padding-2xs);
     font-size: var(--text-sm);
     letter-spacing: 1px;
+    /* border: 1px solid red; */
 }
 
 /* .titulo-section-text:hover{

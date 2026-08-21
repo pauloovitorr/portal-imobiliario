@@ -40,12 +40,13 @@ import TituloSecao from '../TituloSecao.vue';
 
 
 <style scoped>
-/* .imovel-destaque-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
+.imovel-destaque-container {
+    /* max-width: var(--max-width);
+    margin: 0 auto; */
     margin-top: 32px;
     margin-bottom: 32px;
-} */
+    /* border: 1px solid red; */
+}
 
 
 

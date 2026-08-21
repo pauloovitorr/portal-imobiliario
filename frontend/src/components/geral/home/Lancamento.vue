@@ -31,7 +31,7 @@ const imoveisDestaque = [
 </script>
 
 <template>
-    <section class="estilo-container" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
+    <section class="container-lancamentos  estilo-container" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
         data-aos-easing="ease-in-out">
         <TituloSecao titulo="Avant-Première" subtitulo="O Privilégio da Primeira Escolha"
             detalhe="conheça os projetos que acabam de abrir as portas" link="" />
@@ -62,6 +62,13 @@ const imoveisDestaque = [
 </template>
 
 <style scoped>
+
+/* .container-lancamentos{
+    margin-top: 32px;
+    margin-bottom: 32px;
+    border: 1px solid red;
+} */
+
 .imoveis-container {
     width: 100%;
     margin-top: 16px;

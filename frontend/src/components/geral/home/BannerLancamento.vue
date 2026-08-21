@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import BannerEmpreendimento from '@/assets/imgs/geral/empreendimento.png'
-import TituloSecao from '../TituloSecao.vue';
 </script>
 
 
 <template>
-
     <a href="">
-        <div class="container-banner-empreendimento estilo-container">
+        <div class="container-banner-lancamento estilo-container">
             <img :src="BannerEmpreendimento" alt="" srcset="">
         </div>
     </a>
@@ -15,7 +13,7 @@ import TituloSecao from '../TituloSecao.vue';
 
 
 <style scoped>
-.container-banner-empreendimento {
+.container-banner-lancamento {
     margin-top: 104px;
     margin-bottom: 104px;
     display: flex;
@@ -23,7 +21,7 @@ import TituloSecao from '../TituloSecao.vue';
     justify-content: center;
 }
 
-.container-banner-empreendimento img {
+.container-banner-lancamento img {
     max-width: 100%;
     border-radius: var(--radius-xl);
     filter: brightness(.9);
