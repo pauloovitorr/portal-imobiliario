@@ -5,7 +5,7 @@ import BannerImg from '@/assets/imgs/geral/1.png';
 
 <template>
     <div class="banner">
-        <img :src="BannerImg" alt="Banner" />
+        <img :src="BannerImg" alt="Banner" loading="lazy" />
     </div>
 </template>
 

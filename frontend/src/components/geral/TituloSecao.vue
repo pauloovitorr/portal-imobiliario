@@ -42,6 +42,8 @@ defineProps<{
 .titulo-section {
     display: flex;
     flex-direction: column;
+    padding-bottom: 16px;
+    /* margin-top: 16px; */
     /* gap: 8px; */
     /* border: 1px solid red; */
     /* padding: var(--padding-xl) 0; */
@@ -118,4 +120,19 @@ defineProps<{
     transform: translateX(6px);
     color: var(--color-accent-500);
 }
+
+
+@media (max-width: 768px){
+    .titulo-section h3{
+        font-size: var(--text-base);
+    }
+}
+
+@media (max-width: 425px){
+    .titulo-section h3{
+        font-size: var(--text-sm);
+    }
+}
+
+
 </style>

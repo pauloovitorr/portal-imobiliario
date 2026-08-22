@@ -6,18 +6,19 @@ import TituloSecao from '../TituloSecao.vue';
 
 <template>
 
-    <a href="">
+    
         <div class="container-banner-empreendimento estilo-container">
-            <img :src="BannerEmpreendimento" alt="" srcset="">
+            <img :src="BannerEmpreendimento" alt="Banner de empreendimento" 
+            loading="lazy">
         </div>
-    </a>
+   
 </template>
 
 
 <style scoped>
 .container-banner-empreendimento {
-    margin-top: 104px;
-    margin-bottom: 104px;
+    /* padding-top: 64px;
+    padding-bottom: 64px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,4 +29,12 @@ import TituloSecao from '../TituloSecao.vue';
     border-radius: var(--radius-xl);
     filter: brightness(.9);
 }
+
+
+@media (max-width: 575px){
+    .container-banner-empreendimento{
+        display: none;
+    }
+}
+
 </style>

@@ -2,9 +2,14 @@
 import BannerEmpreendimento from '@/components/geral/home/BannerEmpreendimento.vue';
 import BannerLancamento from '@/components/geral/home/BannerLancamento.vue';
 import CallAction from '@/components/geral/home/CallAction.vue';
+import Estatisticas from '@/components/geral/home/Estatisticas.vue';
 import Hero from '@/components/geral/home/Hero.vue';
-import ImovelDestaquesHome from '@/components/geral/home/ImovelDestaquesHome.vue';
-import Lancamento from '@/components/geral/home/Lancamento.vue';
+import ImoveisDestaquesHome from '@/components/geral/home/ImoveisDestaquesHome.vue';
+import ImoveisDestaquesHomeSecundario from '@/components/geral/home/ImoveisDestaquesHomeSecundario.vue';
+import ImoveisLancamentoHome from '@/components/geral/home/ImoveisLancamentoHome.vue';
+
+
+
 
 
 </script>
@@ -12,12 +17,16 @@ import Lancamento from '@/components/geral/home/Lancamento.vue';
 
 <template>
     <Hero />
-    <ImovelDestaquesHome />
-    <BannerEmpreendimento/>
-    <Lancamento/>
-    <BannerLancamento/>
-    <CallAction/>
+    <ImoveisDestaquesHome/>
+    <!-- <ImoveisDestaquesHomeSecundario/> -->
+    <BannerEmpreendimento />
+    <ImoveisLancamentoHome/>
+    <BannerLancamento />
+    <Estatisticas/>
+    <CallAction />
 </template>
 
 
-<style scoped></style>
+<style scoped>
+
+</style>

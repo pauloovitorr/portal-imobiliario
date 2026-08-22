@@ -4,18 +4,18 @@ import BannerEmpreendimento from '@/assets/imgs/geral/empreendimento.png'
 
 
 <template>
-    <a href="">
+   
         <div class="container-banner-lancamento estilo-container">
-            <img :src="BannerEmpreendimento" alt="" srcset="">
+            <img :src="BannerEmpreendimento" alt="Banner Empreendimento" loading="lazy">
         </div>
-    </a>
+   
 </template>
 
 
 <style scoped>
 .container-banner-lancamento {
-    margin-top: 104px;
-    margin-bottom: 104px;
+    /* margin-top: 32px; */
+    /* margin-bottom: 104px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,5 +25,11 @@ import BannerEmpreendimento from '@/assets/imgs/geral/empreendimento.png'
     max-width: 100%;
     border-radius: var(--radius-xl);
     filter: brightness(.9);
+}
+
+@media (max-width: 575px){
+    .container-banner-lancamento{
+        display: none;
+    }
 }
 </style>

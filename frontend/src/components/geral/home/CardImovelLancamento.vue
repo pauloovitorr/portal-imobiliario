@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { MapPinHouse } from '@lucide/vue';
-import TituloSecao from '../TituloSecao.vue';
-
 const imoveisDestaque = [
     {
         id: 1,
@@ -26,18 +23,38 @@ const imoveisDestaque = [
         titulo: 'Horácio Lafer Autoria',
         bairro: 'Itaim Bibi',
         area: '357 à 736 m²'
+    },
+    {
+        id: 4,
+        link: '',
+        imagem: 'https://static.coelhodafonseca.com.br/images/imoveis/original/10913958.jpg',
+        titulo: 'Adolpho Lindenberg',
+        bairro: 'Moema',
+        area: '474 m²'
+    },
+    {
+        id: 5,
+        link: '',
+        imagem: 'https://static.coelhodafonseca.com.br/images/imoveis/original/10913958.jpg',
+
+        titulo: 'Renato 410',
+        bairro: 'Itaim Bibi',
+        area: '273 m²'
+    },
+    {
+        id: 6,
+        link: '',
+        imagem: 'https://static.coelhodafonseca.com.br/images/imoveis/original/10955027.jpg',
+        titulo: 'Horácio Lafer Autoria',
+        bairro: 'Itaim Bibi',
+        area: '357 à 736 m²'
     }
 ];
 </script>
 
-<template>
-    <section class="container-lancamentos  estilo-container" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
-        data-aos-easing="ease-in-out">
-        <TituloSecao titulo="Avant-Première" subtitulo="O Privilégio da Primeira Escolha"
-            detalhe="conheça os projetos que acabam de abrir as portas" link="" />
 
-        <div class="imoveis-container">
-            <a v-for="imovel in imoveisDestaque" :key="imovel.id" :href="imovel.link" class="card-imovel">
+<template>
+<a v-for="imovel in imoveisDestaque" :key="imovel.id" :href="imovel.link" class="card-imovel">
                 <div class="card-imagem-wrapper">
                     <img :src="imovel.imagem" alt="Perspectiva artística" class="card-imagem" loading="lazy">
 
@@ -57,26 +74,10 @@ const imoveisDestaque = [
                     </div>
                 </div>
             </a>
-        </div>
-    </section>
 </template>
 
+
 <style scoped>
-
-/* .container-lancamentos{
-    margin-top: 32px;
-    margin-bottom: 32px;
-    border: 1px solid red;
-} */
-
-.imoveis-container {
-    width: 100%;
-    margin-top: 16px;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 32px;
-    row-gap: 32px;
-}
 
 .card-imovel {
     display: block;
@@ -95,7 +96,7 @@ const imoveisDestaque = [
 .card-imagem-wrapper {
     position: relative;
     height: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 5 / 6;
     overflow: hidden;
 }
 
@@ -189,6 +190,13 @@ const imoveisDestaque = [
 @media (max-width: 600px) {
     .imoveis-container {
         grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 575px) {
+    .container-lancamentos {
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 }
 </style>
