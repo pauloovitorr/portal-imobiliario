@@ -4,6 +4,7 @@ import FiltroContainerFinalidade from './FiltroContainerFinalidade.vue';
 import FiltroContainerOpcoes from './FiltroContainerOpcoes.vue';
 
 
+
 // filtros de finalidade
 const tipoFinalidade = ref<'comprar' | 'alugar' | 'temporada'>('comprar');
 </script>

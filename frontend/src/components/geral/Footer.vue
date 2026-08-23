@@ -75,7 +75,7 @@ import MeuLugar from '@/assets/imgs/geral/meulugar.png'
 
 .section-rodape {
     width: 100%;
-    background-color: var(--color-accent-600); 
+    background-color: var(--color-accent-700); 
     color: var(--color-neutral-0);
 }
 
@@ -146,6 +146,7 @@ import MeuLugar from '@/assets/imgs/geral/meulugar.png'
     align-items: center;
     background-color: var(--color-accent-700);
     padding: 16px 0;
+    border-top: 1px solid var(--color-neutral-600);
 }
 
 .rodape-bottom-info {

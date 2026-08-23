@@ -1,38 +1,65 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { gerarParametrosRota } from '@/utils/slug';
 
 const props = defineProps<{
     tipoFinalidade: 'comprar' | 'alugar' | 'temporada'
 }>();
 
+const router = useRouter();
+
+const tiposImovel = ref<string[]>(['apartamento']);
+const cidade = ref('presidente-prudente');
+const bairro = ref<string[]>(['centro', 'jardim-bongiovani']);
+
+function processarBusca() {
+    const params = gerarParametrosRota({
+        finalidade: props.tipoFinalidade,
+        cidade: cidade.value,
+        tipos: tiposImovel.value,
+        bairros: bairro.value
+    });
+
+    router.push({
+        name: 'imoveis-listagem',
+        params
+    });
+}
 </script>
 
 
 <template>
     <div class="container-opcoes">
-        <form action="" method="post">
+        <form action="" method="get" @submit.prevent="processarBusca">
             <input type="hidden" :value="tipoFinalidade">
             <div class="form-group tp-imovel">
                 <label for="tipo-imovel">Tipo de Imóvel</label>
-                <select name="tipo-imovel" id="tipo-imovel">
-                    <option value="">Apartamento</option>
-                    <option value="">Casa</option>
-                    <option value="">Sala</option>
+
+                <select v-model="tiposImovel" name="tipo-imovel" id="tipo-imovel" multiple size="3">
+                    <option value="apartamento">Apartamento</option>
+                    <option value="casa">Casa</option>
+                    <option value="sala">Sala Comercial</option>
+                    <option value="terreno">Terreno</option>
                 </select>
             </div>
 
             <div class="form-group bairro">
                 <label for="cidade">Cidade</label>
-                <select name="cidade" id="cidade">
-                    <option value="">Presidente Prudente</option>
-
+                <select v-model="cidade" name="cidade" id="cidade">
+                    <option value="presidente-prudente">Presidente Prudente</option>
+                    <option value="sao-paulo">São Paulo</option>
                 </select>
             </div>
 
 
             <div class="form-group cidade">
                 <label for="bairro">Bairro</label>
-                <select name="bairro" id="bairro">
-                    <option value="">Centro</option>
+                <select v-model="bairro" name="bairro" id="bairro" multiple size="3">
+                    <option value="centro">Centro</option>
+                    <option value="jardim-bongiovani">Jardim Bongiovani</option>
+                    <option value="parque-do-povo">Parque do Povo</option>
+                    <option value="vila-marcondes">Vila Marcondes</option>
                 </select>
             </div>
 
