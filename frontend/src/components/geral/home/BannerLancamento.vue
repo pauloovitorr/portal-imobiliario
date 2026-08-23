@@ -5,7 +5,8 @@ import BannerEmpreendimento from '@/assets/imgs/geral/empreendimento.png'
 
 <template>
    
-        <div class="container-banner-lancamento estilo-container">
+        <div class="container-banner-lancamento estilo-container" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
+             data-aos-easing="ease-in-out">
             <img :src="BannerEmpreendimento" alt="Banner Empreendimento" loading="lazy">
         </div>
    

@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import BannerEmpreendimento from '@/assets/imgs/geral/empreendimento.png'
-import TituloSecao from '../TituloSecao.vue';
+import BannerEmpreendimento from '@/assets/imgs/geral/empreendimento2.png'
+
 </script>
 
 
 <template>
 
     
-        <div class="container-banner-empreendimento estilo-container">
+        <div class="container-banner-empreendimento estilo-container" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
+             data-aos-easing="ease-in-out">
             <img :src="BannerEmpreendimento" alt="Banner de empreendimento" 
             loading="lazy">
         </div>

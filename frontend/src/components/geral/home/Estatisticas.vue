@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CallAction from './CallAction.vue';
+
 const estatisticas = [
     { valor: '+56 mil', label: 'Imóveis negociados' },
     { valor: '+67 mil', label: 'Clientes atendidos' },
@@ -9,7 +11,8 @@ const estatisticas = [
 
 <template>
   
-    <section class="section-estatisticas">
+    <section class="section-estatisticas" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
+             data-aos-easing="ease-in-out">
         <div class="container-estatisticas estilo-container">
             
             <div class="estatisticas-header">
@@ -36,13 +39,15 @@ const estatisticas = [
 
         </div>
     </section>
+
+     <CallAction />
 </template>
 
 <style scoped>
-/* 1. Estrutura e Fundo Claro */
+
 .section-estatisticas {
     width: 100%;
-    background-color: var(--color-neutral-0); /* Fundo branco conforme seu Design System */
+    background-color: var(--color-neutral-0); 
 }
 
 .container-estatisticas{
@@ -54,7 +59,7 @@ const estatisticas = [
     gap: 32px;
 }
 
-/* 2. Cabeçalho (Textos escuros e elegantes) */
+
 .estatisticas-header {
     text-align: center;
     max-width: 800px;
@@ -69,7 +74,7 @@ const estatisticas = [
     margin-bottom: 12px;
 }
 
-/* Destaque na palavra "números" */
+
 .estatisticas-titulo span {
     font-weight: var(--font-light);
     font-style: italic;
@@ -82,7 +87,7 @@ const estatisticas = [
     line-height: var(--leading-relaxed);
 }
 
-/* 3. Grid Responsivo */
+
 .estatisticas-grid {
     width: 100%;
     display: grid;
@@ -90,30 +95,30 @@ const estatisticas = [
     gap: 32px;
 }
 
-/* 4. O Card (Com borda sutil para não sumir no fundo branco) */
+
 .estatisticas-card {
     background-color: var(--color-neutral-0);
     padding: var(--padding-2xl);
     border-radius: var(--radius-xl);
-    border: 1px solid var(--color-neutral-200); /* Borda sutil de separação */
+    border: 1px solid var(--color-neutral-200);
     text-align: center;
-    box-shadow: var(--shadow-sm); /* Sombra base leve */
+    box-shadow: var(--shadow-sm); 
     transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
 }
 
-/* Efeito Hover mantido para dar vida aos cards */
+
 .estatisticas-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
     border-color: var(--color-neutral-300);
 }
 
-/* 5. Tipografia do Card */
+
 .card-valor {
     font-family: var(--font-primary);
     font-size: var(--text-4xl);
     font-weight: var(--font-bold);
-    color: var(--color-accent-500); /* Mantemos o Vinho para dar destaque aos dados */
+    color: var(--color-accent-500); 
     line-height: var(--leading-tight);
     margin-bottom: 12px;
     letter-spacing: -1px;
@@ -125,7 +130,7 @@ const estatisticas = [
     color: var(--color-neutral-600);
 }
 
-/* 6. Responsividade Absoluta */
+
 @media (max-width: 1024px) {
     .estatisticas-grid {
         grid-template-columns: repeat(2, 1fr);

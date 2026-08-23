@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
-// Importação oficial do pacote instalado via npm
+
 import Glide from '@glidejs/glide'
-// Caminho correto do CSS para resolver o erro do Vite
+
 import '@glidejs/glide/dist/css/glide.core.css'
 
 import Imovel from '@/assets/imgs/geral/imovel.png'
@@ -56,7 +56,6 @@ onUnmounted(() => {
             </button>
         </div>
 
-        <!-- Bolinhas de Paginação (Bullets) -->
         <div class="glide__bullets" data-glide-el="controls[nav]">
             <button class="glide__bullet" data-glide-dir="=0" aria-label="Slide 1"></button>
             <button class="glide__bullet" data-glide-dir="=1" aria-label="Slide 2"></button>

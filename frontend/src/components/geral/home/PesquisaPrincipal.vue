@@ -23,7 +23,7 @@ const tipoFinalidade = ref<'comprar' | 'alugar' | 'temporada'>('comprar');
 </template>
 
 <style scoped>
-/* Container com margem e centralização para sobrepor a Hero Image */
+
 .main-geral-filtros {
     width: 100%;
     height: 100%;

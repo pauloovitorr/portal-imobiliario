@@ -46,10 +46,13 @@
   --color-accent-600: #e03e1f; /* Hover CTA 
   */
 
+
   /* Accent / Destaque & Conversão (Burgundy Velvet) */
   --color-accent-400: #a82046; /* Badges / Destaques */
   --color-accent-500: #800f2f; /* Botões principais de Ação / CTA */
   --color-accent-600: #590d22; /* Hover CTA */
+--color-accent-700: #3d0818; /* Estados pressionados (Active) / Destaques muito escuros */
+  --color-accent-800: #25050f; /* Textos de alto contraste sobre fundos claros / Bordas profundas */
 
   /* Neutros (Warm Rose-Gray / Elegante e Sofisticado) */
   --color-neutral-0: #ffffff;
