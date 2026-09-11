@@ -1,0 +1,186 @@
+<script setup lang="ts">
+// import slugify from '~/utils/slug';
+
+
+const props = defineProps<{
+    tipoFinalidade: 'comprar' | 'alugar';
+}>();
+
+// const router = useRouter();
+
+const tipoImovel = ref<string>('apartamento');
+const cidade = ref('presidente-prudente');
+// const bairros = ref<string[]>(['centro']);
+const bairros = ref<string[]>(['centro']);
+
+function processarBusca() {
+
+    const finalidadeSlug = slugify(props.tipoFinalidade)
+    const tipoImovelSlug = slugify(tipoImovel.value)
+    const cidadeSlug = slugify(cidade.value)
+
+    const path = `/${finalidadeSlug}/${tipoImovelSlug}/${cidadeSlug}`;
+    const queryBairros = slugifyBairros(bairros.value)
+
+    navigateTo({
+        path: path,
+        query: queryBairros ? {bairros: queryBairros} : {}
+    })
+
+}
+
+</script>
+
+
+<template>
+    <div class="container-opcoes">
+        <form action="" method="get" @submit.prevent="processarBusca">
+            <input type="hidden" :value="tipoFinalidade">
+            <div class="form-group tp-imovel">
+                <label for="tipo-imovel">Tipo de Imóvel</label>
+
+                <select v-model="tipoImovel" name="tipo-imovel" id="tipo-imovel">
+                    <option value="apartamento">Apartamento</option>
+                    <option value="casa">Casa</option>
+                    <option value="sala">Sala Comercial</option>
+                    <option value="terreno">Terreno</option>
+                </select>
+            </div>
+
+            <div class="form-group bairro">
+                <label for="cidade">Cidade</label>
+                <select v-model="cidade" name="cidade" id="cidade">
+                    <option value="presidente-prudente">Presidente Prudente</option>
+                    <option value="sao-paulo">São Paulo</option>
+                </select>
+            </div>
+
+
+            <div class="form-group cidade">
+                <label for="bairro">Bairro</label>
+                <select v-model="bairros" name="bairro" id="bairro">
+                    <option value="centro">Centro</option>
+                    <option value="jardim-bongiovani">Jardim Bongiovani</option>
+                    <option value="parque-do-povo">Parque do Povo</option>
+                    <option value="vila-marcondes">Vila Marcondes</option>
+                </select>
+            </div>
+
+            <div class="form-group-btn">
+                <button class="btn-apple-primary"><span>Buscar</span></button>
+            </div>
+
+        </form>
+    </div>
+</template>
+
+
+<style scoped>
+.container-opcoes {
+    width: 100%;
+    min-height: 60px;
+    background: rgba(255, 255, 255, 0.75);
+    padding: var(--padding-card);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal);
+    display: flex;
+    align-items: center;
+
+}
+
+.container-opcoes form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-group {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+
+.form-group label {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    margin-bottom: 4px;
+    line-height: .9;
+}
+
+.form-group select {
+    height: 46px;
+    padding: var(--padding-sm);
+    border-radius: 4px;
+    border: 1px solid var(--color-neutral-300);
+    font-size: var(--text-sm);
+    font-family: var(--font-primary);
+    border-radius: var(--radius-md);
+}
+
+.form-group.tp-imovel {
+    width: 20%;
+}
+
+.form-group.bairro,
+.form-group.cidade {
+    width: 30%;
+}
+
+.form-group-btn {
+    /* width: 20%; */
+    height: 60px;
+    display: flex;
+    align-items: end;
+    /* border: 1px solid; */
+}
+
+.btn-apple-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    gap: 0.5rem;
+    height: 46px;
+    padding: 0 1.75rem;
+    background-color: var(--color-accent-500);
+    color: var(--color-neutral-0);
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(128, 15, 47, 0.25);
+    transition: all var(--transition-fast);
+}
+
+.btn-apple-primary:hover {
+    background-color: var(--color-accent-600);
+    box-shadow: var(--shadow-md);
+}
+
+
+@media (max-width:768px) {
+    .container-opcoes form {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .form-group.tp-imovel,
+    .form-group.bairro,
+    .form-group.cidade,
+    .form-group-btn,
+    .btn-apple-primary {
+        width: 100%;
+    }
+
+}
+</style>
