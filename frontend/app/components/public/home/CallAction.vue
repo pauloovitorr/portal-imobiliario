@@ -65,7 +65,7 @@ import imagemCta from '@/assets/imgs/geral/equipe.png'
 .cta-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: var(--color-accent-500);
+    background-color: var(--color-accent-700);
 
     border-radius: var(--radius-xl);
     overflow: hidden;
