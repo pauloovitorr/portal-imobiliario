@@ -55,7 +55,7 @@
 
   /* Neutros (Warm Rose-Gray / Elegante e Sofisticado) */
   --color-neutral-0: #ffffff;
-  /* --color-neutral-50: #fdfbfb; Fundo da aplicação (Suave e aconchegante) */
+  --color-neutral-50: #f9f6f7; /* Fundo da aplicação (Suave e aconchegante) */
   --color-neutral-100: #f5f2f3; /* Fundo de cards secundários / Inputs */
   --color-neutral-200: #e8e2e4; /* Bordas sutis */
   --color-neutral-300: #d4cbcf; /* Bordas de inputs */
@@ -117,7 +117,7 @@
   --color-danger: #ef4444; /* Excluir / Favorito ativo */
 
   /* Semânticas de Superfície e Texto (Facilita Dark Mode no futuro) */
-  --bg-app: var(--color-neutral-100);
+  --bg-app: var(--color-neutral-50);
   --bg-surface: var(--color-neutral-0);
   --border-color: var(--color-neutral-200);
   --text-main: var(--color-neutral-900);
