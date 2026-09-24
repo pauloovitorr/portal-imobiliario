@@ -18,23 +18,7 @@
             <div class="layout-coluna listagem-imoveis">
 
                 <div class="lista-cards-imoveis">
-
-
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-                    <div class="card-imovel"></div>
-
+                    <PublicFiltrosCardImovel v-for="i in 10" :key="i" />
                 </div>
             </div>
 
@@ -107,12 +91,7 @@
 }
 
 
-.card-imovel {
-    width: 100%;
-    height: 250px;
-    border: 1px solid var(--color-neutral-500);
-    border-radius: var(--radius-lg);
-}
+
 
 
 
