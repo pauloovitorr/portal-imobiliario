@@ -5,14 +5,14 @@
 <template>
     <div class="card-imovel-wrapper">
         <PublicFiltrosCardImagemImovel />
-        <LazyPublicFiltrosCardDescricaoImovel />
+        <PublicFiltrosCardDescricaoImovel />
     </div>
 </template>
 
 <style scoped>
 .card-imovel-wrapper {
     background-color: var(--bg-surface);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     border: 1px solid var(--border-color);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
@@ -24,7 +24,7 @@
 }
 
 .card-imovel-wrapper:hover {
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-md);
     transform: translateY(-4px);
 }
 </style>

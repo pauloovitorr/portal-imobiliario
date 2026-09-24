@@ -10,7 +10,9 @@ import { Heart } from '@lucide/vue'
                 <span>Venda</span>
                 <span>Presidente Prudente</span>
             </div>
-            <Heart class="icone-favoritar" />
+            <button class="btn-favorito" aria-label="Favoritar imóvel">
+                <Heart class="icone-favoritar" />
+            </button>
         </div>
 
         <h2 class="bairro-imovel">
@@ -43,6 +45,31 @@ import { Heart } from '@lucide/vue'
 
 
 <style scoped>
+/* Botão Favorito Flutuante */
+.btn-favorito {
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.btn-favorito:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.btn-favorito:hover .icone-favoritar {
+
+    color: #ffffff;
+}
+
 /* --- Detalhes do Imóvel --- */
 .container-descricao {
     width: 100%;
@@ -75,6 +102,8 @@ import { Heart } from '@lucide/vue'
 }
 
 .icone-favoritar {
+    width: 18px;
+    height: 18px;
     color: var(--text-muted);
 }
 

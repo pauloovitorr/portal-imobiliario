@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Heart } from '@lucide/vue'
+
 // Pronto para receber props no futuro, mantendo os dados padrão do seu mockup
 </script>
 
@@ -6,9 +8,13 @@
     <div class="container-descricao">
         <!-- Metadados / Localização Macro -->
         <div class="meta-info">
-            <span class="tag-finalidade">Venda</span>
-            <span class="separador-meta"></span>
-            <span class="localidade-macro">Presidente Prudente</span>
+            <div class="container-tags">
+                <span class="tag-info">Venda</span>
+                <span class="tag-info">Presidente Prudente</span>
+            </div>
+            <button class="btn-favorito" aria-label="Favoritar imóvel">
+                <Heart class="icone-favoritar" />
+            </button>
         </div>
 
         <!-- Título / Bairro (Usando Lora) -->
@@ -41,7 +47,7 @@
 
 <style scoped>
 .container-descricao {
-    padding: var(--padding-md) var(--padding-lg) var(--padding-lg) var(--padding-lg);
+    padding: var(--padding-md);
     display: flex;
     flex-direction: column;
     background-color: var(--bg-surface);
@@ -51,26 +57,56 @@
 .meta-info {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 6px;
     font-size: var(--text-xs);
     color: var(--text-muted);
-    margin-bottom: 2px;
+    margin-bottom: var(--padding-3xs);
 }
 
-.tag-finalidade {
-    font-weight: var(--font-semibold);
-    color: var(--color-accent-600);
-    background-color: var(--color-neutral-100);
-    padding: 2px 6px;
-    border-radius: 4px;
+.container-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
-.separador-meta {
-    width: 3px;
-    height: 3px;
-    background-color: var(--text-muted);
+.btn-favorito {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 0;
     border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform var(--transition-fast), background var(--transition-fast);
 }
+
+.btn-favorito:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.icone-favoritar {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
+}
+
+.btn-favorito:hover .icone-favoritar {
+    color: var(--color-neutral-0);
+}
+
+.tag-info {
+    color: var(--color-neutral-600);
+    padding: var(--padding-3xs) var(--padding-2xs);
+    background-color: var(--color-neutral-100);
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+}
+
 
 .localidade-macro {
     font-weight: var(--font-regular);
@@ -78,20 +114,22 @@
 
 .bairro-imovel {
     font-family: var(--font-secondary);
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
     font-weight: var(--font-medium);
     color: var(--text-main);
     line-height: var(--leading-tight);
-    margin-bottom: 4px;
+    margin-bottom: var(--padding-xs);
+    margin-top: var(--padding-xs);
 }
 
 .caracteristicas-imovel {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 8px;
-    font-size: var(--text-sm);
+    gap: 6px;
+    font-size: var(--text-xs);
     color: var(--text-muted);
-    margin-bottom: 12px;
+    margin-bottom: var(--padding-md);
 }
 
 .separador-ponto {
@@ -121,7 +159,7 @@
 }
 
 .valor-imovel {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: var(--font-semibold);
     color: var(--text-main);
     line-height: var(--leading-tight);
@@ -132,7 +170,7 @@
     align-items: center;
     justify-content: center;
     height: 2.25rem;
-    padding: 0 var(--padding-md);
+    padding: 0 var(--padding-sm);
     font-size: 13px;
     font-weight: var(--font-medium);
     color: var(--color-neutral-0);

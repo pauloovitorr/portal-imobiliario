@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import Glide from '@glidejs/glide'
 import '@glidejs/glide/dist/css/glide.core.css'
-import { ChevronLeft, ChevronRight, Heart } from '@lucide/vue'
+import { ChevronLeft, ChevronRight } from '@lucide/vue'
 
 const glideRef = ref<HTMLElement | null>(null)
 let glideInstance: any = null
@@ -29,11 +29,6 @@ onUnmounted(() => {
 
 <template>
     <div ref="glideRef" class="glide container-imagem">
-        <!-- Botão Favorito Estilo Airbnb (Flutuante) -->
-        <button class="btn-favorito" aria-label="Favoritar imóvel">
-            <Heart class="icone-favoritar" />
-        </button>
-
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
                 <li class="glide__slide">
@@ -79,9 +74,7 @@ onUnmounted(() => {
 .container-imagem {
     position: relative;
     width: 100%;
-    height: 220px;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    overflow: hidden;
+    height: 190px;
 }
 
 .glide__track,
@@ -96,35 +89,6 @@ onUnmounted(() => {
     object-fit: cover;
 }
 
-/* Botão Favorito Flutuante */
-.btn-favorito {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(0, 0, 0, 0.3);
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 5;
-    transition: transform var(--transition-fast), background var(--transition-fast);
-}
-
-.btn-favorito:hover {
-    transform: scale(1.1);
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.icone-favoritar {
-    width: 18px;
-    height: 18px;
-    color: #ffffff;
-}
-
 /* Setas do Glide */
 .glide__arrow {
     position: absolute;
@@ -133,8 +97,8 @@ onUnmounted(() => {
     background: rgba(255, 255, 255, 0.9);
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,9 +126,9 @@ onUnmounted(() => {
 }
 
 .icone-seta {
-    width: 16px;
-    height: 16px;
-    color: var(--color-neutral-900);
+    width: 18px;
+    height: 18px;
+    color: #333;
 }
 
 /* Bullets */
@@ -193,5 +157,17 @@ onUnmounted(() => {
     background-color: #ffffff;
     width: 16px;
     border-radius: 20px;
+}
+
+@media (max-width: 1150px) {
+    .container-imagem {
+        height: 210px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-imagem {
+        height: 240px;
+    }
 }
 </style>
