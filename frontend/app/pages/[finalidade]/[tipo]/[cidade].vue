@@ -32,14 +32,15 @@ const filtroListagemRef = ref<{ abrirModal: () => void } | null>(null)
                 <div v-if="visualizacaoAtiva === 'lista'" class="layout-coluna listagem-imoveis" key="lista">
 
                     <div class="lista-cards-imoveis">
-                        <PublicFiltrosCardImovel v-for="i in 10" :key="i" />
+                        <PublicFiltrosCardImovel v-for="i in 12" :key="i" />
                     </div>
+
+
+
                 </div>
 
                 <div v-else class="layout-coluna mapa-coluna" key="mapa">
-                    <iframe class="mapa-imoveis"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14784.145827369774!2d-51.425188779830954!3d-22.124585657356697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9493f4134d876285%3A0x2be9f94d9b275ff5!2sHospital%20Iamada!5e0!3m2!1spt-BR!2sbr!4v1789600111867!5m2!1spt-BR!2sbr"
-                        loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    <PublicFiltrosMapaImoveis />
                 </div>
             </Transition>
         </div>

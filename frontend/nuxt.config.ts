@@ -1,6 +1,7 @@
 
 export default defineNuxtConfig({
   ssr: false, // enquanto faço o front
+  // ssr: {noExternal: ['maplibre-gl']}
 
   // Desativa SSR nas páginas do painel para economizar recursos de servidor
   routeRules: {

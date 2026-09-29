@@ -138,16 +138,9 @@ defineExpose({ abrirModal })
 
                         <section class="secao-filtro">
                             <div class="secao-titulo">
-                                <h3>Tipo de imóvel</h3>
+                                <h3>Finalidade e Tipo</h3>
                             </div>
-                            <div class="opcoes-segmentadas" role="group" aria-label="Tipo de imóvel">
-                                <button
-                                    v-for="opcao in [{ id: 'qualquer', nome: 'Qualquer tipo' }, { id: 'apartamento', nome: 'Apartamento' }, { id: 'casa', nome: 'Casa' }]"
-                                    :key="opcao.id" type="button" :class="{ selecionado: tipoAcomodacao === opcao.id }"
-                                    @click="tipoAcomodacao = opcao.id">
-                                    {{ opcao.nome }}
-                                </button>
-                            </div>
+                            
                             <div class="campos-grid campos-grid-tipo">
                                 <label class="campo-filtro">
                                     <span>Finalidade</span>
@@ -157,7 +150,7 @@ defineExpose({ abrirModal })
                                     </select>
                                 </label>
                                 <label class="campo-filtro">
-                                    <span>Categoria</span>
+                                    <span>Tipo de imóvel</span>
                                     <select v-model="tipoImovel">
                                         <option value="apartamento">Apartamento</option>
                                         <option value="casa">Casa</option>
@@ -791,6 +784,7 @@ defineExpose({ abrirModal })
     .modal-filtros {
         width: 100%;
         max-height: 92vh;
+        margin: 0 auto;
         border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     }
 
