@@ -59,6 +59,7 @@ const filtroListagemRef = ref<{ abrirModal: () => void } | null>(null)
     justify-content: center;
     padding: var(--padding-2xl) 0;
     background-color: var(--bg-app);
+     /* background-color: var(--color-accent-500); */
 }
 
 
@@ -99,7 +100,7 @@ const filtroListagemRef = ref<{ abrirModal: () => void } | null>(null)
 
 .lista-cards-imoveis {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
 }
 

@@ -37,7 +37,7 @@ import { Heart } from '@lucide/vue'
 
             <a href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
                 class="ds-btn-primary">
-                Ver mais
+                Falar com Anunciante
             </a>
         </div>
     </div>

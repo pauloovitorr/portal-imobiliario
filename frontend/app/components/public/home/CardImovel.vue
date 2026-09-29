@@ -23,6 +23,7 @@ import CardImovelImagem from './CardImovelImagem.vue';
     background-color: var(--bg-surface);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
+    cursor: pointer;
     transition: var(--transition-normal);
 }
 
