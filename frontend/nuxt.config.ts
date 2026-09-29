@@ -11,8 +11,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/seo',
     '@nuxt/image',
-    '@pinia/nuxt',
-    'nuxt-auth-sanctum'
+    '@pinia/nuxt'
+    //'nuxt-auth-sanctum'
   ],
 
   // Dados globais para SEO e Open Graph
@@ -51,21 +51,21 @@ export default defineNuxtConfig({
   },
 
   //  LARAVEL SANCTUM
-  sanctum: {
-    baseUrl: process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:8000', // Aponta para a raiz sem o /api
-    endpoints: {
-      csrf: '/sanctum/csrf-cookie',
-      login: '/api/login',
-      logout: '/api/logout',
-      user: '/api/user',
-    },
-    redirect: {
-      onLogin: '/',
-      onLogout: '/login',
-      onAuthOnly: '/login',
-      onGuestOnly: '/',
-    },
-  },
+  // sanctum: {
+  //   baseUrl: process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:8000', // Aponta para a raiz sem o /api
+  //   endpoints: {
+  //     csrf: '/sanctum/csrf-cookie',
+  //     login: '/api/login',
+  //     logout: '/api/logout',
+  //     user: '/api/user',
+  //   },
+  //   redirect: {
+  //     onLogin: '/',
+  //     onLogout: '/login',
+  //     onAuthOnly: '/login',
+  //     onGuestOnly: '/',
+  //   },
+  // },
 
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },

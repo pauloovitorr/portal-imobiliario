@@ -47,6 +47,7 @@ import { Heart } from '@lucide/vue'
 
 <style scoped>
 .container-descricao {
+    height: 50%;
     padding: var(--padding-md);
     display: flex;
     flex-direction: column;
@@ -105,6 +106,7 @@ import { Heart } from '@lucide/vue'
     background-color: var(--color-neutral-100);
     border-radius: 8px;
     letter-spacing: 0.5px;
+    font-size: 10px;
 }
 
 
