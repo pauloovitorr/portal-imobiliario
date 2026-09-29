@@ -74,7 +74,7 @@ onUnmounted(() => {
 .container-imagem {
     position: relative;
     width: 100%;
-    height: 50%;
+    height: 190px;
 }
 
 .glide__track,

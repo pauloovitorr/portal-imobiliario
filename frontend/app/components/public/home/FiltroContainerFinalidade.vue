@@ -13,7 +13,7 @@ const tipoFinalidade = defineModel<'comprar' | 'alugar' | 'temporada'>('tipoFina
         <button type="button" :class="['finalidade-item', { active: tipoFinalidade === 'comprar' }]"
             @click="tipoFinalidade = 'comprar'">Comprar</button>
         <button type="button" :class="['finalidade-item', { active: tipoFinalidade === 'alugar' }]"
-            @click="tipoFinalidade = 'alugar'">Alugar</button>
+            @click="tipoFinalidade = 'alugar'">Aluguar</button>
         <!-- <button type="button" :class="['finalidade-item', { active: tipoFinalidade === 'temporada' }]"
             @click="tipoFinalidade = 'temporada'">Temporada</button> -->
     </div>
