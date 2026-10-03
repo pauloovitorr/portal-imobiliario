@@ -69,14 +69,14 @@ defineExpose({ abrirModal })
 
             <div class="filtros-rapidos">
                 <label class="campo-rapido">
-                    <span>Cidade</span>
+                    <!-- <span>Cidade</span> -->
                     <select v-model="cidade">
                         <option value="presidente-prudente">Presidente Prudente</option>
                         <option value="sao-paulo">São Paulo</option>
                     </select>
                 </label>
                 <label class="campo-rapido">
-                    <span>Bairro</span>
+                    <!-- <span>Bairro</span> -->
                     <select v-model="bairro">
                         <option value="todos">Todos os bairros</option>
                         <option value="centro">Centro</option>
@@ -86,9 +86,9 @@ defineExpose({ abrirModal })
                     </select>
                 </label>
                 <label class="campo-rapido campo-rapido-menor">
-                    <span>Dormitórios</span>
+                    <!-- <span>Dormitórios</span> -->
                     <select v-model="quartos">
-                        <option value="qualquer">Qualquer</option>
+                        <option value="qualquer">Dormitórios</option>
                         <option value="1">1 ou mais</option>
                         <option value="2">2 ou mais</option>
                         <option value="3">3 ou mais</option>

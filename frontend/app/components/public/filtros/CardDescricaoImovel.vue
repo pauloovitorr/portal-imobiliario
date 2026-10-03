@@ -18,7 +18,7 @@ import { Heart } from '@lucide/vue'
         </div>
 
         <!-- Título / Bairro (Usando Lora) -->
-        <h3 class="bairro-imovel">Jardim América</h3>
+        <h3 class="bairro-imovel">Residencial Parque dos Girassóis</h3>
 
         <!-- Especificações Enxutas -->
         <div class="caracteristicas-imovel">
@@ -39,7 +39,7 @@ import { Heart } from '@lucide/vue'
             </div>
 
             <a href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022" class="btn-ver-mais">
-                Ver mais
+                Contatar
             </a>
         </div>
     </div>
@@ -105,6 +105,7 @@ import { Heart } from '@lucide/vue'
     background-color: var(--color-neutral-100);
     border-radius: 8px;
     letter-spacing: 0.5px;
+    font-size: var(--text-xs);
 }
 
 

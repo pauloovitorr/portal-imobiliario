@@ -57,9 +57,14 @@ const filtroListagemRef = ref<{ abrirModal: () => void } | null>(null)
 .container-filtros {
     display: flex;
     justify-content: center;
-    padding: var(--padding-2xl) 0;
-    background-color: var(--bg-app);
+    padding: var( --padding-md) 0;
+    background-color: var(--color-neutral-0);
+    border-bottom: 1px solid var(--color-neutral-200);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
 }
+
 
 
 .container-info-imoveis {
