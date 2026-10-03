@@ -1,192 +1,237 @@
 <script setup lang="ts">
-import { Heart } from '@lucide/vue'
+import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/vue'
 </script>
-
 
 <template>
     <div class="container-descricao">
-        <div class="finalidade-imovel-container">
-            <div class="container-tags">
-                <span>Venda</span>
-                <span>Presidente Prudente</span>
+        <div class="linha-superior">
+            <div class="identificacao-imovel">
+                <span class="tipo-imovel">Casa à venda</span>
+                <h3 class="bairro-imovel">Jardim América</h3>
             </div>
-            <button class="btn-favorito" aria-label="Favoritar imóvel">
+            <button class="btn-favorito" type="button" aria-label="Favoritar imóvel">
                 <Heart class="icone-favoritar" />
             </button>
         </div>
 
-        <h2 class="bairro-imovel">
-            Jardim América
-        </h2>
-
-        <div class="caracteristicas-imovel">
-            <div>462 m²</div>
-            <div class="separador"></div>
-            <div>4 dorms</div>
-            <div class="separador"></div>
-            <div>4 suítes</div>
-            <div class="separador"></div>
-            <div>6 vagas</div>
+        <div class="localizacao-imovel">
+            <MapPin class="icone-localizacao" aria-hidden="true" />
+            <span>Presidente Prudente/SP</span>
         </div>
 
-        <div class="info-valor">
-            <div>
-                <div class="ds-tech">Venda:</div>
-                <div class="ds-price">R$ 18.000.000</div>
-            </div>
+        <div class="caracteristicas-imovel" aria-label="Características do imóvel">
+            <span class="caracteristica">
+                <Ruler aria-hidden="true" />
+                462 m²
+            </span>
+            <span class="caracteristica">
+                <BedDouble aria-hidden="true" />
+                4 dorms
+            </span>
+            <span class="caracteristica">
+                <ShowerHead aria-hidden="true" />
+                4 suítes
+            </span>
+            <span class="caracteristica">
+                <CarFront aria-hidden="true" />
+                6 vagas
+            </span>
+        </div>
 
+        <div class="footer-valor">
+            <div class="bloco-preco">
+                <span class="label-venda">Venda</span>
+                <span class="valor-imovel">R$ 18.000.000</span>
+            </div>
             <a href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
-                class="ds-btn-primary">
-                Ver mais
+                class="btn-contato">
+                Falar com o anunciante
             </a>
         </div>
     </div>
 </template>
 
-
 <style scoped>
-/* Botão Favorito Flutuante */
-.btn-favorito {
-    background: rgba(0, 0, 0, 0.1);
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 5;
-    transition: transform var(--transition-fast), background var(--transition-fast);
-}
-
-.btn-favorito:hover {
-    transform: scale(1.1);
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.btn-favorito:hover .icone-favoritar {
-
-    color: #ffffff;
-}
-
-/* --- Detalhes do Imóvel --- */
 .container-descricao {
-    width: 100%;
-    padding: var(--padding-lg);
-}
-
-.finalidade-imovel-container {
     display: flex;
-    align-items: center;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
     justify-content: space-between;
-    /* font-family: var(--font-secondary); */
-    font-size: var(--text-xs);
-    font-weight: var(--font-medium);
-    color: var(--text-main);
-    margin-bottom: var(--padding-sm);
+    gap: var(--padding-sm);
+    padding: var(--padding-lg);
+    background-color: var(--bg-surface);
 }
 
-.container-tags {
+.linha-superior {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--padding-sm);
 }
 
-.container-tags span {
-    color: var(--color-neutral-600);
-    padding: var(--padding-3xs) var(--padding-2xs);
-    background-color: var(--color-neutral-100);
-    border-radius: 8px;
-    letter-spacing: 0.5px;
+.identificacao-imovel {
+    min-width: 0;
 }
 
-.icone-favoritar {
-    width: 18px;
-    height: 18px;
+.tipo-imovel {
     color: var(--text-muted);
+    font-size: var(--text-xs);
 }
 
 .bairro-imovel {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-medium);
-    line-height: var(--leading-tight);
+    margin-top: var(--padding-3xs);
     color: var(--text-main);
-    margin-bottom: var(--padding-sm);
-    font-family: var(--font-tertiary);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    line-height: var(--leading-tight);
+}
+
+.btn-favorito {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--color-neutral-100);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-favorito:hover {
+    background: var(--color-neutral-200);
+    transform: scale(1.05);
+}
+
+.icone-favoritar {
+    width: 19px;
+    height: 19px;
+    color: var(--color-neutral-600);
+}
+
+.localizacao-imovel {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-2xs);
+    color: var(--color-neutral-700);
+    font-size: var(--text-sm);
+}
+
+.icone-localizacao {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: var(--color-neutral-500);
 }
 
 .caracteristicas-imovel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--padding-xs);
+    color: var(--color-neutral-600);
+    font-size: var(--text-sm);
+}
+
+.caracteristica {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: var(--padding-3xs);
+    white-space: nowrap;
+}
+
+.caracteristica :deep(svg) {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--color-neutral-600);
+}
+
+.footer-valor {
     display: flex;
     align-items: center;
-    gap: var(--padding-sm);
-    padding-bottom: var(--padding-xl);
-    margin-bottom: var(--padding-xl);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.caracteristicas-imovel div {
-    font-size: var(--text-sm);
-    color: var(--text-muted);
-}
-
-.separador {
-    width: 3px;
-    height: 3px;
-    flex-shrink: 0;
-    border-radius: var(--radius-full);
-    background-color: var(--text-muted);
-}
-
-.info-valor {
-    display: flex;
-    align-items: flex-end;
     justify-content: space-between;
-    gap: var(--padding-sm);
-    margin-top: auto;
+    gap: var(--padding-md);
+    margin-top: var(--padding-lg);
+    padding-top: var(--padding-md);
+    border-top: 1px solid var(--color-neutral-200);
 }
 
-.ds-tech {
-    margin-bottom: var(--padding-3xs);
-    font-size: var(--text-sm);
+.bloco-preco {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-venda {
     color: var(--text-muted);
+    font-size: var(--text-xs);
 }
 
-.ds-price {
-    font-size: var(--text-xl);
+.valor-imovel {
+    color: var(--text-main);
+    font-size: var(--text-2xl);
     font-weight: var(--font-semibold);
     line-height: var(--leading-tight);
-    color: var(--text-main);
 }
 
-
-.ds-btn-primary {
-    /* Alinhamento e Layout */
+.btn-contato {
     display: inline-flex;
+    min-height: 44px;
     align-items: center;
     justify-content: center;
-    height: 2.5rem;
-    padding: 0 var(--padding-lg);
-
-    font-family: var(--font-primary);
-    font-size: 13px;
-    font-weight: var(--font-medium);
-    line-height: var(--leading-tight);
-    text-decoration: none;
-
+    padding: 0 var(--padding-md);
+    border-radius: var(--radius-md);
     background-color: var(--color-accent-500);
     color: var(--color-neutral-0);
-    border: none;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: background-color var(--transition-fast),
-        box-shadow var(--transition-fast),
-        transform var(--transition-fast);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-align: center;
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
 }
 
-
-.ds-btn-primary:hover {
+.btn-contato:hover {
     background-color: var(--color-accent-600);
-    transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+    .container-descricao {
+        padding: var(--padding-md);
+    }
+
+    .caracteristicas-imovel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-valor {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .btn-contato {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .caracteristicas-imovel {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--padding-3xs);
+    }
+
+    .caracteristica {
+        gap: 3px;
+        font-size: var(--text-xs);
+    }
+}
+
+@media (max-width: 360px) {
+    .caracteristicas-imovel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--padding-xs);
+    }
 }
 </style>

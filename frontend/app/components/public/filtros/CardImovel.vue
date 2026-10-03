@@ -1,7 +1,3 @@
-<script setup lang="ts">
-// Wrapper principal do card de imóvel para a página de listagem/filtros
-</script>
-
 <template>
     <div class="card-imovel-wrapper">
         <PublicFiltrosCardImagemImovel />
@@ -16,15 +12,33 @@
     border: 1px solid var(--border-color);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    transition: all var(--transition-normal);
     display: flex;
-    flex-direction: column;
+    align-items: stretch;
     width: 100%;
-    cursor: pointer;
+    transition: box-shadow var(--transition-normal);
 }
 
 .card-imovel-wrapper:hover {
     box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
+}
+
+.card-imovel-wrapper :deep(.container-imagem) {
+    width: 42%;
+    min-width: 42%;
+    height: auto;
+    min-height: 250px;
+}
+
+@media (max-width: 700px) {
+    .card-imovel-wrapper {
+        flex-direction: column;
+    }
+
+    .card-imovel-wrapper :deep(.container-imagem) {
+        width: 100%;
+        min-width: 100%;
+        height: 240px;
+        min-height: 0;
+    }
 }
 </style>

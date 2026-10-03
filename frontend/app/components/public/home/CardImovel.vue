@@ -23,11 +23,16 @@ import CardImovelImagem from './CardImovelImagem.vue';
     background-color: var(--bg-surface);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
-    transition: var(--transition-normal);
+    transition: box-shadow var(--transition-normal);
 }
 
 .card-imovel:hover {
-    transform: translateY(-8px);
     box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 700px) {
+    .card-imovel :deep(.container-imagem) {
+        height: 240px;
+    }
 }
 </style>

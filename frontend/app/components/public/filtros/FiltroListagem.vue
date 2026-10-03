@@ -60,58 +60,24 @@ defineExpose({ abrirModal })
 </script>
 
 <template>
-    <div class="filtro-listagem">
-        <div class="filtro-resumo">
-            <div>
-                <span class="filtro-kicker">Encontre seu próximo endereço</span>
-                <strong>Refine sua busca</strong>
+    <aside class="filtro-listagem">
+        <header class="filtro-cabecalho">
+            <div class="titulo-filtros">
+                <SlidersHorizontal aria-hidden="true" />
+                <h2>Filtros</h2>
             </div>
-
-            <div class="filtros-rapidos">
-                <label class="campo-rapido">
-                    <!-- <span>Cidade</span> -->
-                    <select v-model="cidade">
-                        <option value="presidente-prudente">Presidente Prudente</option>
-                        <option value="sao-paulo">São Paulo</option>
-                    </select>
-                </label>
-                <label class="campo-rapido">
-                    <!-- <span>Bairro</span> -->
-                    <select v-model="bairro">
-                        <option value="todos">Todos os bairros</option>
-                        <option value="centro">Centro</option>
-                        <option value="jardim-bongiovani">Jardim Bongiovani</option>
-                        <option value="parque-do-povo">Parque do Povo</option>
-                        <option value="vila-marcondes">Vila Marcondes</option>
-                    </select>
-                </label>
-                <label class="campo-rapido campo-rapido-menor">
-                    <!-- <span>Dormitórios</span> -->
-                    <select v-model="quartos">
-                        <option value="qualquer">Dormitórios</option>
-                        <option value="1">1 ou mais</option>
-                        <option value="2">2 ou mais</option>
-                        <option value="3">3 ou mais</option>
-                    </select>
-                </label>
-                <button class="botao-pesquisar" type="button" aria-label="Pesquisar imóveis" title="Pesquisar"
-                    @click="aplicarFiltros">
-                    <Search :size="18" aria-hidden="true" />
-                </button>
-            </div>
-
-            <button class="botao-abrir-filtros" type="button" @click="modalAberto = true">
+            <span class="contador-desktop">{{ filtrosAtivos }} aplicados</span>
+            <button class="botao-abrir-filtros" type="button" @click="abrirModal">
                 <SlidersHorizontal :size="18" aria-hidden="true" />
-                <span>Mais filtros</span>
+                <span>Filtros</span>
                 <span v-if="filtrosAtivos" class="contador-filtros">{{ filtrosAtivos }}</span>
             </button>
-        </div>
-    </div>
+        </header>
 
-    <Teleport to="body">
         <Transition name="modal-fade">
-            <div v-if="modalAberto" class="modal-backdrop" @click.self="modalAberto = false">
-                <section class="modal-filtros" role="dialog" aria-modal="true" aria-labelledby="titulo-filtros">
+            <div class="modal-backdrop" :class="{ aberta: modalAberto }" @click.self="modalAberto = false">
+                <section class="modal-filtros" :role="modalAberto ? 'dialog' : 'region'"
+                    :aria-modal="modalAberto ? 'true' : undefined" aria-labelledby="titulo-filtros">
                     <header class="modal-cabecalho">
                         <h2 id="titulo-filtros">Refine sua busca</h2>
                         <button class="botao-fechar" type="button" aria-label="Fechar filtros"
@@ -123,24 +89,8 @@ defineExpose({ abrirModal })
                     <form class="modal-conteudo" @submit.prevent="aplicarFiltros">
                         <section class="secao-filtro">
                             <div class="secao-titulo">
-                                <h3>Destaques</h3>
-                                <p>Escolha comodidades importantes para você</p>
+                                <h3>Finalidade e tipo</h3>
                             </div>
-                            <div class="comodidades-grid">
-                                <button v-for="comodidade in comodidades" :key="comodidade.id" type="button"
-                                    :class="{ selecionado: comodidadesSelecionadas.includes(comodidade.id) }"
-                                    @click="alternarComodidade(comodidade.id)">
-                                    <component :is="comodidade.icone" class="comodidade-icone" aria-hidden="true" />
-                                    <span>{{ comodidade.nome }}</span>
-                                </button>
-                            </div>
-                        </section>
-
-                        <section class="secao-filtro">
-                            <div class="secao-titulo">
-                                <h3>Finalidade e Tipo</h3>
-                            </div>
-                            
                             <div class="campos-grid campos-grid-tipo">
                                 <label class="campo-filtro">
                                     <span>Finalidade</span>
@@ -156,6 +106,31 @@ defineExpose({ abrirModal })
                                         <option value="casa">Casa</option>
                                         <option value="sala">Sala comercial</option>
                                         <option value="terreno">Terreno</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </section>
+
+                        <section class="secao-filtro">
+                            <div class="secao-titulo">
+                                <h3>Localização</h3>
+                            </div>
+                            <div class="campos-grid">
+                                <label class="campo-filtro">
+                                    <span>Cidade</span>
+                                    <select v-model="cidade">
+                                        <option value="presidente-prudente">Presidente Prudente</option>
+                                        <option value="sao-paulo">São Paulo</option>
+                                    </select>
+                                </label>
+                                <label class="campo-filtro">
+                                    <span>Bairro</span>
+                                    <select v-model="bairro">
+                                        <option value="todos">Todos os bairros</option>
+                                        <option value="centro">Centro</option>
+                                        <option value="jardim-bongiovani">Jardim Bongiovani</option>
+                                        <option value="parque-do-povo">Parque do Povo</option>
+                                        <option value="vila-marcondes">Vila Marcondes</option>
                                     </select>
                                 </label>
                             </div>
@@ -182,26 +157,9 @@ defineExpose({ abrirModal })
 
                         <section class="secao-filtro">
                             <div class="secao-titulo">
-                                <h3>Localização e características</h3>
+                                <h3>Características</h3>
                             </div>
                             <div class="campos-grid">
-                                <label class="campo-filtro">
-                                    <span>Cidade</span>
-                                    <select v-model="cidade">
-                                        <option value="presidente-prudente">Presidente Prudente</option>
-                                        <option value="sao-paulo">São Paulo</option>
-                                    </select>
-                                </label>
-                                <label class="campo-filtro">
-                                    <span>Bairro</span>
-                                    <select v-model="bairro">
-                                        <option value="todos">Todos os bairros</option>
-                                        <option value="centro">Centro</option>
-                                        <option value="jardim-bongiovani">Jardim Bongiovani</option>
-                                        <option value="parque-do-povo">Parque do Povo</option>
-                                        <option value="vila-marcondes">Vila Marcondes</option>
-                                    </select>
-                                </label>
                                 <label class="campo-filtro">
                                     <span>Dormitórios</span>
                                     <select v-model="quartos">
@@ -230,11 +188,34 @@ defineExpose({ abrirModal })
                                         <option value="3">3 ou mais</option>
                                     </select>
                                 </label>
-                                <label class="campo-filtro">
-                                    <span>Área mínima</span>
-                                    <input v-model="areaMinima" type="number" min="0" placeholder="m²"
-                                        aria-label="Área mínima">
-                                </label>
+                                <div class="campos-duplos">
+                                    <label class="campo-filtro">
+                                        <span>Área mínima</span>
+                                        <input v-model="areaMinima" type="number" min="0" placeholder="m²"
+                                            aria-label="Área mínima">
+                                    </label>
+                                    <label class="campo-filtro">
+                                        <span>Área máxima</span>
+                                        <input v-model="areaMaxima" type="number" min="0" placeholder="m²"
+                                            aria-label="Área máxima">
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="secao-filtro">
+                            <div class="secao-titulo">
+                                <h3>Destaques</h3>
+                                <p>Escolha comodidades importantes para você</p>
+                            </div>
+                            <div class="comodidades-grid">
+                                <button v-for="comodidade in comodidades" :key="comodidade.id" type="button"
+                                    :class="{ selecionado: comodidadesSelecionadas.includes(comodidade.id) }"
+                                    :aria-pressed="comodidadesSelecionadas.includes(comodidade.id)"
+                                    @click="alternarComodidade(comodidade.id)">
+                                    <component :is="comodidade.icone" class="comodidade-icone" aria-hidden="true" />
+                                    <span>{{ comodidade.nome }}</span>
+                                </button>
                             </div>
                         </section>
                     </form>
@@ -249,266 +230,73 @@ defineExpose({ abrirModal })
                 </section>
             </div>
         </Transition>
-    </Teleport>
+    </aside>
 </template>
 
 <style scoped>
 .filtro-listagem {
     width: 100%;
-    max-width: var(--max-width);
-    padding: 0 var(--padding-xl);
+    max-height: inherit;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: var(--padding-md);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-lg);
+    background: var(--bg-surface);
+}
+
+.filtro-listagem::-webkit-scrollbar {
+    display: none;
 }
 
 .filtro-cabecalho {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    gap: var(--padding-lg);
-    margin-bottom: var(--padding-lg);
+    gap: var(--padding-sm);
+    padding: 0 0 var(--padding-md);
+    border-bottom: 1px solid var(--color-neutral-200);
 }
 
-.filtro-kicker {
-    display: block;
-    margin-bottom: var(--padding-3xs);
-    color: var(--color-accent-500);
-    font-size: var(--text-xs);
-    font-weight: var(--font-semibold);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-
-.filtro-cabecalho h1 {
-    margin: 0;
-    color: var(--text-main);
-    font-size: var(--text-2xl);
-    font-weight: var(--font-semibold);
-    line-height: var(--leading-tight);
-}
-
-.filtro-icone {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    color: var(--color-accent-500);
-}
-
-.filtro-formulario {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: var(--padding-md);
-    align-items: end;
-}
-
-.campo-filtro,
-.campo-grupo {
+.titulo-filtros {
     display: flex;
-    min-width: 0;
-    flex-direction: column;
-    gap: var(--padding-3xs);
+    align-items: center;
+    gap: var(--padding-xs);
 }
 
-.campo-filtro span,
-.campo-grupo>span {
+.titulo-filtros svg {
+    width: 18px;
+    height: 18px;
+}
+
+.titulo-filtros h2 {
+    color: var(--text-main);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+}
+
+.contador-desktop {
     color: var(--color-neutral-600);
     font-size: var(--text-xs);
-    font-weight: var(--font-semibold);
-}
-
-.campo-filtro select,
-.campo-grupo input {
-    width: 100%;
-    height: 46px;
-    min-width: 0;
-    padding: 0 var(--padding-sm);
-    border: 1px solid var(--color-neutral-300);
-    border-radius: var(--radius-md);
-    outline: 0;
-    background: var(--color-neutral-0);
-    color: var(--text-main);
-    font: inherit;
-    font-size: var(--text-sm);
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.campo-filtro select:focus,
-.campo-grupo input:focus {
-    border-color: var(--color-accent-400);
-    box-shadow: 0 0 0 3px var(--color-focus-ring);
-}
-
-.campos-duplos {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--padding-xs);
-}
-
-.botao-filtrar {
-    display: inline-flex;
-    width: 100%;
-    height: 46px;
-    align-items: center;
-    justify-content: center;
-    gap: var(--padding-xs);
-    grid-column: span 2;
-    padding: var(--padding-btn-md);
-    border: 0;
-    border-radius: var(--radius-md);
-    background: var(--color-accent-500);
-    box-shadow: 0 2px 6px var(--shadow-accent-sm);
-    color: var(--color-neutral-0);
-    font: inherit;
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
-    cursor: pointer;
-    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.botao-filtrar:hover {
-    background: var(--color-accent-600);
-    box-shadow: 0 4px 10px var(--shadow-accent-lg);
-}
-
-@media (max-width: 1050px) {
-    .filtro-formulario {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 700px) {
-    .filtro-formulario {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .campo-finalidade,
-    .campo-tipo,
-    .campo-cidade,
-    .campo-bairro,
-    .botao-filtrar {
-        grid-column: span 2;
-    }
-}
-
-@media (max-width: 420px) {
-    .filtro-formulario {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .campo-filtro,
-    .campo-grupo,
-    .campo-finalidade,
-    .botao-filtrar {
-        width: 100%;
-    }
-}
-
-.filtro-resumo {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    align-items: center;
-    gap: var(--padding-lg);
-}
-
-.filtro-resumo strong {
-    display: block;
-    color: var(--text-main);
-    font-size: var(--text-xl);
-    font-weight: var(--font-semibold);
-}
-
-.filtros-rapidos {
-    display: flex;
-    min-width: 0;
-    align-items: end;
-    gap: var(--padding-sm);
-    justify-content: center;
-}
-
-.campo-rapido {
-    display: flex;
-    min-width: 150px;
-    flex-direction: column;
-    gap: var(--padding-3xs);
-}
-
-.campo-rapido-menor {
-    min-width: 124px;
-}
-
-.campo-rapido span {
-    padding-left: var(--padding-3xs);
-    color: var(--text-muted);
-    font-size: var(--text-xs);
-    font-weight: var(--font-semibold);
-}
-
-.campo-rapido select {
-    width: 100%;
-    height: 40px;
-    padding: 0 var(--padding-sm);
-    border: 1px solid var(--color-neutral-300);
-    border-radius: var(--radius-md);
-    outline: 0;
-    background: var(--bg-surface);
-    color: var(--text-main);
-    font: inherit;
-    font-size: var(--text-sm);
-}
-
-.campo-rapido select:focus {
-    border-color: var(--color-accent-400);
-    box-shadow: 0 0 0 3px var(--color-focus-ring);
+    white-space: nowrap;
 }
 
 .botao-abrir-filtros {
-    display: inline-flex;
-    width: max-content;
-    justify-self: end;
-    align-items: center;
-    gap: var(--padding-xs);
+    display: none;
     min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    gap: var(--padding-xs);
     padding: var(--padding-btn-sm);
     border: 1px solid var(--color-neutral-300);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
     background: var(--bg-surface);
     color: var(--text-main);
     font: inherit;
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
     cursor: pointer;
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
-}
-
-.botao-abrir-filtros:hover {
-    border-color: var(--color-accent-400);
-    box-shadow: var(--shadow-sm);
-    transform: translateY(-1px);
-}
-
-.botao-pesquisar {
-    display: inline-flex;
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border: 1px solid var(--color-accent-500);
-    border-radius: var(--radius-md);
-    background: transparent;
-    color: var(--color-accent-500);
-    font: inherit;
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
-    cursor: pointer;
-    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.botao-pesquisar:hover {
-    background: var(--color-accent-500);
-    color: var(--color-neutral-0);
-    box-shadow: var(--shadow-sm);
 }
 
 .contador-filtros {
@@ -525,71 +313,31 @@ defineExpose({ abrirModal })
 }
 
 .modal-backdrop {
-    position: fixed;
-    z-index: var(--z-modal-backdrop);
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--padding-xl);
-    background: rgba(31, 23, 26, 0.48);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    position: static;
+    display: block;
 }
 
 .modal-filtros {
     display: flex;
-    width: min(100%, 680px);
-    max-height: min(88vh, 760px);
+    width: 100%;
     flex-direction: column;
-    overflow: hidden;
-    border: 1px solid var(--color-neutral-200);
-    border-radius: var(--radius-xl);
-    background: var(--bg-surface);
-    box-shadow: var(--shadow-lg);
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .modal-cabecalho {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--padding-lg) var(--padding-xl);
-    border-bottom: 1px solid var(--color-neutral-200);
-}
-
-.modal-cabecalho h2 {
-    margin: 0;
-    color: var(--text-main);
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-}
-
-.botao-fechar {
-    display: inline-flex;
-    width: 34px;
-    height: 34px;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    border-radius: var(--radius-full);
-    background: transparent;
-    color: var(--text-main);
-    cursor: pointer;
-    transition: background-color var(--transition-fast);
-}
-
-.botao-fechar:hover {
-    background: var(--color-neutral-100);
+    display: none;
 }
 
 .modal-conteudo {
-    overflow-y: auto;
-    padding: 0 var(--padding-xl);
+    overflow: visible;
 }
 
 .secao-filtro {
-    padding: var(--padding-xl) 0;
+    padding: var(--padding-md) 0;
     border-bottom: 1px solid var(--color-neutral-200);
 }
 
@@ -598,42 +346,41 @@ defineExpose({ abrirModal })
 }
 
 .secao-titulo {
-    margin-bottom: var(--padding-md);
+    margin-bottom: var(--padding-sm);
 }
 
 .secao-titulo h3 {
     margin: 0 0 var(--padding-3xs);
     color: var(--text-main);
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     font-weight: var(--font-semibold);
 }
 
 .secao-titulo p {
-    margin: 0;
     color: var(--text-muted);
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
 }
 
 .comodidades-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--padding-sm);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--padding-xs);
 }
 
 .comodidades-grid button {
     display: flex;
-    min-height: 104px;
+    min-height: 72px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--padding-xs);
-    padding: var(--padding-sm);
+    gap: var(--padding-3xs);
+    padding: var(--padding-xs);
     border: 1px solid var(--color-neutral-200);
     border-radius: var(--radius-md);
     background: var(--bg-surface);
     color: var(--text-main);
     font: inherit;
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     text-align: center;
     cursor: pointer;
     transition: border-color var(--transition-fast), background-color var(--transition-fast);
@@ -646,56 +393,44 @@ defineExpose({ abrirModal })
 }
 
 .comodidade-icone {
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     color: var(--color-accent-500);
-}
-
-.opcoes-segmentadas {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-bottom: var(--padding-lg);
-    border: 1px solid var(--color-neutral-300);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-}
-
-.opcoes-segmentadas button {
-    min-height: 46px;
-    border: 0;
-    border-right: 1px solid var(--color-neutral-200);
-    background: var(--bg-surface);
-    color: var(--color-neutral-700);
-    font: inherit;
-    font-size: var(--text-sm);
-    cursor: pointer;
-}
-
-.opcoes-segmentadas button:last-child {
-    border-right: 0;
-}
-
-.opcoes-segmentadas button.selecionado {
-    background: var(--color-neutral-100);
-    box-shadow: inset 0 0 0 2px var(--color-neutral-900);
-    color: var(--text-main);
-    font-weight: var(--font-semibold);
 }
 
 .campos-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--padding-md);
+    grid-template-columns: 1fr;
+    gap: var(--padding-sm);
 }
 
 .campos-grid-tipo {
+    grid-template-columns: 1fr;
+}
+
+.campos-duplos {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--padding-xs);
+}
+
+.campo-filtro {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: var(--padding-3xs);
+}
+
+.campo-filtro span {
+    color: var(--color-neutral-600);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
 }
 
 .campo-filtro input,
 .campo-filtro select {
     width: 100%;
-    height: 44px;
+    height: 42px;
     min-width: 0;
     padding: 0 var(--padding-sm);
     border: 1px solid var(--color-neutral-300);
@@ -717,11 +452,10 @@ defineExpose({ abrirModal })
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: var(--padding-md);
-    padding: var(--padding-md) var(--padding-xl);
+    padding-top: var(--padding-md);
     border-top: 1px solid var(--color-neutral-200);
-    background: var(--bg-surface);
 }
 
 .botao-limpar,
@@ -736,6 +470,7 @@ defineExpose({ abrirModal })
 }
 
 .botao-limpar {
+    display: none;
     border: 0;
     background: transparent;
     color: var(--text-muted);
@@ -744,6 +479,7 @@ defineExpose({ abrirModal })
 .botao-aplicar {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--padding-xs);
     border: 0;
     background: var(--color-accent-500);
@@ -760,19 +496,108 @@ defineExpose({ abrirModal })
     transition: opacity var(--transition-normal);
 }
 
-.modal-fade-enter-active .modal-filtros,
-.modal-fade-leave-active .modal-filtros {
-    transition: transform var(--transition-normal);
-}
-
 .modal-fade-enter-from,
 .modal-fade-leave-to {
     opacity: 0;
 }
 
-.modal-fade-enter-from .modal-filtros,
-.modal-fade-leave-to .modal-filtros {
-    transform: translateY(12px) scale(0.98);
+@media (max-width: 900px) {
+    .filtro-listagem {
+        max-height: none;
+        overflow: visible;
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    .filtro-cabecalho {
+        padding: 0;
+        border: 0;
+    }
+
+    .titulo-filtros,
+    .contador-desktop {
+        display: none;
+    }
+
+    .botao-abrir-filtros {
+        display: inline-flex;
+    }
+
+    .modal-backdrop {
+        position: fixed;
+        z-index: var(--z-modal-backdrop);
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: var(--padding-xl);
+        background: rgba(31, 23, 26, 0.48);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    .modal-backdrop.aberta {
+        display: flex;
+    }
+
+    .modal-filtros {
+        width: min(100%, 680px);
+        max-height: min(88vh, 760px);
+        overflow: hidden;
+        border: 1px solid var(--color-neutral-200);
+        border-radius: var(--radius-xl);
+        background: var(--bg-surface);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .modal-cabecalho {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--padding-lg) var(--padding-xl);
+        border-bottom: 1px solid var(--color-neutral-200);
+    }
+
+    .modal-cabecalho h2 {
+        color: var(--text-main);
+        font-size: var(--text-lg);
+        font-weight: var(--font-semibold);
+    }
+
+    .botao-fechar {
+        display: inline-flex;
+        width: 34px;
+        height: 34px;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: var(--radius-full);
+        background: transparent;
+        color: var(--text-main);
+        cursor: pointer;
+    }
+
+    .modal-conteudo {
+        overflow-y: auto;
+        padding: 0 var(--padding-xl);
+    }
+
+    .modal-rodape {
+        justify-content: space-between;
+        padding: var(--padding-md) var(--padding-xl);
+        border-top: 1px solid var(--color-neutral-200);
+    }
+
+    .botao-limpar {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .botao-aplicar {
+        flex: 1;
+    }
 }
 
 @media (max-width: 600px) {
@@ -792,41 +617,8 @@ defineExpose({ abrirModal })
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .campos-grid,
     .campos-grid-tipo {
         grid-template-columns: 1fr;
-    }
-
-    .filtro-resumo {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .filtros-rapidos {
-        width: 100%;
-        order: 3;
-        margin: 0;
-    }
-
-    .campo-rapido {
-        flex: 1;
-        min-width: 0;
-    }
-}
-
-@media (max-width: 420px) {
-    .botao-abrir-filtros {
-        flex-shrink: 0;
-    }
-
-    .filtros-rapidos {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .campo-rapido {
-        width: 100%;
     }
 
     .modal-conteudo {
@@ -837,11 +629,6 @@ defineExpose({ abrirModal })
     .modal-rodape {
         padding-right: var(--padding-lg);
         padding-left: var(--padding-lg);
-    }
-
-    .botao-aplicar {
-        flex: 1;
-        justify-content: center;
     }
 }
 </style>

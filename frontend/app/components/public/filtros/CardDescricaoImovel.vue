@@ -1,45 +1,51 @@
 <script setup lang="ts">
-import { Heart } from '@lucide/vue'
-
-// Pronto para receber props no futuro, mantendo os dados padrão do seu mockup
+import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/vue'
 </script>
 
 <template>
     <div class="container-descricao">
-        <!-- Metadados / Localização Macro -->
-        <div class="meta-info">
-            <div class="container-tags">
-                <span class="tag-info">Venda</span>
-                <span class="tag-info">Presidente Prudente</span>
+        <div class="linha-superior">
+            <div class="identificacao-imovel">
+                <span class="tipo-imovel">Casa à venda</span>
+                <h3 class="bairro-imovel">Residencial Parque dos Girassóis</h3>
             </div>
-            <button class="btn-favorito" aria-label="Favoritar imóvel">
+            <button class="btn-favorito" type="button" aria-label="Favoritar imóvel">
                 <Heart class="icone-favoritar" />
             </button>
         </div>
 
-        <!-- Título / Bairro (Usando Lora) -->
-        <h3 class="bairro-imovel">Residencial Parque dos Girassóis</h3>
-
-        <!-- Especificações Enxutas -->
-        <div class="caracteristicas-imovel">
-            <span>462 m²</span>
-            <span class="separador-ponto"></span>
-            <span>4 dorms</span>
-            <span class="separador-ponto"></span>
-            <span>4 suítes</span>
-            <span class="separador-ponto"></span>
-            <span>6 vagas</span>
+        <div class="localizacao-imovel">
+            <MapPin class="icone-localizacao" aria-hidden="true" />
+            <span>Presidente Prudente/SP</span>
         </div>
 
-        <!-- Preço e CTA -->
+        <div class="caracteristicas-imovel" aria-label="Características do imóvel">
+            <span class="caracteristica">
+                <Ruler aria-hidden="true" />
+                462 m²
+            </span>
+            <span class="caracteristica">
+                <BedDouble aria-hidden="true" />
+                4 dorms
+            </span>
+            <span class="caracteristica">
+                <ShowerHead aria-hidden="true" />
+                4 suítes
+            </span>
+            <span class="caracteristica">
+                <CarFront aria-hidden="true" />
+                6 vagas
+            </span>
+        </div>
+
         <div class="footer-valor">
             <div class="bloco-preco">
-                <span class="label-venda">Venda:</span>
+                <span class="label-venda">Venda</span>
                 <span class="valor-imovel">R$ 18.000.000</span>
             </div>
-
-            <a href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022" class="btn-ver-mais">
-                Contatar
+            <a href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
+                class="btn-contato">
+                Falar com o anunciante
             </a>
         </div>
     </div>
@@ -47,106 +53,108 @@ import { Heart } from '@lucide/vue'
 
 <style scoped>
 .container-descricao {
-    padding: var(--padding-md);
     display: flex;
+    min-width: 0;
+    flex: 1;
     flex-direction: column;
-    background-color: var(--bg-surface);
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-}
-
-.meta-info {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 6px;
-    font-size: var(--text-xs);
-    color: var(--text-muted);
-    margin-bottom: var(--padding-3xs);
+    gap: var(--padding-sm);
+    padding: var(--padding-lg);
+    background-color: var(--bg-surface);
 }
 
-.container-tags {
+.linha-superior {
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--padding-sm);
+}
+
+.identificacao-imovel {
+    min-width: 0;
+}
+
+.tipo-imovel {
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+}
+
+.bairro-imovel {
+    margin-top: var(--padding-3xs);
+    color: var(--text-main);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    line-height: var(--leading-tight);
 }
 
 .btn-favorito {
     display: flex;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
     border: 0;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-full);
+    background: var(--color-neutral-100);
     cursor: pointer;
-    transition: transform var(--transition-fast), background var(--transition-fast);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .btn-favorito:hover {
-    background: rgba(0, 0, 0, 0.5);
-    transform: scale(1.1);
+    background: var(--color-neutral-200);
+    transform: scale(1.05);
 }
 
 .icone-favoritar {
-    width: 16px;
-    height: 16px;
-    color: var(--text-muted);
-}
-
-.btn-favorito:hover .icone-favoritar {
-    color: var(--color-neutral-0);
-}
-
-.tag-info {
+    width: 19px;
+    height: 19px;
     color: var(--color-neutral-600);
-    padding: var(--padding-3xs) var(--padding-2xs);
-    background-color: var(--color-neutral-100);
-    border-radius: 8px;
-    letter-spacing: 0.5px;
-    font-size: var(--text-xs);
 }
 
-
-.localidade-macro {
-    font-weight: var(--font-regular);
+.localizacao-imovel {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-2xs);
+    color: var(--color-neutral-700);
+    font-size: var(--text-sm);
 }
 
-.bairro-imovel {
-    font-family: var(--font-secondary);
-    font-size: var(--text-xl);
-    font-weight: var(--font-medium);
-    color: var(--text-main);
-    line-height: var(--leading-tight);
-    margin-bottom: var(--padding-xs);
-    margin-top: var(--padding-xs);
+.icone-localizacao {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: var(--color-neutral-500);
 }
 
 .caracteristicas-imovel {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-    font-size: var(--text-xs);
-    color: var(--text-muted);
-    margin-bottom: var(--padding-md);
+    gap: var(--padding-md);
+    color: var(--color-neutral-600);
+    font-size: var(--text-sm);
 }
 
-.separador-ponto {
-    width: 3px;
-    height: 3px;
-    background-color: var(--text-muted);
-    border-radius: 50%;
-    flex-shrink: 0;
+.caracteristica {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--padding-2xs);
+}
+
+.caracteristica :deep(svg) {
+    width: 18px;
+    height: 18px;
+    color: var(--color-neutral-600);
 }
 
 .footer-valor {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
-    border-top: 1px solid var(--border-color);
+    gap: var(--padding-md);
+    margin-top: var(--padding-lg);
+    padding-top: var(--padding-md);
+    border-top: 1px solid var(--color-neutral-200);
 }
 
 .bloco-preco {
@@ -155,34 +163,65 @@ import { Heart } from '@lucide/vue'
 }
 
 .label-venda {
-    font-size: var(--text-xs);
     color: var(--text-muted);
+    font-size: var(--text-xs);
 }
 
 .valor-imovel {
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
     color: var(--text-main);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-semibold);
     line-height: var(--leading-tight);
 }
 
-.btn-ver-mais {
+.btn-contato {
     display: inline-flex;
+    min-height: 44px;
     align-items: center;
     justify-content: center;
-    height: 2.25rem;
-    padding: 0 var(--padding-sm);
-    font-size: 13px;
-    font-weight: var(--font-medium);
-    color: var(--color-neutral-0);
-    background-color: var(--color-accent-500);
+    padding: 0 var(--padding-md);
     border-radius: var(--radius-md);
+    background-color: var(--color-accent-500);
+    color: var(--color-neutral-0);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-align: center;
     text-decoration: none;
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    white-space: nowrap;
+    transition: background-color var(--transition-fast);
 }
 
-.btn-ver-mais:hover {
+.btn-contato:hover {
     background-color: var(--color-accent-600);
-    transform: translateY(-1px);
+}
+
+@media (max-width: 900px) and (min-width: 701px) {
+    .container-descricao {
+        padding: var(--padding-md);
+    }
+
+    .footer-valor {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .btn-contato {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-descricao {
+        padding: var(--padding-md);
+    }
+
+    .footer-valor {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .btn-contato {
+        width: 100%;
+    }
 }
 </style>

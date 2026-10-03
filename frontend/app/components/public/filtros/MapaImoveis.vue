@@ -300,8 +300,8 @@ onBeforeUnmount(() => {
     position: relative;
     width: 100%;
     height: 650px;
+    border: 1px solid var(--color-neutral-200);
     border-radius: var(--radius-lg);
-    border: 1px solid #ccc;
     overflow: hidden;
 }
 
@@ -324,6 +324,12 @@ onBeforeUnmount(() => {
     background: #f8f6ef;
     color: #666;
     font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .map-container-box {
+        height: 420px;
+    }
 }
 
 /* MARCADOR DE PREÇO */
