@@ -11,7 +11,7 @@ const props = defineProps<{
 const tipoImovel = ref<string>('apartamento');
 const cidade = ref('presidente-prudente');
 // const bairros = ref<string[]>(['centro']);
-const bairros = ref<string[]>(['centro']);
+const bairros = ref<string[]>(['centro', 'jardim-bongiovani', 'parque-do-povo', 'vila-marcondes']);
 
 function processarBusca() {
 

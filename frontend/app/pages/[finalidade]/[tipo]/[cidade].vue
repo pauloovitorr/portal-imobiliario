@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
+
+
+
+
 </script>
 
 <template>
@@ -11,7 +15,7 @@ const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
 
             <main v-if="visualizacaoAtiva === 'lista'" class="container-resultados">
                 <div class="container-info-imoveis">
-                    <span class="qtd-imoveis">117 acomodações</span>
+                    <PublicFiltrosInfosPesquisaImovel />
 
                     <div class="visualizacao-toggle" role="group" aria-label="Alternar visualização">
                         <button type="button" :class="{ ativo: visualizacaoAtiva === 'lista' }"
@@ -86,12 +90,7 @@ const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
     gap: var(--padding-md);
 }
 
-.qtd-imoveis {
-    color: var(--color-neutral-900);
-    font-size: var(--text-xl);
-    font-weight: var(--font-medium);
-    line-height: var(--leading-tight);
-}
+
 
 .lista-cards-imoveis {
     display: flex;
@@ -112,7 +111,7 @@ const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
 .visualizacao-toggle button {
     border: 0;
     border-radius: var(--radius-sm);
-    padding: 8px 12px;
+    padding: 4px 12px;
     color: var(--color-neutral-600);
     background: transparent;
     font: inherit;
