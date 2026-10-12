@@ -43,8 +43,7 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
                 <span class="label-venda">Venda</span>
                 <span class="valor-imovel">R$ 18.000.000</span>
             </div>
-            <a href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
-                class="btn-contato">
+            <a href="/imovel/apartamento-a-venda-jardim-america-sao-paulo-50504"  class="btn-contato">
                 Falar com o anunciante
             </a>
         </div>

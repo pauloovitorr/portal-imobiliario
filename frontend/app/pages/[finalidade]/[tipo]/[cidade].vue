@@ -66,7 +66,7 @@ const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: var(--padding-xl);
+    padding: 64px var(--padding-xl);
     align-items: start;
 }
 
