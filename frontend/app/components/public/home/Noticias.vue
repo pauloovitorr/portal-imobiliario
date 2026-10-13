@@ -41,7 +41,7 @@ const noticias: Noticia[] = [
 <template>
     <section class="section-noticias" data-aos="fade-up" data-aos-delay="50"
         data-aos-duration="500" data-aos-easing="ease-in-out">
-        <div class="container-noticias estilo-container">
+        <div class="container-noticias">
             <PublicTituloSecao titulo="Notícias" subtitulo="Informações imobiliárias" detalhe="sobre o mercado" link="" />
 
             <div class="noticias-grid">
@@ -80,6 +80,9 @@ const noticias: Noticia[] = [
 .container-noticias {
     display: flex;
     flex-direction: column;
+    max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0px var(--padding-xl);
 }
 
 /* Grid Layout */

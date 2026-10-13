@@ -16,8 +16,12 @@ const idImovel = slugParts[slugParts.length - 1];
             <PublicImovelGaleriaImagens />
 
             <section class="section-detalhes-descricao-form">
-                <div class="descricao"></div>
-                <div class="form"></div>
+                <section class="section-descricao">
+                    <PublicImovelDescricaoImovel />
+                </section>
+                <section class="section-form">
+                    <PublicImovelFormContato/>
+                </section>
             </section>
 
         </div>
@@ -35,7 +39,7 @@ const idImovel = slugParts[slugParts.length - 1];
 .container-detalhes-imovel {
     max-width: var(--max-width);
     margin: 0 auto;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 64px var(--padding-xl);
 }
 
@@ -46,14 +50,13 @@ const idImovel = slugParts[slugParts.length - 1];
     margin-top: 32px;
 }
 
-.descricao{
+.section-descricao {
     grid-column: span 3;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
-.form {
+.section-form {
     grid-column: span 1;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
-
 </style>
