@@ -67,8 +67,8 @@ import { BedDouble, CarFront, Ruler, ShowerHead } from '@lucide/vue'
 }
 
 .titulo-descricao h1 {
-    font-size: 24px;
-    font-weight: var(--color-neutral-900-font-medium);
+    font-size: var( --text-2xl);
+    font-weight: var(--font-medium);
     color: var(--color-neutral-900);
 }
 
@@ -77,7 +77,8 @@ import { BedDouble, CarFront, Ruler, ShowerHead } from '@lucide/vue'
     grid-template-columns: minmax(220px, 0.85fr) minmax(0, 2.15fr);
     align-items: center;
     gap: 32px;
-    margin-top: 24px;
+    margin-top: 32px;
+    margin-bottom: 32px;
     padding: 24px 0;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);

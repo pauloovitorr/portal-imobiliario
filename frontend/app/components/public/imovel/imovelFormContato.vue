@@ -80,6 +80,13 @@ import { Mail } from '@lucide/vue'
     box-shadow: var(--shadow-sm);
 }
 
+@media (min-width: 901px) {
+    .card-contato {
+        position: sticky;
+        top: 20px;
+    }
+}
+
 .titulo-contato {
     margin: 0 0 var(--padding-md);
     color: var(--text-main);

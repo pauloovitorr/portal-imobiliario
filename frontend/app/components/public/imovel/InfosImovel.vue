@@ -6,6 +6,8 @@
 <template>
     <div class="container-descricao">
         <PublicImovelContainerTituloDescricao />
+        <PublicImovelCaracteristicas />
+        <PublicImovelDescricao />
     </div>
 </template>
 

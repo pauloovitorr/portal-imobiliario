@@ -17,7 +17,7 @@ const idImovel = slugParts[slugParts.length - 1];
 
             <section class="section-detalhes-descricao-form">
                 <section class="section-descricao">
-                    <PublicImovelDescricaoImovel />
+                    <PublicImovelInfosImovel />
                 </section>
                 <section class="section-form">
                     <PublicImovelFormContato/>
@@ -58,5 +58,16 @@ const idImovel = slugParts[slugParts.length - 1];
 .section-form {
     grid-column: span 1;
     /* border: 1px solid green; */
+}
+
+@media (max-width: 900px) {
+    .section-detalhes-descricao-form {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .section-descricao,
+    .section-form {
+        grid-column: 1 / -1;
+    }
 }
 </style>
