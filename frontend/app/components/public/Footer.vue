@@ -4,7 +4,7 @@
 
 <template>
     <footer class="section-rodape">
-        <div class="container-rodape">
+        <div class="container-rodape container-alinhado">
 
             <!-- Grid Principal com Navegação -->
             <div class="rodape-grid">
@@ -58,7 +58,7 @@
 
         <!-- Rodapé Inferior: Direitos e Disclaimer -->
         <div class="rodape-bottom">
-            <div class="rodape-bottom-info">
+            <div class="rodape-bottom-info container-alinhado">
                 <p class="copyright-texto">
                     © 2026 <strong>Meu Lugar</strong>. Todos os direitos reservados para <strong>Paulo Vitor</strong>.
                 </p>
@@ -83,9 +83,6 @@
     display: flex;
     flex-direction: column;
     gap: 48px;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0px var(--padding-xl);
     padding-top: 64px;
 }
 
@@ -156,9 +153,6 @@
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0px var(--padding-xl);
 }
 
 .copyright-texto {

@@ -1,21 +1,28 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import Glide from '@glidejs/glide';
 import '@glidejs/glide/dist/css/glide.core.css'
 import { ChevronLeft, ChevronRight } from '@lucide/vue'
 
+const props = defineProps<{
+    imagem?: string;
+    compacto?: boolean;
+}>()
+
 // Referência para o elemento do carrossel
 const glideRef = ref<HTMLElement | null>(null)
 let glideInstance: any = null
+const imagens = computed(() => props.imagem ? [props.imagem] : Array(5).fill('/imovel.png'))
 
 onMounted(() => {
-    if (glideRef.value) {
+    if (glideRef.value && !props.compacto) {
         glideInstance = new Glide(glideRef.value, {
             type: 'slider',
             startAt: 0,
             perView: 1,
             gap: 0,
-            rewind: true
+            rewind: true,
+            autoplay: false,
         })
         glideInstance.mount()
     }
@@ -30,30 +37,21 @@ onUnmounted(() => {
 
 
 <template>
-    <div ref="glideRef" class="glide container-imagem">
+    <div v-if="compacto" class="container-imagem imagem-estatica">
+        <NuxtImg :src="imagem || '/imovel.png'" format="webp" loading="lazy" alt="Imagem do imóvel" />
+    </div>
+    <div v-else ref="glideRef" class="glide container-imagem">
         <!-- <span class="tag-imagem">1016</span> -->
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy"  alt="Imóvel" />
-                </li>
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy"  alt="Imóvel" />
-                </li>
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy"  alt="Imóvel" />
-                </li>
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy"  alt="Imóvel" />
-                </li>
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy"  alt="Imóvel" />
+                <li v-for="(imagemSrc, index) in imagens" :key="`${imagemSrc}-${index}`" class="glide__slide">
+                    <NuxtImg :src="imagemSrc" format="webp" loading="lazy" alt="Imagem do imóvel" />
                 </li>
             </ul>
         </div>
 
         <!-- Setas de Navegação -->
-        <div class="glide__arrows" data-glide-el="controls">
+        <div v-if="imagens.length > 1" class="glide__arrows" data-glide-el="controls">
             <button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Anterior">
                 <ChevronLeft class="icone-seta" />
             </button>
@@ -62,12 +60,8 @@ onUnmounted(() => {
             </button>
         </div>
 
-        <div class="glide__bullets" data-glide-el="controls[nav]">
-            <button class="glide__bullet" data-glide-dir="=0" aria-label="Slide 1"></button>
-            <button class="glide__bullet" data-glide-dir="=1" aria-label="Slide 2"></button>
-            <button class="glide__bullet" data-glide-dir="=2" aria-label="Slide 3"></button>
-            <button class="glide__bullet" data-glide-dir="=3" aria-label="Slide 4"></button>
-            <button class="glide__bullet" data-glide-dir="=4" aria-label="Slide 5"></button>
+        <div v-if="imagens.length > 1" class="glide__bullets" data-glide-el="controls[nav]">
+            <button v-for="(imagemSrc, index) in imagens" :key="`${imagemSrc}-bullet-${index}`" class="glide__bullet" :data-glide-dir="`=${index}`" :aria-label="`Slide ${index + 1}`"></button>
         </div>
     </div>
 </template>

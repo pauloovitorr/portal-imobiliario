@@ -1,13 +1,35 @@
 <script setup lang="ts">
-import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/vue'
+import { BedDouble, CarFront, Heart, MapPin, MessageCircle, Ruler, ShowerHead } from '@lucide/vue'
+
+withDefaults(defineProps<{
+    compacto?: boolean;
+    tipoImovel?: string;
+    bairro?: string;
+    localizacao?: string;
+    area?: string;
+    quartos?: string;
+    suites?: string;
+    vagas?: string;
+    preco?: string;
+}>(), {
+    compacto: false,
+    tipoImovel: 'Casa à venda',
+    bairro: 'Jardim América',
+    localizacao: 'Presidente Prudente/SP',
+    area: '462 m²',
+    quartos: '4 dorms',
+    suites: '4 suítes',
+    vagas: '6 vagas',
+    preco: 'R$ 18.000.000',
+});
 </script>
 
 <template>
-    <div class="container-descricao">
+    <div class="container-descricao" :class="{ 'descricao-compacta': compacto }">
         <div class="linha-superior">
             <div class="identificacao-imovel">
-                <span class="tipo-imovel">Casa à venda</span>
-                <h3 class="bairro-imovel">Jardim América</h3>
+                <span class="tipo-imovel">{{ tipoImovel }}</span>
+                <h3 class="bairro-imovel">{{ bairro }}</h3>
             </div>
             <button class="btn-favorito" type="button" aria-label="Favoritar imóvel">
                 <Heart class="icone-favoritar" />
@@ -16,36 +38,41 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
 
         <div class="localizacao-imovel">
             <MapPin class="icone-localizacao" aria-hidden="true" />
-            <span>Presidente Prudente/SP</span>
+            <span>{{ localizacao }}</span>
         </div>
 
         <div class="caracteristicas-imovel" aria-label="Características do imóvel">
             <span class="caracteristica">
                 <Ruler aria-hidden="true" />
-                462 m²
+                {{ area }}
             </span>
             <span class="caracteristica">
                 <BedDouble aria-hidden="true" />
-                4 dorms
+                {{ quartos }}
             </span>
             <span class="caracteristica">
                 <ShowerHead aria-hidden="true" />
-                4 suítes
+                {{ suites }}
             </span>
             <span class="caracteristica">
                 <CarFront aria-hidden="true" />
-                6 vagas
+                {{ vagas }}
             </span>
         </div>
 
         <div class="footer-valor">
             <div class="bloco-preco">
                 <span class="label-venda">Venda</span>
-                <span class="valor-imovel">R$ 18.000.000</span>
+                <span class="valor-imovel">{{ preco }}</span>
             </div>
-            <a href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
-                class="btn-contato">
-                Falar com o anunciante
+            <a
+                href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
+                class="btn-contato"
+                :aria-label="compacto ? 'Falar com o anunciante' : undefined"
+                :title="compacto ? 'Falar com o anunciante' : undefined"
+            >
+                <MessageCircle v-if="compacto" aria-hidden="true" />
+                <span v-else>Falar com o anunciante</span>
             </a>
         </div>
     </div>
@@ -55,6 +82,7 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
 .container-descricao {
     display: flex;
     min-width: 0;
+    width: 97%;
     flex: 1;
     flex-direction: column;
     justify-content: space-between;
@@ -233,5 +261,68 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--padding-xs);
     }
+}
+
+.descricao-compacta {
+    gap: var(--padding-xs);
+    padding: var(--padding-sm);
+}
+
+.descricao-compacta .bairro-imovel {
+    font-size: var(--text-base);
+}
+
+.descricao-compacta .btn-favorito {
+    width: 32px;
+    height: 32px;
+}
+
+.descricao-compacta .caracteristicas-imovel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--padding-xs);
+    font-size: var(--text-xs);
+}
+
+.descricao-compacta .caracteristica {
+    gap: var(--padding-3xs);
+}
+
+.descricao-compacta .caracteristica :deep(svg) {
+    width: 14px;
+    height: 14px;
+}
+
+.descricao-compacta .footer-valor {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--padding-xs);
+    margin-top: var(--padding-xs);
+    padding-top: var(--padding-sm);
+}
+
+.descricao-compacta .bloco-preco {
+    min-width: 0;
+}
+
+.descricao-compacta .valor-imovel {
+    overflow: hidden;
+    font-size: var(--text-lg);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.descricao-compacta .btn-contato {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    min-height: 36px;
+    flex: 0 0 36px;
+    padding: 0;
+}
+
+.descricao-compacta .btn-contato svg {
+    width: 17px;
+    height: 17px;
 }
 </style>

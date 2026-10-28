@@ -60,13 +60,4 @@ const toggleMenu = (): void => {
 .hamburger-btn:hover {
   background-color: var(--color-neutral-100);
 }
-
-
-
-@media (max-width: 768px) {
-  .navbar-container{
-    padding: 0 16px;
-  }
-}
-
 </style>

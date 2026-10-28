@@ -16,7 +16,7 @@ const handleClick = (): void => {
 </script>
 
 <template>
-  <div class="navbar-container">
+  <div class="navbar-container container-alinhado">
 
     <NuxtLink to="/" class="navbar-logo">
       <div class="logo-icon">
@@ -93,13 +93,10 @@ const handleClick = (): void => {
 <style scoped>
 /* Contêiner Principal */
 .navbar-container {
-  max-width: var(--max-width);
-  margin: 0 auto;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--padding-xl)
 }
 
 

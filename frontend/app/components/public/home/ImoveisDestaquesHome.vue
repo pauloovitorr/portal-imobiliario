@@ -4,7 +4,7 @@
 
 
 <template>
-    <section class="imovel-destaque-container">
+    <section class="imovel-destaque-container container-alinhado">
 
         <PublicTituloSecao titulo="Destaques" subtitulo="Encontre o Refúgio" detalhe="que você merece" link="" />
 
@@ -27,9 +27,6 @@
 
 <style scoped>
 .imovel-destaque-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0px var(--padding-xl);
     padding-bottom: 64px;
     /* border: 1px solid red; */
 }

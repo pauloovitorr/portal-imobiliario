@@ -4,7 +4,7 @@
 <template>
 
 
-    <div class="container-banner-empreendimento estilo-container" data-aos="fade-up" data-aos-delay="50"
+    <div class="container-banner-empreendimento estilo-container container-alinhado" data-aos="fade-up" data-aos-delay="50"
         data-aos-duration="500" data-aos-easing="ease-in-out">
         <NuxtImg src="/empreendimento2.png" alt="Banner de empreendimento" format="webp" loading="lazy" />
     </div>

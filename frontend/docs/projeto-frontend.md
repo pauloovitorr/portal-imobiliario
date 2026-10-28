@@ -41,6 +41,7 @@ Os componentes públicos ficam em `app/components/public/` e agrupam a UI por á
 - `home/`: hero e pesquisa inicial, cartões, seções de imóveis em destaque/lançamento, banners, estatísticas, chamada para ação e notícias.
 - `filtros/`: filtro da listagem, resumo da pesquisa, cartões de imóveis e visualização do mapa.
 - `imovel/`: breadcrumbs, galeria, descrição, título e formulário de contato.
+- Na página de detalhe, `LocalizacaoImovel.vue`, `PergunteAnunciante.vue` e `ImoveisSimilares.vue` complementam a descrição e o contato com localização demonstrativa, perguntas rápidas sem envio e cartões de imóveis similares com dados mockados.
 - `app/layouts/default.vue`: moldura pública com barra de navegação, conteúdo da rota e rodapé.
 - `app/layouts/admin.vue`: layout administrativo existente; confirme a implementação das páginas administrativas antes de pressupor fluxos disponíveis.
 

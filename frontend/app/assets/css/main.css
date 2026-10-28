@@ -72,9 +72,20 @@ body::-webkit-scrollbar-thumb {
   color: var(--color-neutral-900);
 }
 
-.estilo-container {
+.container-alinhado {
+  width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 64px var(--padding-xl);
+}
+
+.estilo-container {
+  padding: 64px 0;
   /* border: 1px solid red; */
+}
+
+@media (max-width: 1280px) {
+  .container-alinhado {
+    padding-right: var(--padding-xl);
+    padding-left: var(--padding-xl);
+  }
 }

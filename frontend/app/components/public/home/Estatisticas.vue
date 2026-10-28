@@ -13,7 +13,7 @@ const estatisticas = [
   
     <section class="section-estatisticas" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
              data-aos-easing="ease-in-out">
-        <div class="container-estatisticas estilo-container">
+        <div class="container-estatisticas estilo-container container-alinhado">
             
             <div class="estatisticas-header">
                 <h2 class="estatisticas-titulo">

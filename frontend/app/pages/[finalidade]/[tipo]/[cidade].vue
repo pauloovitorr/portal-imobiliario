@@ -8,7 +8,7 @@ const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
 
 <template>
     <section class="section-listagem" :class="{ 'modo-mapa': visualizacaoAtiva === 'mapa' }">
-        <div class="layout-listagem" :class="{ 'layout-mapa': visualizacaoAtiva === 'mapa' }">
+        <div class="layout-listagem container-alinhado" :class="{ 'layout-mapa': visualizacaoAtiva === 'mapa' }">
             <aside v-if="visualizacaoAtiva === 'lista'" class="container-filtros">
                 <PublicFiltrosFiltroListagem />
             </aside>
@@ -63,10 +63,8 @@ const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
     display: grid;
     grid-template-columns: minmax(250px, 0.3fr) minmax(0, 0.7fr);
     gap: var(--padding-xl);
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 64px var(--padding-xl);
+    padding-top: 32px;
+    padding-bottom: 64px;
     align-items: start;
 }
 
@@ -158,10 +156,6 @@ const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
 }
 
 @media (max-width: 560px) {
-    .layout-listagem {
-        padding: var(--padding-md);
-    }
-
     .container-info-imoveis {
         align-items: flex-start;
         flex-direction: column;

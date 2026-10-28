@@ -11,7 +11,7 @@ const idImovel = slugParts[slugParts.length - 1];
 
 <template>
     <section class="section-detalhes-imovel">
-        <div class="container-detalhes-imovel">
+        <div class="container-detalhes-imovel container-alinhado">
             <PublicImovelBreadcrumbs />
             <PublicImovelGaleriaImagens />
 
@@ -22,6 +22,10 @@ const idImovel = slugParts[slugParts.length - 1];
                 <section class="section-form">
                     <PublicImovelFormContato/>
                 </section>
+            </section>
+
+            <section class="secao-imoveis-similares" aria-label="Imóveis novos similares">
+                <PublicImovelImoveisSimilares />
             </section>
 
         </div>
@@ -37,10 +41,9 @@ const idImovel = slugParts[slugParts.length - 1];
 }
 
 .container-detalhes-imovel {
-    max-width: var(--max-width);
-    margin: 0 auto;
     /* border: 1px solid red; */
-    padding: 64px var(--padding-xl);
+    padding-top: 32px;
+    padding-bottom: 64px;
 }
 
 .section-detalhes-descricao-form {
@@ -58,6 +61,13 @@ const idImovel = slugParts[slugParts.length - 1];
 .section-form {
     grid-column: span 1;
     /* border: 1px solid green; */
+}
+
+.secao-imoveis-similares {
+    width: 100%;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
 }
 
 @media (max-width: 900px) {

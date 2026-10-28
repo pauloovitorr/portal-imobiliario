@@ -81,7 +81,9 @@ Em `app/assets/css/main.css`:
 - `body` usa `--font-primary`, `--bg-app`, `--text-main` e `--leading-normal`.
 - `.btn-primary` é um botão/CTA burgundy com padding, raio, transição e sombra tokenizados; hover e active têm estados próprios.
 - `.btn-secondary` é uma ação neutra com borda, alinhamento centralizado e hover.
-- `.estilo-container` aplica largura máxima, centralização e padding de seção.
+- `.container-alinhado` padroniza os wrappers externos com largura máxima de `--max-width` e centralização; em viewports até 1280px, inclui gutters laterais de `--padding-xl`.
+- `.estilo-container` aplica 64px de espaçamento vertical. Combine com `.container-alinhado` quando a seção precisar do mesmo alinhamento horizontal dos demais wrappers.
+- Os componentes da página de imóvel usam superfícies brancas, bordas neutras, raios tokenizados e acento burgundy; mapa, perguntas rápidas e similares mantêm layout adaptável, sem integração funcional quando preenchidos com conteúdo demonstrativo.
 
 Verifique se um padrão global atende ao componente antes de criar regras locais duplicadas. Se um botão existente precisar de comportamento ou hierarquia visual diferente, confirme o padrão de uso no restante do projeto antes de alterar a classe global.
 

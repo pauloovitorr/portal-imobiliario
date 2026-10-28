@@ -8,7 +8,7 @@ import imagemCta from '@/assets/imgs/geral/equipe.png'
 <template>
     <section class=" section-call-action" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
         data-aos-easing="ease-in-out">
-        <div class="container-call-action">
+        <div class="container-call-action container-alinhado">
             <div class="cta-wrapper">
 
             
@@ -53,14 +53,6 @@ import imagemCta from '@/assets/imgs/geral/equipe.png'
     background-color: var(--color-neutral-0);
     /* border: 1px solid red; */
 }
-
-.container-call-action {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0px var(--padding-xl);
-    /* padding-bottom: 64px; */
-}
-
 
 .cta-wrapper {
     display: grid;
