@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BedDouble, CarFront, Heart, MapPin, MessageCircle, Ruler, ShowerHead } from '@lucide/vue'
+import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/vue'
 
 withDefaults(defineProps<{
     compacto?: boolean;
@@ -68,11 +68,8 @@ withDefaults(defineProps<{
             <a
                 href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
                 class="btn-contato"
-                :aria-label="compacto ? 'Falar com o anunciante' : undefined"
-                :title="compacto ? 'Falar com o anunciante' : undefined"
             >
-                <MessageCircle v-if="compacto" aria-hidden="true" />
-                <span v-else>Falar com o anunciante</span>
+                <span>{{ compacto ? 'Contato' : 'Falar com o anunciante' }}</span>
             </a>
         </div>
     </div>
@@ -265,7 +262,8 @@ withDefaults(defineProps<{
 
 .descricao-compacta {
     gap: var(--padding-xs);
-    padding: var(--padding-sm);
+    width: 100%;
+    padding: var(--padding-md);
 }
 
 .descricao-compacta .bairro-imovel {
@@ -278,13 +276,18 @@ withDefaults(defineProps<{
 }
 
 .descricao-compacta .caracteristicas-imovel {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--padding-xs);
-    font-size: var(--text-xs);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--padding-3xs);
+    font-size: 0.6875rem;
 }
 
 .descricao-compacta .caracteristica {
-    gap: var(--padding-3xs);
+    gap: 3px;
+}
+
+.descricao-compacta .caracteristica :deep(svg) {
+    width: 12px;
+    height: 12px;
 }
 
 .descricao-compacta .caracteristica :deep(svg) {
@@ -313,16 +316,19 @@ withDefaults(defineProps<{
 }
 
 .descricao-compacta .btn-contato {
-    width: 36px;
-    min-width: 36px;
+    width: auto;
+    min-width: 92px;
     height: 36px;
     min-height: 36px;
-    flex: 0 0 36px;
-    padding: 0;
+    flex: 0 0 auto;
+    gap: var(--padding-3xs);
+    padding: 0 var(--padding-sm);
+    font-size: var(--text-xs);
+    white-space: nowrap;
 }
 
 .descricao-compacta .btn-contato svg {
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
 }
 </style>

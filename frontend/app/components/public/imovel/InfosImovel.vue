@@ -20,7 +20,7 @@
 
 <style scoped>
 .container-descricao {
-    width: 100%;
+    width: 97%;
 }
 
 .secao-info-adicional {

@@ -25,8 +25,11 @@ const idImovel = slugParts[slugParts.length - 1];
             </section>
 
             <section class="secao-imoveis-similares" aria-label="Imóveis novos similares">
+                <hr class="divisor-imoveis-similares">
                 <PublicImovelImoveisSimilares />
             </section>
+
+            <PublicImovelOutrasPesquisasImovel />
 
         </div>
 
@@ -66,7 +69,11 @@ const idImovel = slugParts[slugParts.length - 1];
 .secao-imoveis-similares {
     width: 100%;
     margin-top: 32px;
-    padding-top: 24px;
+}
+
+.divisor-imoveis-similares {
+    margin: 0 0 48px;
+    border: 0;
     border-top: 1px solid var(--border-color);
 }
 
