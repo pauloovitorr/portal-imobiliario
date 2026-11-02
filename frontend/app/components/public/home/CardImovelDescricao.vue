@@ -26,57 +26,68 @@ withDefaults(defineProps<{
 
 <template>
     <div class="container-descricao" :class="{ 'descricao-compacta': compacto }">
-        <div class="linha-superior">
-            <div class="identificacao-imovel">
-                <span class="tipo-imovel">{{ tipoImovel }}</span>
-                <h3 class="bairro-imovel">{{ bairro }}</h3>
+        <NuxtLink
+            to="/imovel/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
+            class="link-detalhes"
+            :aria-label="`Ver detalhes do imóvel em ${bairro}`"
+        />
+
+        <div class="conteudo-descricao">
+            <div class="linha-superior">
+                <div class="identificacao-imovel">
+                    <span class="tipo-imovel">{{ tipoImovel }}</span>
+                    <h3 class="bairro-imovel">{{ bairro }}</h3>
+                </div>
+                <button class="btn-favorito" type="button" aria-label="Favoritar imóvel">
+                    <Heart class="icone-favoritar" />
+                </button>
             </div>
-            <button class="btn-favorito" type="button" aria-label="Favoritar imóvel">
-                <Heart class="icone-favoritar" />
-            </button>
-        </div>
 
-        <div class="localizacao-imovel">
-            <MapPin class="icone-localizacao" aria-hidden="true" />
-            <span>{{ localizacao }}</span>
-        </div>
-
-        <div class="caracteristicas-imovel" aria-label="Características do imóvel">
-            <span class="caracteristica">
-                <Ruler aria-hidden="true" />
-                {{ area }}
-            </span>
-            <span class="caracteristica">
-                <BedDouble aria-hidden="true" />
-                {{ quartos }}
-            </span>
-            <span class="caracteristica">
-                <ShowerHead aria-hidden="true" />
-                {{ suites }}
-            </span>
-            <span class="caracteristica">
-                <CarFront aria-hidden="true" />
-                {{ vagas }}
-            </span>
-        </div>
-
-        <div class="footer-valor">
-            <div class="bloco-preco">
-                <span class="label-venda">Venda</span>
-                <span class="valor-imovel">{{ preco }}</span>
+            <div class="localizacao-imovel">
+                <MapPin class="icone-localizacao" aria-hidden="true" />
+                <span>{{ localizacao }}</span>
             </div>
-            <a
-                href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
-                class="btn-contato"
-            >
-                <span>{{ compacto ? 'Contato' : 'Falar com o anunciante' }}</span>
-            </a>
+
+            <div class="caracteristicas-imovel" aria-label="Características do imóvel">
+                <span class="caracteristica">
+                    <Ruler aria-hidden="true" />
+                    {{ area }}
+                </span>
+                <span class="caracteristica">
+                    <BedDouble aria-hidden="true" />
+                    {{ quartos }}
+                </span>
+                <span class="caracteristica">
+                    <ShowerHead aria-hidden="true" />
+                    {{ suites }}
+                </span>
+                <span class="caracteristica">
+                    <CarFront aria-hidden="true" />
+                    {{ vagas }}
+                </span>
+            </div>
+
+            <div class="footer-valor">
+                <div class="bloco-preco">
+                    <span class="label-venda">Venda</span>
+                    <span class="valor-imovel">{{ preco }}</span>
+                </div>
+                <a
+                    href="/moema-passaros/apartamento-4-dormitorios-4-suites-6-vagas-463-metros-cf364022"
+                    class="btn-contato"
+                >
+                    <span>{{ compacto ? 'Contato' : 'Falar com o anunciante' }}</span>
+                </a>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
 .container-descricao {
+    position: relative;
+    isolation: isolate;
+    cursor: pointer;
     display: flex;
     min-width: 0;
     width: 97%;
@@ -86,6 +97,24 @@ withDefaults(defineProps<{
     gap: var(--padding-sm);
     padding: var(--padding-lg);
     background-color: var(--bg-surface);
+}
+
+.link-detalhes {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    cursor: pointer;
+}
+
+.conteudo-descricao {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--padding-sm);
+    pointer-events: none;
 }
 
 .linha-superior {
@@ -113,6 +142,8 @@ withDefaults(defineProps<{
 }
 
 .btn-favorito {
+    position: relative;
+    z-index: 2;
     display: flex;
     width: 40px;
     height: 40px;
@@ -123,6 +154,7 @@ withDefaults(defineProps<{
     border-radius: var(--radius-full);
     background: var(--color-neutral-100);
     cursor: pointer;
+    pointer-events: auto;
     transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -203,6 +235,8 @@ withDefaults(defineProps<{
 }
 
 .btn-contato {
+    position: relative;
+    z-index: 2;
     display: inline-flex;
     min-height: 44px;
     align-items: center;
@@ -215,6 +249,7 @@ withDefaults(defineProps<{
     font-weight: var(--font-semibold);
     text-align: center;
     text-decoration: none;
+    pointer-events: auto;
     transition: background-color var(--transition-fast);
 }
 

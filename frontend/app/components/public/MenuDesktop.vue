@@ -76,10 +76,10 @@ const handleClick = (): void => {
 
       <ul>
         <li class="nav-item">
-          <a href="#" class="nav-link">Entrar</a>
+          <NuxtLink to="/entrar" class="nav-link">Entrar</NuxtLink>
         </li>
       </ul>
-      <a href="#" class="btn-primary">Anunciar Imóvel</a>
+      <NuxtLink to="/anunciar" class="btn-primary">Anunciar Imóvel</NuxtLink>
     </div>
 
     <button class="hamburger-btn" @click="handleClick" aria-label="Abrir menu">

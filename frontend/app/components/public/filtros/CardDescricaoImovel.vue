@@ -4,54 +4,68 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
 
 <template>
     <div class="container-descricao">
-        <div class="linha-superior">
-            <div class="identificacao-imovel">
-                <span class="tipo-imovel">Casa à venda</span>
-                <h3 class="bairro-imovel">Residencial Parque dos Girassóis</h3>
+        <NuxtLink
+            to="/imovel/apartamento-a-venda-jardim-america-sao-paulo-50504"
+            class="link-detalhes"
+            aria-label="Ver detalhes do imóvel Residencial Parque dos Girassóis"
+        />
+
+        <div class="conteudo-descricao">
+            <div class="linha-superior">
+                <div class="identificacao-imovel">
+                    <span class="tipo-imovel">Casa à venda</span>
+                    <h3 class="bairro-imovel">Residencial Parque dos Girassóis</h3>
+                </div>
+                <button class="btn-favorito" type="button" aria-label="Favoritar imóvel">
+                    <Heart class="icone-favoritar" />
+                </button>
             </div>
-            <button class="btn-favorito" type="button" aria-label="Favoritar imóvel">
-                <Heart class="icone-favoritar" />
-            </button>
-        </div>
 
-        <div class="localizacao-imovel">
-            <MapPin class="icone-localizacao" aria-hidden="true" />
-            <span>Presidente Prudente/SP</span>
-        </div>
-
-        <div class="caracteristicas-imovel" aria-label="Características do imóvel">
-            <span class="caracteristica">
-                <Ruler aria-hidden="true" />
-                462 m²
-            </span>
-            <span class="caracteristica">
-                <BedDouble aria-hidden="true" />
-                4 dorms
-            </span>
-            <span class="caracteristica">
-                <ShowerHead aria-hidden="true" />
-                4 suítes
-            </span>
-            <span class="caracteristica">
-                <CarFront aria-hidden="true" />
-                6 vagas
-            </span>
-        </div>
-
-        <div class="footer-valor">
-            <div class="bloco-preco">
-                <span class="label-venda">Venda</span>
-                <span class="valor-imovel">R$ 18.000.000</span>
+            <div class="localizacao-imovel">
+                <MapPin class="icone-localizacao" aria-hidden="true" />
+                <span>Presidente Prudente/SP</span>
             </div>
-            <a href="/imovel/apartamento-a-venda-jardim-america-sao-paulo-50504"  class="btn-contato">
-                Falar com o anunciante
-            </a>
+
+            <div class="caracteristicas-imovel" aria-label="Características do imóvel">
+                <span class="caracteristica">
+                    <Ruler aria-hidden="true" />
+                    462 m²
+                </span>
+                <span class="caracteristica">
+                    <BedDouble aria-hidden="true" />
+                    4 dorms
+                </span>
+                <span class="caracteristica">
+                    <ShowerHead aria-hidden="true" />
+                    4 suítes
+                </span>
+                <span class="caracteristica">
+                    <CarFront aria-hidden="true" />
+                    6 vagas
+                </span>
+            </div>
+
+            <div class="footer-valor">
+                <div class="bloco-preco">
+                    <span class="label-venda">Venda</span>
+                    <span class="valor-imovel">R$ 18.000.000</span>
+                </div>
+                <NuxtLink
+                    to="/imovel/apartamento-a-venda-jardim-america-sao-paulo-50504"
+                    class="btn-contato"
+                >
+                    Falar com o anunciante
+                </NuxtLink>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
 .container-descricao {
+    position: relative;
+    isolation: isolate;
+    cursor: pointer;
     display: flex;
     min-width: 0;
     flex: 1;
@@ -60,6 +74,24 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
     gap: var(--padding-sm);
     padding: var(--padding-lg);
     background-color: var(--bg-surface);
+}
+
+.link-detalhes {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    cursor: pointer;
+}
+
+.conteudo-descricao {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--padding-sm);
+    pointer-events: none;
 }
 
 .linha-superior {
@@ -87,6 +119,8 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
 }
 
 .btn-favorito {
+    position: relative;
+    z-index: 2;
     display: flex;
     width: 40px;
     height: 40px;
@@ -97,6 +131,7 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
     border-radius: var(--radius-full);
     background: var(--color-neutral-100);
     cursor: pointer;
+    pointer-events: auto;
     transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -174,6 +209,8 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
 }
 
 .btn-contato {
+    position: relative;
+    z-index: 2;
     display: inline-flex;
     min-height: 44px;
     align-items: center;
@@ -187,6 +224,7 @@ import { BedDouble, CarFront, Heart, MapPin, Ruler, ShowerHead } from '@lucide/v
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
+    pointer-events: auto;
     transition: background-color var(--transition-fast);
 }
 

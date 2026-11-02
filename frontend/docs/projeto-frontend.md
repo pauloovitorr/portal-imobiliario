@@ -30,14 +30,19 @@ Consulte `nuxt.config.ts` antes de alterar comportamento de renderização, conf
 | `app/pages/index.vue` | `/` | Composição da home com hero, destaques, banners, lançamentos, estatísticas, chamada para ação e notícias. |
 | `app/pages/[finalidade]/[tipo]/[cidade].vue` | `/:finalidade/:tipo/:cidade` | Página de listagem com filtros, resultados e alternância entre lista e mapa. |
 | `app/pages/imovel/[slug].vue` | `/imovel/:slug` | Página de detalhes de um imóvel. |
+| `app/pages/entrar.vue` | `/entrar` | Formulário visual de login; autenticação, envio e recuperação de senha ainda não integrados. |
+| `app/pages/anunciar.vue` | `/anunciar` | Formulário visual de cadastro com nome, e-mail, telefone e senha; cadastro/envio ainda não integrados. |
 
 Os nomes de rota são derivados dos caminhos dos arquivos do Nuxt. Confirme os parâmetros e a navegação nos consumidores antes de mudar uma rota.
+
+Notícias e imóveis favoritados aparecem como conteúdo/atalhos, mas não têm páginas próprias identificadas. Outros links ainda usam `#` ou destino vazio. As telas de login e cadastro têm apenas interface; autenticação, persistência e envio de dados não estão integrados. Consulte o [inventário de páginas e destinos pendentes](./paginas-e-destinos-pendentes.md) antes de assumir que esses destinos existem.
 
 ## Organização de componentes
 
 Os componentes públicos ficam em `app/components/public/` e agrupam a UI por área:
 
 - Raiz: elementos compartilhados, como `NavBar.vue`, `MenuDesktop.vue`, `MenuMobile.vue`, `Footer.vue` e `TituloSecao.vue`.
+- `/entrar` e `/anunciar` mantêm templates e estilos próprios porque a ordem dos painéis e a composição visual podem variar entre as páginas. Não crie um layout compartilhado para elas sem uma necessidade real de reutilização.
 - `home/`: hero e pesquisa inicial, cartões, seções de imóveis em destaque/lançamento, banners, estatísticas, chamada para ação e notícias.
 - `filtros/`: filtro da listagem, resumo da pesquisa, cartões de imóveis e visualização do mapa.
 - `imovel/`: breadcrumbs, galeria, descrição, título e formulário de contato.
@@ -52,6 +57,9 @@ Outras áreas presentes incluem `app/plugins/` para plugins de cliente, `app/uti
 ## Padrões de implementação observados
 
 - Componentes Vue encapsulam template/markup e estilos locais; estilos de componente normalmente usam `<style scoped>`. Para esta missão, altere o template e os estilos conforme necessário, preservando a lógica existente.
+- Priorize simplicidade e mudanças cirúrgicas. Leia o estado atual antes de editar, não sobrescreva arquivos inteiros e preserve código e alterações existentes fora do escopo.
+- Mantenha o CSS junto do componente responsável pelos elementos: estilos comuns no componente compartilhado e estilos específicos na página/componente correspondente. Evite `:deep`, CSS global e seletores que atravessem componentes; prefira ajustar a propriedade do estilo ou a estrutura.
+- Não crie componentes, props, arquivos auxiliares ou abstrações sem necessidade concreta de reutilização. Faça somente as mudanças de template necessárias, priorize CSS e use JavaScript apenas para interações visuais que realmente precisem dele.
 - Layouts compõem componentes compartilhados ao redor da página.
 - O CSS compartilhado usa custom properties definidas em `base.css`; consulte [`design-system.md`](./design-system.md).
 - Breakpoints são definidos nos próprios componentes e variam conforme o layout. Não há uma escala global de breakpoints estabelecida nos arquivos consultados.

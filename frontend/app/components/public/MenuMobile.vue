@@ -88,8 +88,8 @@ const handleClose = (): void => {
           </nav>
 
           <div class="acoes-mobile">
-            <a href="#" class="btn-secondary" @click="handleClose">Entrar</a>
-            <a href="#" class="btn-primary" @click="handleClose">Anunciar Imóvel</a>
+            <NuxtLink to="/entrar" class="btn-secondary" @click="handleClose">Entrar</NuxtLink>
+            <NuxtLink to="/anunciar" class="btn-primary" @click="handleClose">Anunciar Imóvel</NuxtLink>
           </div>
         </div>
       </aside>

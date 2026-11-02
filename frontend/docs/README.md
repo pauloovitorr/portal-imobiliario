@@ -12,6 +12,17 @@ Consulte os documentos conforme a tarefa:
 
 - [`projeto-frontend.md`](./projeto-frontend.md): propósito do produto, stack, rotas e organização dos componentes.
 - [`design-system.md`](./design-system.md): identidade visual, tokens CSS e convenções de estilo.
+- [`paginas-e-destinos-pendentes.md`](./paginas-e-destinos-pendentes.md): páginas existentes ou ainda não criadas e links/CTAs que permanecem sem destino funcional.
+
+## Princípios de implementação
+
+- Priorize simplicidade e mudanças pequenas, focadas no pedido. Leia o arquivo atual antes de editar; preserve código, conteúdo e alterações existentes que não façam parte da tarefa.
+- Não substitua arquivos inteiros nem reformule componentes quando um ajuste localizado resolver o problema.
+- Mantenha cada estilo junto do componente que renderiza os elementos. Estilos compartilhados ficam no componente compartilhado; estilos específicos de página ficam na página. Evite `:deep`, seletores globais e regras que atravessam componentes.
+- Reutilize componentes existentes quando houver uma responsabilidade realmente compartilhada. Não crie componentes, props, abstrações ou arquivos auxiliares apenas para organizar poucas regras locais.
+- Altere template/markup somente quando necessário para a apresentação. Use CSS como primeira opção; adicione JavaScript apenas para uma interação visual que não possa ser resolvida de forma declarativa.
+- Reutilize tokens do design system. Para propriedades sem token apropriado, use valores diretos simples, sem criar variáveis globais desnecessárias.
+- Evite alterações em arquivos fora do escopo e não remova mudanças preexistentes de outras tarefas.
 
 ## Papel, missão e limites
 
