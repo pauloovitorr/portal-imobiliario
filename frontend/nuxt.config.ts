@@ -1,4 +1,3 @@
-
 export default defineNuxtConfig({
   ssr: false, // enquanto faço o front
   // ssr: {noExternal: ['maplibre-gl']}
@@ -11,8 +10,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/seo',
     '@nuxt/image',
-    '@pinia/nuxt'
-    // 'nuxt-auth-sanctum'
+    '@pinia/nuxt',
+    'nuxt-auth-sanctum'
   ],
 
   // Dados globais para SEO e Open Graph
@@ -50,22 +49,27 @@ export default defineNuxtConfig({
     }
   },
 
-  //  LARAVEL SANCTUM
-  // sanctum: {
-  //   baseUrl: process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:8000', // Aponta para a raiz sem o /api
-  //   endpoints: {
-  //     csrf: '/sanctum/csrf-cookie',
-  //     login: '/api/login',
-  //     logout: '/api/logout',
-  //     user: '/api/user',
-  //   },
-  //   redirect: {
-  //     onLogin: '/',
-  //     onLogout: '/login',
-  //     onAuthOnly: '/login',
-  //     onGuestOnly: '/',
-  //   },
-  // },
+  // LARAVEL SANCTUM
+  sanctum: {
+    // URL base do  backend Laravel
+    baseUrl: process.env.NUXT_PUBLIC_BACKEND_URL,
+
+    // Mapeamento dos endpoints de autenticação que o Laravel Sanctum responde
+    endpoints: {
+      csrf: '/sanctum/csrf-cookie', // Rota que gera o token de proteção contra ataques CSRF
+      login: '/api/login',          // Rota onde o Nuxt envia as credenciais (e-mail e senha) para autenticar
+      logout: '/api/logout',        // Rota que encerra a sessão atual no backend
+      user: '/api/user',            // Rota que busca os dados do usuário logado atualmente
+    },
+
+    // Regras de redirecionamento automático baseadas no estado de autenticação do usuário
+    redirect: {
+      onLogin: '/',       // Para onde o usuário é enviado logo após fazer login com sucesso
+      onLogout: '/login', // Para onde o usuário é enviado após sair da conta
+      onAuthOnly: '/login', // Para onde um visitante não logado é redirecionado se tentar acessar uma página protegida
+      onGuestOnly: '/',     // Para onde um usuário já logado é redirecionado se tentar acessar páginas exclusivas para hóspedes (como a tela de login)
+    },
+  },
 
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
