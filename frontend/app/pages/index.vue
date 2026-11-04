@@ -1,5 +1,6 @@
 <script setup lang="ts">
-
+getTestApiUrl()
+getTestBackendUrl()
 </script>
 
 
