@@ -10,13 +10,14 @@
 
         <div class="imoveis-container" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
             data-aos-easing="ease-in-out">
-            <PublicHomeCardImovel />
-            <PublicHomeCardImovel />
-            <PublicHomeCardImovel />
-            <PublicHomeCardImovel />
-            <PublicHomeCardImovel />
-            <PublicHomeCardImovel />
-            
+            <PublicHomeCardImovel compacto />
+            <PublicHomeCardImovel compacto />
+            <PublicHomeCardImovel compacto />
+            <PublicHomeCardImovel compacto />
+            <PublicHomeCardImovel compacto />
+            <PublicHomeCardImovel compacto />
+            <PublicHomeCardImovel compacto />
+            <PublicHomeCardImovel compacto />
         </div>
 
     </section>
@@ -39,18 +40,17 @@
     /* height: 500px; */
     /* margin-top: 16px; */
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 32px;
-    row-gap: 32px
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--padding-md);
 }
 
-@media (max-width:768px) {
+@media (max-width: 1100px) and (min-width: 641px) {
     .imoveis-container {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width:600px) {
+@media (max-width: 640px) {
     .imoveis-container {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }

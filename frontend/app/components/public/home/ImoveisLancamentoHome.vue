@@ -29,8 +29,19 @@ import CardImovelLancamento from './CardImovelLancamento.vue';
     width: 100%;
     /* margin-top: 16px; */
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 32px;
-    row-gap: 32px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--padding-md);
+}
+
+@media (max-width: 1100px) and (min-width: 641px) {
+    .imoveis-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .imoveis-container {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 </style>

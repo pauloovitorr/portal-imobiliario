@@ -37,7 +37,7 @@ onUnmounted(() => {
 
 
 <template>
-    <div v-if="compacto" class="container-imagem imagem-estatica">
+    <div v-if="compacto" class="container-imagem imagem-estatica imagem-compacta">
         <NuxtImg :src="imagem || '/imovel.png'" format="webp" loading="lazy" alt="Imagem do imóvel" />
     </div>
     <div v-else ref="glideRef" class="glide container-imagem">
@@ -72,6 +72,11 @@ onUnmounted(() => {
     position: relative;
     width: 100%;
     height: 250px;
+}
+
+.imagem-compacta {
+    height: auto;
+    aspect-ratio: 16 / 10;
 }
 
 /* .tag-imagem{

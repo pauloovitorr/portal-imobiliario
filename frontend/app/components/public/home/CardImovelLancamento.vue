@@ -48,6 +48,22 @@ const imoveisDestaque = [
         titulo: 'Horácio Lafer Autoria',
         bairro: 'Itaim Bibi',
         area: '357 à 736 m²'
+    },
+    {
+        id: 7,
+        link: '',
+        imagem: 'https://static.coelhodafonseca.com.br/images/imoveis/original/10955025.jpg',
+        titulo: 'Vista Jardins',
+        bairro: 'Jardins',
+        area: '198 a 320 m²'
+    },
+    {
+        id: 8,
+        link: '',
+        imagem: 'https://static.coelhodafonseca.com.br/images/imoveis/original/10913958.jpg',
+        titulo: 'Parque Ibirapuera Residence',
+        bairro: 'Vila Mariana',
+        area: '145 a 280 m²'
     }
 ];
 </script>
@@ -95,16 +111,19 @@ const imoveisDestaque = [
 
 .card-imagem-wrapper {
     position: relative;
-    height: 100%;
-    aspect-ratio: 5 / 6;
+    width: 100%;
+    height: 340px;
     overflow: hidden;
 }
 
 .card-imagem {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 35%;
     transition: transform 700ms ease-out;
 }
 
@@ -117,7 +136,7 @@ const imoveisDestaque = [
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 20px;
+    padding: 12px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
     color: var(--color-neutral-0);
     display: flex;
@@ -126,21 +145,20 @@ const imoveisDestaque = [
 
 .card-titulo {
     font-family: var(--font-secondary);
-    font-size: var(--text-2xl);
+    font-size: var(--text-lg);
     font-weight: var(--font-medium);
     line-height: var(--leading-tight);
     margin: 0;
 }
 
 .card-info {
-    margin-top: 8px;
+    margin-top: var(--padding-2xs);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    padding-right: 20px;
+    gap: var(--padding-xs);
     font-family: var(--font-primary);
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: rgba(255, 255, 255, 0.85);
 }
 
@@ -153,8 +171,8 @@ const imoveisDestaque = [
 
 .icone-pin {
     flex-shrink: 0;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
 }
 
 .truncate {
@@ -167,30 +185,6 @@ const imoveisDestaque = [
     display: inline-flex;
     align-items: center;
     font-weight: var(--font-medium);
-}
-
-@media (max-width: 768px) {
-    .imoveis-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .card-imagem-wrapper {
-        aspect-ratio: 3 / 4;
-    }
-
-    .card-overlay {
-        padding: 16px;
-    }
-
-    .card-titulo {
-        font-size: var(--text-xl);
-    }
-}
-
-@media (max-width: 600px) {
-    .imoveis-container {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
 }
 
 @media (max-width: 575px) {

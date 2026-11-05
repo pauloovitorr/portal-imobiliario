@@ -27,10 +27,9 @@ defineProps<{
 
 
             <div>
-                <a :href="link" class="link-ver-tudo">
+                <a :href="link" class="link-ver-tudo" aria-label="Ver tudo">
                     <span>Ver tudo</span>
-
-                    <ChevronRight class="icone-seta" />
+                    <ChevronRight class="icone-seta" aria-hidden="true" />
                 </a>
             </div>
         </div>
@@ -82,7 +81,7 @@ defineProps<{
 }
 
 .titulo-section h3 {
-    font-size: var(--text-2xl);
+    font-size: var(--text-xl);
     font-weight: var(--font-medium);
     color: var(--color-neutral-900);
     font-family: var(--font-secondary);
@@ -98,12 +97,11 @@ defineProps<{
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);    
     color: var(--color-neutral-600);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
     text-decoration: none;
-    white-space: nowrap;
-    transition: color var(--transition-normal);
+    transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 
@@ -111,14 +109,27 @@ defineProps<{
     color: var(--color-neutral-900);
 }
 
+.link-ver-tudo:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
 
 .link-ver-tudo .icone-seta {
-    transition: transform var(--transition-normal), color var(--transition-normal);
+    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    color: var(--color-neutral-700);
+    background: var(--bg-surface);
+    border: 1px solid var(--color-neutral-300);
+    border-radius: var(--radius-full);
+    transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .link-ver-tudo:hover .icone-seta {
-    transform: translateX(6px);
     color: var(--color-accent-500);
+    border-color: var(--color-accent-500);
 }
 
 

@@ -61,13 +61,8 @@ withDefaults(defineProps<{
     transform: translateY(-5px);
 }
 
-.card-imovel-compacto :deep(.container-imagem) {
-    height: auto;
-    aspect-ratio: 16 / 10;
-}
-
 @media (max-width: 700px) {
-    .card-imovel :deep(.container-imagem) {
+    .card-imovel:not(.card-imovel-compacto) :deep(.container-imagem) {
         height: 240px;
     }
 }

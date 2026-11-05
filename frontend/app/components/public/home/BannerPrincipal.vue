@@ -12,7 +12,7 @@
 <style scoped>
 .banner {
     width: 100%;
-    height: calc(85vh - 80px);
+    height: calc(75vh - 80px);
     position: absolute;
     top: 0;
     left: 0;

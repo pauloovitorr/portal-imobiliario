@@ -1,12 +1,13 @@
 <script setup lang="ts">
-getTestApiUrl()
-getTestBackendUrl()
+getTestApiUrl();
+getTestBackendUrl();
 </script>
-
 
 <template>
   <PublicHomeHero />
+  <PublicHomeExplorarCapitais />
   <PublicHomeImoveisDestaquesHome />
+  <PublicHomeCategorias />
   <PublicHomeBannerEmpreendimento />
   <PublicHomeImoveisLancamentoHome />
   <PublicHomeBannerLancamento />
@@ -14,6 +15,5 @@ getTestBackendUrl()
   <PublicHomeCallAction />
   <PublicHomeNoticias />
 </template>
-
 
 <style scoped></style>
