@@ -23,18 +23,25 @@ function scrollCards(direction: -1 | 1) {
 
 <template>
     <section class="capitais-section container-alinhado" aria-labelledby="capitais-title">
-        <div class="section-header">
-            <h2 id="capitais-title">Explore as capitais</h2>
-
-            <div class="carousel-controls">
-                <button type="button" aria-label="Mostrar cidades anteriores" @click="scrollCards(-1)">
-                    <ChevronLeft aria-hidden="true" />
-                </button>
-                <button type="button" aria-label="Mostrar próximas cidades" @click="scrollCards(1)">
-                    <ChevronRight aria-hidden="true" />
-                </button>
-            </div>
-        </div>
+        <PublicTituloSecao
+            id-titulo="capitais-title"
+            titulo="Localização"
+            subtitulo="Explore as capitais"
+            detalhe=""
+            link=""
+            :mostrar-link="false"
+        >
+            <template #acoes>
+                <div class="carousel-controls">
+                    <button type="button" aria-label="Mostrar cidades anteriores" @click="scrollCards(-1)">
+                        <ChevronLeft aria-hidden="true" />
+                    </button>
+                    <button type="button" aria-label="Mostrar próximas cidades" @click="scrollCards(1)">
+                        <ChevronRight aria-hidden="true" />
+                    </button>
+                </div>
+            </template>
+        </PublicTituloSecao>
 
         <div ref="cardsTrackRef" class="cards-track" tabindex="0" aria-label="Capitais com imóveis disponíveis">
             <article v-for="capital in capitals" :key="capital.name" class="capital-card">
@@ -56,20 +63,6 @@ function scrollCards(direction: -1 | 1) {
 .capitais-section {
     padding-top: 24px;
     padding-bottom: 32px;
-}
-
-.section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-}
-
-.section-header h2 {
-    margin: 0;
-    color: var(--text-main);
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
 }
 
 .carousel-controls {

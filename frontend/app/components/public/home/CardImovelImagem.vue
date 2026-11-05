@@ -15,7 +15,7 @@ let glideInstance: any = null
 const imagens = computed(() => props.imagem ? [props.imagem] : Array(5).fill('/imovel.png'))
 
 onMounted(() => {
-    if (glideRef.value && !props.compacto) {
+    if (glideRef.value) {
         glideInstance = new Glide(glideRef.value, {
             type: 'slider',
             startAt: 0,
@@ -37,10 +37,7 @@ onUnmounted(() => {
 
 
 <template>
-    <div v-if="compacto" class="container-imagem imagem-estatica imagem-compacta">
-        <NuxtImg :src="imagem || '/imovel.png'" format="webp" loading="lazy" alt="Imagem do imóvel" />
-    </div>
-    <div v-else ref="glideRef" class="glide container-imagem">
+    <div ref="glideRef" class="glide container-imagem" :class="{ 'imagem-compacta': compacto }">
         <!-- <span class="tag-imagem">1016</span> -->
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
@@ -52,10 +49,10 @@ onUnmounted(() => {
 
         <!-- Setas de Navegação -->
         <div v-if="imagens.length > 1" class="glide__arrows" data-glide-el="controls">
-            <button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Anterior">
+            <button type="button" class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Imagem anterior">
                 <ChevronLeft class="icone-seta" />
             </button>
-            <button class="glide__arrow glide__arrow--right" data-glide-dir=">" aria-label="Próximo">
+            <button type="button" class="glide__arrow glide__arrow--right" data-glide-dir=">" aria-label="Próxima imagem">
                 <ChevronRight class="icone-seta" />
             </button>
         </div>

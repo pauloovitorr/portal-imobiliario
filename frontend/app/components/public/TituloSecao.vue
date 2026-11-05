@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { ChevronRight } from '@lucide/vue';
-defineProps<{
+withDefaults(defineProps<{
     titulo: string
     subtitulo: string
     detalhe: string
     link: string
-}>()
+    idTitulo?: string
+    mostrarLink?: boolean
+}>(), {
+    mostrarLink: true,
+})
 </script>
 
 
@@ -14,16 +18,17 @@ defineProps<{
         <span class="titulo-section-text">{{ titulo }}</span>
 
         <div class="container-frase">
-            <h2>
+            <h2 :id="idTitulo">
                 <span class="chamada-principal">{{ subtitulo }}</span>
-                <span class="detalhe">{{ detalhe }}</span>
+                <span v-if="detalhe" class="detalhe">{{ detalhe }}</span>
             </h2>
 
-            <div>
-                <a :href="link" class="link-ver-tudo" aria-label="Ver tudo">
+            <div v-if="mostrarLink || $slots.acoes" class="acoes-titulo">
+                <a v-if="mostrarLink" :href="link" class="link-ver-tudo" aria-label="Ver tudo">
                     <span>Ver tudo</span>
                     <ChevronRight class="icone-seta" aria-hidden="true" />
                 </a>
+                <slot name="acoes" />
             </div>
         </div>
     </div>
@@ -45,6 +50,7 @@ defineProps<{
     letter-spacing: 0.08em;
     line-height: var(--leading-tight);
     text-transform: uppercase;
+    margin-bottom: -8px;
 }
 
 .container-frase {
@@ -52,6 +58,13 @@ defineProps<{
     align-items: center;
     justify-content: space-between;
     gap: var(--padding-xl);
+}
+
+.acoes-titulo {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--padding-xs);
 }
 
 .titulo-section h2 {
