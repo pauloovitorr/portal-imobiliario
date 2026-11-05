@@ -11,20 +11,13 @@ defineProps<{
 
 <template>
     <div class="titulo-section">
-       
-            <span class="titulo-section-text">
-                {{ titulo }}
-            </span>
-        
+        <span class="titulo-section-text">{{ titulo }}</span>
 
         <div class="container-frase">
-            <h3>
-                {{ subtitulo }}
-                <span class="detalhe">
-                    {{ detalhe }}
-                </span>
-            </h3>
-
+            <h2>
+                <span class="chamada-principal">{{ subtitulo }}</span>
+                <span class="detalhe">{{ detalhe }}</span>
+            </h2>
 
             <div>
                 <a :href="link" class="link-ver-tudo" aria-label="Ver tudo">
@@ -41,57 +34,52 @@ defineProps<{
 .titulo-section {
     display: flex;
     flex-direction: column;
+    gap: var(--padding-3xs);
     padding-bottom: 16px;
-    /* margin-top: 16px; */
-    /* gap: 8px; */
-    /* border: 1px solid red; */
-    /* padding: var(--padding-xl) 0; */
 }
 
 .titulo-section-text {
-    /* font-family: var(--font-secondary); */
-    font-weight: var(--font-medium);
-    color: var(--color-neutral-400);
-    position: relative;
-    padding-left: var(--padding-2xs);
-    font-size: var(--text-sm);
-    letter-spacing: 1px;
-    /* border: 1px solid red; */
-}
-
-/* .titulo-section-text:hover{
-    color: #800f2f;
-} */
-
-.titulo-section-text::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 2px;
-    background-color: var(--color-neutral-400);
-    top: 0;
-    left: 0;
-    border-radius: 2px;
+    color: var(--color-accent-500);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: 0.08em;
+    line-height: var(--leading-tight);
+    text-transform: uppercase;
 }
 
 .container-frase {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--padding-xl);
 }
 
-.titulo-section h3 {
+.titulo-section h2 {
+    flex: 1;
+    max-width: 800px;
+    margin: 0;
+    color: var(--color-neutral-700);
+    font-family: var(--font-primary);
     font-size: var(--text-xl);
     font-weight: var(--font-medium);
-    color: var(--color-neutral-900);
-    font-family: var(--font-secondary);
+    line-height: var(--leading-tight);
+}
+
+.chamada-principal {
+    font-weight: var(--font-semibold);
 }
 
 .detalhe {
-    color: var(--color-neutral-500);
+    margin-inline-start: var(--padding-2xs);
+    color: var(--color-neutral-600);
+    font-weight: var(--font-regular);
 }
 
-
+.detalhe::before {
+    content: '—';
+    margin-inline-end: var(--padding-2xs);
+    color: var(--color-neutral-400);
+}
 
 .link-ver-tudo {
     display: inline-flex;
@@ -133,17 +121,22 @@ defineProps<{
 }
 
 
-@media (max-width: 768px){
-    .titulo-section h3{
-        font-size: var(--text-base);
+@media (max-width: 480px) {
+    .container-frase {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: var(--padding-xs);
+    }
+
+    .container-frase > div {
+        align-self: flex-end;
     }
 }
 
-@media (max-width: 425px){
-    .titulo-section h3{
-        font-size: var(--text-sm);
+@media (max-width: 768px) {
+    .titulo-section h2 {
+        font-size: var(--text-lg);
     }
 }
-
 
 </style>

@@ -14,6 +14,10 @@ Consulte os documentos conforme a tarefa:
 - [`design-system.md`](./design-system.md): identidade visual, tokens CSS e convenções de estilo.
 - [`paginas-e-destinos-pendentes.md`](./paginas-e-destinos-pendentes.md): páginas existentes ou ainda não criadas e links/CTAs que permanecem sem destino funcional.
 
+## Referências de outros portais imobiliários
+
+Quando uma tarefa exigir encontrar ou pesquisar outros portais imobiliários, consulte a [lista de portais disponíveis para integração da ImobiBrasil](https://ajuda.imobibrasil.com.br/central-ajuda/portais-para-integracao/). Use essa tabela como diretório para descobrir os nomes e sites dos portais; para avaliar identidade visual ou padrões de interface, acesse e confira o próprio portal. A lista de integrações não é uma especificação de design nem garante que todos os destinos estejam disponíveis ou atualizados.
+
 ## Princípios de implementação
 
 - Priorize simplicidade e mudanças pequenas, focadas no pedido. Leia o arquivo atual antes de editar; preserve código, conteúdo e alterações existentes que não façam parte da tarefa.
