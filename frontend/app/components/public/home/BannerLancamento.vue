@@ -4,7 +4,7 @@
 
 <template>
 
-    <div class="container-banner-lancamento estilo-container container-alinhado" data-aos="fade-up" data-aos-delay="50"
+    <div class="container-banner-lancamento container-alinhado" data-aos="fade-up" data-aos-delay="50"
         data-aos-duration="500" data-aos-easing="ease-in-out">
         <NuxtImg src="/empreendimento.png" alt="Banner Empreendimento" format="webp" loading="lazy" />
     </div>
@@ -14,8 +14,6 @@
 
 <style scoped>
 .container-banner-lancamento {
-    /* margin-top: 32px; */
-    /* margin-bottom: 104px; */
     display: flex;
     align-items: center;
     justify-content: center;

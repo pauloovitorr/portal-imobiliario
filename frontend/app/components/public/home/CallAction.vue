@@ -23,12 +23,8 @@ import imagemCta from '@/assets/imgs/geral/equipe.png'
                     </p>
 
                     <div class="cta-actions">
-                      
-                        <a href="#" class="cta-btn cta-btn-solid">
+                        <a href="/anunciar" class="cta-btn cta-btn-outline">
                             Criar Conta e Anunciar
-                        </a>
-                        <a href="#" class="cta-btn cta-btn-outline">
-                            Conhecer Vantagens
                         </a>
                     </div>
                 </div>

@@ -60,11 +60,6 @@ function scrollCards(direction: -1 | 1) {
 </template>
 
 <style scoped>
-.capitais-section {
-    padding-top: 24px;
-    padding-bottom: 32px;
-}
-
 .carousel-controls {
     display: flex;
     gap: 8px;
@@ -158,11 +153,6 @@ function scrollCards(direction: -1 | 1) {
 }
 
 @media (max-width: 600px) {
-    .capitais-section {
-        padding-top: 16px;
-        padding-bottom: 24px;
-    }
-
     .capital-card {
         flex-basis: 200px;
     }

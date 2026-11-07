@@ -27,13 +27,6 @@
 
 
 <style scoped>
-.imovel-destaque-container {
-    padding-bottom: 64px;
-    /* border: 1px solid red; */
-}
-
-
-
 .imoveis-container {
     width: 100%;
     /* border: 1px solid rgb(209, 255, 5); */

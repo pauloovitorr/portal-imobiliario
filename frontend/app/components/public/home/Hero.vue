@@ -11,8 +11,7 @@
 <style scoped>
 .container-hero {
     width: 100%;
-    height: calc(75vh - 80px);
+    height: 60vh;
     position: relative;
-    margin-bottom: 32px;
 }
 </style>

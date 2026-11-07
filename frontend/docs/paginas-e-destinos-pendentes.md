@@ -12,7 +12,7 @@ Antes de implementar um destino, confirme o escopo solicitado. Não crie página
 | `/:finalidade/:tipo/:cidade` | Página dinâmica de listagem de imóveis. Os destinos de categorias nos menus ainda usam `#`; a rota existe, mas esses links não estão conectados a ela. |
 | `/imovel/:slug` | Página dinâmica de detalhes de imóvel. |
 | `/entrar` | Interface de formulário de login existente; autenticação, envio e recuperação de senha ainda não estão integrados. |
-| `/anunciar` | Interface de cadastro com nome, e-mail, telefone e senha; autenticação/cadastro e envio ainda não estão integrados. |
+| `/anunciar` | Interface de cadastro com nome, e-mail, telefone e senha; CTA da home aponta para esta rota. Autenticação/cadastro e envio ainda não estão integrados. |
 
 Fontes: `app/pages/index.vue`, `app/pages/[finalidade]/[tipo]/[cidade].vue`, `app/pages/imovel/[slug].vue`, `app/pages/entrar.vue` e `app/pages/anunciar.vue`.
 
@@ -22,7 +22,6 @@ Fontes: `app/pages/index.vue`, `app/pages/[finalidade]/[tipo]/[cidade].vue`, `ap
 | --- | --- | --- |
 | Página de notícias | Existe uma seção de notícias na home, com cards que abrem matérias externas. Não foi identificada uma rota interna de listagem ou detalhe de notícias. | `app/components/public/home/Noticias.vue`; título da seção em `app/components/public/TituloSecao.vue`. |
 | Imóveis favoritados | Existem botões/atalhos visuais de favoritos, mas não foi identificada página de favoritos nem fluxo persistente de favoritos. | `app/components/public/MenuDesktop.vue`, `app/components/public/MenuMobile.vue`, `app/components/public/home/CardImovelDescricao.vue` e `app/components/public/filtros/CardDescricaoImovel.vue`. |
-| “Conhecer Vantagens” | O CTA existe na home com `href="#"`; não foi identificada página de vantagens. | `app/components/public/home/CallAction.vue`. |
 | “Buscar imobiliárias” | O item aparece nos menus e rodapé com `href="#"`; não foi identificada página de busca/listagem de imobiliárias. | `app/components/public/MenuDesktop.vue`, `app/components/public/MenuMobile.vue` e `app/components/public/Footer.vue`. |
 | Área do corretor | O link aparece no rodapé com `href="#"`; não foi identificada rota correspondente. | `app/components/public/Footer.vue`. |
 | Cadastro de imobiliária | O link aparece no rodapé com `href="#"`; não foi identificada rota correspondente. | `app/components/public/Footer.vue`. |
@@ -36,7 +35,6 @@ Os seguintes grupos ainda contêm `href="#"` ou destino vazio. Um placeholder n�
 - Categorias de compra e aluguel (casas, apartamentos, terrenos, lançamentos e casas em condomínio) nos menus desktop/mobile. A rota dinâmica de listagem existe, mas as opções ainda não apontam para ela.
 - “Comprar”, “Alugar”, “Lançamentos”, “Notícias”, categorias e links de parceiros no rodapé.
 - “Notícias” e categorias nos menus; o conteúdo de notícias atualmente leva a sites externos, não a uma página interna.
-- “Criar Conta e Anunciar” e “Conhecer Vantagens” no CTA da home. `/anunciar` existe como placeholder, mas o CTA ainda não está ligado a essa rota.
 - Links “Ver tudo” enviados sem destino pelas seções da home.
 - Cards de lançamento com URL vazia.
 

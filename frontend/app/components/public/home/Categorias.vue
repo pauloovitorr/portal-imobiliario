@@ -51,10 +51,6 @@ function scrollCards(direction: -1 | 1) {
 </template>
 
 <style scoped>
-.categorias-section {
-    padding-bottom: 16px;
-}
-
 .carousel-controls {
     display: flex;
     gap: 8px;

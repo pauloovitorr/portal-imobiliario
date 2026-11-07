@@ -73,8 +73,12 @@ const noticias: Noticia[] = [
 .section-noticias {
     width: 100%;
     background-color: var(--color-neutral-0);
+    padding-top: var(--padding-3xl);
     padding-bottom: 64px;
-    padding-top: 64px;
+}
+
+.section-noticias.noticias-contiguas {
+    padding-top: 0;
 }
 
 .container-noticias {
@@ -221,6 +225,12 @@ const noticias: Noticia[] = [
     .noticia-titulo,
     .noticia-descricao {
         min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-noticias {
+        padding-top: var(--padding-2xl);
     }
 }
 </style>

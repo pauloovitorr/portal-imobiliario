@@ -7,7 +7,7 @@ import CardImovelLancamento from './CardImovelLancamento.vue';
 </script>
 
 <template>
-    <section class="container-lancamentos estilo-container container-alinhado" data-aos="fade-up" data-aos-delay="50"
+    <section class="container-lancamentos container-alinhado" data-aos="fade-up" data-aos-delay="50"
         data-aos-duration="500" data-aos-easing="ease-in-out">
         <PublicTituloSecao titulo="Lançamentos" subtitulo="Seja um dos primeiros" detalhe="conheça os novos projetos"
             link="" />
@@ -19,15 +19,8 @@ import CardImovelLancamento from './CardImovelLancamento.vue';
 </template>
 
 <style scoped>
-/* .container-lancamentos {
-    margin-top: 80px;
-    margin-bottom: 80px;
-    border: 1px solid red;
-} */
-
 .imoveis-container {
     width: 100%;
-    /* margin-top: 16px; */
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--padding-md);

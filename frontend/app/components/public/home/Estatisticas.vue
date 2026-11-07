@@ -13,7 +13,7 @@ const estatisticas = [
   
     <section class="section-estatisticas" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
              data-aos-easing="ease-in-out">
-        <div class="container-estatisticas estilo-container container-alinhado">
+        <div class="container-estatisticas container-alinhado">
             
             <div class="estatisticas-header">
                 <h2 class="estatisticas-titulo">
@@ -47,11 +47,12 @@ const estatisticas = [
 
 .section-estatisticas {
     width: 100%;
-    background-color: var(--color-neutral-0); 
+    background-color: var(--color-neutral-0);
 }
 
 .container-estatisticas{
     width: 100%;
+    padding-block: var(--padding-3xl);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -138,6 +139,10 @@ const estatisticas = [
 }
 
 @media (max-width: 768px) {
+    .container-estatisticas {
+        padding-block: var(--padding-2xl);
+    }
+
     .estatisticas-titulo {
         font-size: var(--text-3xl);
     }

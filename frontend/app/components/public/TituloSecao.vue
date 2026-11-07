@@ -120,7 +120,7 @@ withDefaults(defineProps<{
     box-sizing: border-box;
     width: 36px;
     height: 36px;
-    padding: 8px;
+    padding: 5px;
     color: var(--color-neutral-700);
     background: var(--bg-surface);
     border: 1px solid var(--color-neutral-300);
