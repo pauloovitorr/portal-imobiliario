@@ -4,9 +4,8 @@
 
 <template>
 
-    <div class="container-banner-lancamento container-alinhado" data-aos="fade-up" data-aos-delay="50"
-        data-aos-duration="500" data-aos-easing="ease-in-out">
-        <NuxtImg src="/empreendimento.png" alt="Banner Empreendimento" format="webp" loading="lazy" />
+    <div class="container-banner-lancamento container-alinhado">
+        <NuxtImg data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out" src="/empreendimento.png" alt="Banner Empreendimento" format="webp" loading="lazy" />
     </div>
 
 </template>

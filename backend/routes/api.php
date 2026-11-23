@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -8,6 +9,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::get('/teste', function () {
-    return response()->json(['message' => 'API funcionando!']);
-});
+include __DIR__ . '/api/auth.php';
+include __DIR__ . '/api/register.php';

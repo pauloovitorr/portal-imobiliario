@@ -7,8 +7,7 @@ import CardImovelLancamento from './CardImovelLancamento.vue';
 </script>
 
 <template>
-    <section class="container-lancamentos container-alinhado" data-aos="fade-up" data-aos-delay="50"
-        data-aos-duration="500" data-aos-easing="ease-in-out">
+    <section id="imoveis-lancamentos" class="container-lancamentos container-alinhado">
         <PublicTituloSecao titulo="Lançamentos" subtitulo="Seja um dos primeiros" detalhe="conheça os novos projetos"
             link="" />
 

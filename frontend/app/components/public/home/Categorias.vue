@@ -5,12 +5,15 @@ import { ChevronLeft, ChevronRight } from '@lucide/vue'
 const cardsTrackRef = ref<HTMLDivElement | null>(null)
 
 const categories = [
-    { name: 'Casas', image: '/imovel.png' },
-    { name: 'Casas em condomínio', image: '/empreendimento.png' },
-    { name: 'Alto padrão', image: '/banner.png' },
-    { name: 'Lançamentos', image: '/empreendimento2.png' },
-    { name: 'Apartamentos', image: '/imovel.png' },
-    { name: 'Terrenos', image: '/empreendimento.png' },
+    { name: 'Casas', image: '/home/categorias/casas.webp' },
+    { name: 'Casas em condomínio', image: '/home/categorias/casas-em-condominio.webp' },
+    { name: 'Alto padrão', image: '/home/categorias/alto-padrao.webp' },
+    { name: 'Lançamentos', image: '/home/categorias/lancamentos.webp' },
+    { name: 'Apartamentos', image: '/home/categorias/apartamentos.webp' },
+    { name: 'Terrenos', image: '/home/categorias/terrenos.webp' },
+    { name: 'Studios', image: '/home/categorias/studios.webp' },
+    { name: 'Salas comerciais', image: '/home/categorias/salas-comerciais.webp' },
+    { name: 'Chácaras', image: '/home/categorias/chacaras.webp' },
 ]
 
 function scrollCards(direction: -1 | 1) {
@@ -41,11 +44,12 @@ function scrollCards(direction: -1 | 1) {
         </PublicTituloSecao>
 
         <div ref="cardsTrackRef" class="cards-track" tabindex="0" aria-label="Categorias de imóveis">
-            <article v-for="category in categories" :key="category.name" class="category-card">
+            <NuxtLink v-for="category in categories" :key="category.name"
+                to="/comprar/apartamento/presidente-prudente" class="category-card">
                 <img :src="category.image" :alt="`Imagem ilustrativa: ${category.name}`" loading="lazy">
                 <div class="card-shade"></div>
                 <h3>{{ category.name }}</h3>
-            </article>
+            </NuxtLink>
         </div>
     </section>
 </template>
@@ -100,6 +104,13 @@ function scrollCards(direction: -1 | 1) {
     overflow: hidden;
     border-radius: var(--radius-md);
     scroll-snap-align: start;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.category-card:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: -2px;
 }
 
 .category-card img,

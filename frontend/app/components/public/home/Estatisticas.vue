@@ -11,8 +11,7 @@ const estatisticas = [
 
 <template>
   
-    <section class="section-estatisticas" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
-             data-aos-easing="ease-in-out">
+    <section class="section-estatisticas">
         <div class="container-estatisticas container-alinhado">
             
             <div class="estatisticas-header">
@@ -27,13 +26,11 @@ const estatisticas = [
             </div>
 
             <div class="estatisticas-grid">
-                <div 
-                    v-for="(item, index) in estatisticas" 
-                    :key="index" 
-                    class="estatisticas-card"
-                >
-                    <div class="card-valor">{{ item.valor }}</div>
-                    <div class="card-label">{{ item.label }}</div>
+                <div v-for="item in estatisticas" :key="item.label" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out">
+                    <div class="estatisticas-card">
+                        <div class="card-valor">{{ item.valor }}</div>
+                        <div class="card-label">{{ item.label }}</div>
+                    </div>
                 </div>
             </div>
 
@@ -98,6 +95,7 @@ const estatisticas = [
 
 
 .estatisticas-card {
+    height: 100%;
     background-color: var(--color-neutral-0);
     padding: var(--padding-2xl);
     border-radius: var(--radius-xl);

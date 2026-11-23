@@ -70,27 +70,29 @@ const imoveisDestaque = [
 
 
 <template>
-    <a v-for="imovel in imoveisDestaque" :key="imovel.id" :href="imovel.link" class="card-imovel">
-        <div class="card-imagem-wrapper">
-            <NuxtImg :src="imovel.imagem" alt="Perspectiva artística" class="card-imagem" format="webp"
-                loading="lazy" />
+    <div v-for="imovel in imoveisDestaque" :key="imovel.id" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out">
+        <a :href="imovel.link" class="card-imovel">
+            <div class="card-imagem-wrapper">
+                <NuxtImg :src="imovel.imagem" alt="Perspectiva artística" class="card-imagem" format="webp"
+                    loading="lazy" />
 
-            <div class="card-overlay">
-                <h3 class="card-titulo">{{ imovel.titulo }}</h3>
+                <div class="card-overlay">
+                    <h3 class="card-titulo">{{ imovel.titulo }}</h3>
 
-                <div class="card-info">
-                    <div class="card-localizacao">
-                        <MapPinHouse class="icone-pin" />
-                        <span class="truncate">{{ imovel.bairro }}</span>
-                    </div>
+                    <div class="card-info">
+                        <div class="card-localizacao">
+                            <MapPinHouse class="icone-pin" />
+                            <span class="truncate">{{ imovel.bairro }}</span>
+                        </div>
 
-                    <div class="card-area">
-                        <span>{{ imovel.area }}</span>
+                        <div class="card-area">
+                            <span>{{ imovel.area }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
 </template>
 
 

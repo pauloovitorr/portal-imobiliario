@@ -16,6 +16,10 @@ const grupos: GrupoPesquisa[] = [
             'Casas à venda em Presidente Prudente',
             'Terrenos à venda em Campinas',
             'Imóveis à venda em Curitiba',
+            'Apartamentos à venda no Rio de Janeiro',
+            'Casas à venda em Belo Horizonte',
+            'Apartamentos à venda em Florianópolis',
+            'Terrenos à venda em Goiânia',
         ],
     },
     {
@@ -26,16 +30,24 @@ const grupos: GrupoPesquisa[] = [
             'Casas para alugar em Presidente Prudente',
             'Imóveis para alugar em Campinas',
             'Apartamentos para alugar em Curitiba',
+            'Apartamentos para alugar em Salvador',
+            'Casas para alugar no Recife',
+            'Apartamentos para alugar em Brasília',
+            'Casas para alugar em Curitiba',
         ],
     },
     {
-        id: 'tipos',
-        titulo: 'Explorar por tipo',
+        id: 'lancamentos',
+        titulo: 'Lançamentos',
         sugestoes: [
-            'Apartamentos',
-            'Casas',
-            'Terrenos',
-            'Salas comerciais',
+            'Lançamentos em São Paulo',
+            'Lançamentos no Rio de Janeiro',
+            'Lançamentos em Belo Horizonte',
+            'Lançamentos em Curitiba',
+            'Lançamentos em Florianópolis',
+            'Lançamentos em Campinas',
+            'Lançamentos em Brasília',
+            'Lançamentos em Goiânia',
         ],
     },
 ]
@@ -154,6 +166,31 @@ const grupos: GrupoPesquisa[] = [
 @media (max-width: 900px) {
     .grupos-pesquisas {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 601px) {
+    .grupos-pesquisas {
+        row-gap: var(--padding-sm);
+    }
+
+    .grupo-pesquisas,
+    .grupo-pesquisas ul {
+        display: grid;
+        grid-template-rows: subgrid;
+    }
+
+    .grupo-pesquisas {
+        grid-row: span 9;
+        row-gap: var(--padding-sm);
+    }
+
+    .grupo-pesquisas h3 {
+        margin-bottom: calc(var(--padding-md) - var(--padding-sm));
+    }
+
+    .grupo-pesquisas ul {
+        grid-row: span 8;
     }
 }
 

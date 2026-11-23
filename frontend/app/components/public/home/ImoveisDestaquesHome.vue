@@ -4,20 +4,14 @@
 
 
 <template>
-    <section class="imovel-destaque-container container-alinhado">
+    <section id="imoveis-destaque" class="imovel-destaque-container container-alinhado">
 
         <PublicTituloSecao titulo="Destaques" subtitulo="Encontre o Refúgio" detalhe="que você merece" link="" />
 
-        <div class="imoveis-container" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500"
-            data-aos-easing="ease-in-out">
-            <PublicHomeCardImovel compacto />
-            <PublicHomeCardImovel compacto />
-            <PublicHomeCardImovel compacto />
-            <PublicHomeCardImovel compacto />
-            <PublicHomeCardImovel compacto />
-            <PublicHomeCardImovel compacto />
-            <PublicHomeCardImovel compacto />
-            <PublicHomeCardImovel compacto />
+        <div class="imoveis-container">
+            <div v-for="card in 8" :key="card" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out">
+                <PublicHomeCardImovel compacto />
+            </div>
         </div>
 
     </section>
@@ -35,6 +29,11 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--padding-md);
+}
+
+.imoveis-container > div {
+    display: grid;
+    min-width: 0;
 }
 
 @media (max-width: 1100px) and (min-width: 641px) {

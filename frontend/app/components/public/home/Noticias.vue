@@ -39,31 +39,32 @@ const noticias: Noticia[] = [
 </script>
 
 <template>
-    <section class="section-noticias" data-aos="fade-up" data-aos-delay="50"
-        data-aos-duration="500" data-aos-easing="ease-in-out">
+    <section class="section-noticias">
         <div class="container-noticias container-alinhado">
             <PublicTituloSecao titulo="Notícias" subtitulo="Informações imobiliárias" detalhe="sobre o mercado" link="" />
 
             <div class="noticias-grid">
-                <article v-for="item in noticias" :key="item.id" class="noticia-card">
-                    <a :href="item.url" target="_blank" rel="noopener noreferrer" class="noticia-imagem-link">
-                        <div class="noticia-imagem-wrapper">
-                            <img :src="item.imagem" :alt="item.titulo" loading="lazy" class="noticia-imagem">
-                        </div>
-                    </a>
+                <div v-for="item in noticias" :key="item.id" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out">
+                    <article class="noticia-card">
+                        <a :href="item.url" target="_blank" rel="noopener noreferrer" class="noticia-imagem-link">
+                            <div class="noticia-imagem-wrapper">
+                                <img :src="item.imagem" :alt="item.titulo" loading="lazy" class="noticia-imagem">
+                            </div>
+                        </a>
 
-                    <div class="noticia-content">
-                        <h3 class="noticia-titulo">{{ item.titulo }}</h3>
-                        <p class="noticia-descricao">{{ item.descricao }}</p>
+                        <div class="noticia-content">
+                            <h3 class="noticia-titulo">{{ item.titulo }}</h3>
+                            <p class="noticia-descricao">{{ item.descricao }}</p>
 
-                        <div class="noticia-footer">
-                            <span class="noticia-fonte">{{ item.fonte }}</span>
-                            <a :href="item.url" target="_blank" rel="noopener noreferrer" class="noticia-btn">
-                                Ver mais
-                            </a>
+                            <div class="noticia-footer">
+                                <span class="noticia-fonte">{{ item.fonte }}</span>
+                                <a :href="item.url" target="_blank" rel="noopener noreferrer" class="noticia-btn">
+                                    Ver mais
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
@@ -96,6 +97,7 @@ const noticias: Noticia[] = [
 
 /* Card Principal */
 .noticia-card {
+    height: 100%;
     background-color: var(--color-neutral-0);
     border-radius: var(--radius-xl);
     border: 1px solid var(--color-neutral-200);

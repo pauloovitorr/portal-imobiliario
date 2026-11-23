@@ -5,15 +5,15 @@ import { ChevronLeft, ChevronRight } from '@lucide/vue'
 const cardsTrackRef = ref<HTMLDivElement | null>(null)
 
 const capitals = [
-    { name: 'São Paulo - SP', listings: '57821 imóveis', image: '/banner.png' },
-    { name: 'Salvador - BA', listings: '12674 imóveis', image: '/imovel.png' },
-    { name: 'Florianópolis - SC', listings: '12504 imóveis', image: '/empreendimento.png' },
-    { name: 'Rio de Janeiro - RJ', listings: '11569 imóveis', image: '/banner.png' },
-    { name: 'Belo Horizonte - MG', listings: '8838 imóveis', image: '/imovel.png' },
-    { name: 'Curitiba - PR', listings: '7620 imóveis', image: '/empreendimento.png' },
-    { name: 'Recife - PE', listings: '6840 imóveis', image: '/banner.png' },
-    { name: 'Brasília - DF', listings: '5980 imóveis', image: '/imovel.png' },
-    { name: 'Goiânia - GO', listings: '4720 imóveis', image: '/empreendimento.png' },
+    { name: 'São Paulo - SP', listings: '57821 imóveis', image: '/home/capitais/sao-paulo.webp' },
+    { name: 'Salvador - BA', listings: '12674 imóveis', image: '/home/capitais/salvador.webp' },
+    { name: 'Florianópolis - SC', listings: '12504 imóveis', image: '/home/capitais/florianopolis.webp' },
+    { name: 'Rio de Janeiro - RJ', listings: '11569 imóveis', image: '/home/capitais/rio-de-janeiro.webp' },
+    { name: 'Belo Horizonte - MG', listings: '8838 imóveis', image: '/home/capitais/belo-horizonte.webp' },
+    { name: 'Curitiba - PR', listings: '7620 imóveis', image: '/home/capitais/curitiba.webp' },
+    { name: 'Recife - PE', listings: '6840 imóveis', image: '/home/capitais/recife.webp' },
+    { name: 'Brasília - DF', listings: '5980 imóveis', image: '/home/capitais/brasilia.webp' },
+    { name: 'Goiânia - GO', listings: '4720 imóveis', image: '/home/capitais/goiania.webp' },
 ]
 
 function scrollCards(direction: -1 | 1) {
@@ -44,9 +44,10 @@ function scrollCards(direction: -1 | 1) {
         </PublicTituloSecao>
 
         <div ref="cardsTrackRef" class="cards-track" tabindex="0" aria-label="Capitais com imóveis disponíveis">
-            <article v-for="capital in capitals" :key="capital.name" class="capital-card">
+            <NuxtLink v-for="capital in capitals" :key="capital.name"
+                to="/comprar/apartamento/presidente-prudente" class="capital-card">
                 <div class="card-image">
-                    <img :src="capital.image" alt="Imagem ilustrativa de imóvel" loading="lazy">
+                    <img :src="capital.image" :alt="`Imagem ilustrativa de ${capital.name}`" loading="lazy">
                     <span>Imagem ilustrativa</span>
                 </div>
 
@@ -54,7 +55,7 @@ function scrollCards(direction: -1 | 1) {
                     <h3>{{ capital.name }}</h3>
                     <p>{{ capital.listings }}</p>
                 </div>
-            </article>
+            </NuxtLink>
         </div>
     </section>
 </template>
@@ -109,6 +110,13 @@ function scrollCards(direction: -1 | 1) {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     scroll-snap-align: start;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.capital-card:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: -2px;
 }
 
 .card-image {
