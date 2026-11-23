@@ -20,7 +20,7 @@ getTestBackendUrl();
     </div>
 
     <!-- <PublicHomeCallAction /> -->
-    <div class="continuidade-estatisticas-noticias">
+    <div class="estatisticas">
       <PublicHomeEstatisticas />
       <PublicHomeNoticias class="noticias-contiguas" />
       <PublicHomePesquisas />
@@ -30,6 +30,7 @@ getTestBackendUrl();
 
 <style scoped>
 .home-page {
+  --espaco-entre-blocos: 64px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -46,31 +47,22 @@ getTestBackendUrl();
   display: flex;
   flex-direction: column;
   gap: var(--padding-2xl);
-  margin-top: 96px;
+  margin-top: var(--espaco-entre-blocos);
 }
 
-.continuidade-estatisticas-noticias {
+.estatisticas {
   display: flex;
   flex-direction: column;
-  margin-top: 96px;
-}
-
-.home-page-band {
-  margin-block: calc(0px - var(--padding-3xl));
+  margin-top: var(--espaco-entre-blocos);
 }
 
 @media (max-width: 768px) {
+  .home-page {
+    --espaco-entre-blocos: var(--padding-3xl);
+  }
+
   .empreendimentos {
     gap: var(--padding-xl);
-    margin-top: 80px;
-  }
-
-  .continuidade-estatisticas-noticias {
-    margin-top: 80px;
-  }
-
-  .home-page-band {
-    margin-block: calc(0px - var(--padding-2xl));
   }
 }
 </style>

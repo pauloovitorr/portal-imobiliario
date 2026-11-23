@@ -32,6 +32,14 @@ const noticias: Noticia[] = [
         fonte: 'EXAME',
         imagem: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
         url: 'https://exame.com/mercado-imobiliario/mercado-imobiliario-de-luxo-segue-aquecido/'
+    },
+    {
+        id: 4,
+        titulo: 'Vendas de imóveis novos sobem 5,4% no Brasil',
+        descricao: 'Foram vendidas 226.536 unidades residenciais no primeiro semestre de 2026, segundo levantamento da CBIC.',
+        fonte: 'AGÊNCIA CBIC',
+        imagem: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=800&q=80',
+        url: 'https://cbic.org.br/vendas-de-imoveis-avancam-54-no-primeiro-semestre-e-mcmv-registra-participacao-recorde/'
     }
 ];
 
@@ -90,9 +98,8 @@ const noticias: Noticia[] = [
 /* Grid Layout */
 .noticias-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    /* margin-top: 40px; */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--padding-2xl);
 }
 
 /* Card Principal */
@@ -214,8 +221,8 @@ const noticias: Noticia[] = [
 /* Responsividade */
 @media (max-width: 1024px) {
     .noticias-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--padding-xl);
     }
 }
 

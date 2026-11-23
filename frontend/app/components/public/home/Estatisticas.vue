@@ -23,6 +23,9 @@ const estatisticas = [
                     Cada número expressa a confiança dos nossos clientes e a dedicação em transformar projetos 
                     em grandes histórias de sucesso.
                 </p>
+                <NuxtLink to="/anunciar" class="btn-primary estatisticas-cta">
+                    Criar conta
+                </NuxtLink>
             </div>
 
             <div class="estatisticas-grid">
@@ -85,6 +88,15 @@ const estatisticas = [
     line-height: var(--leading-relaxed);
 }
 
+
+.estatisticas-cta {
+    margin-top: var(--padding-lg);
+}
+
+.estatisticas-cta:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+}
 
 .estatisticas-grid {
     width: 100%;
