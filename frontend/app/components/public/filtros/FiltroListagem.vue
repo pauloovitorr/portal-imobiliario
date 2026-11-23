@@ -6,15 +6,50 @@ const finalidade = ref<'comprar' | 'alugar'>('comprar')
 const tipoAcomodacao = ref('qualquer')
 const tipoImovel = ref('apartamento')
 const cidade = ref('presidente-prudente')
+const route = useRoute()
 const bairro = ref('todos')
-const quartos = ref('qualquer')
-const banheiros = ref('qualquer')
-const vagas = ref('qualquer')
+const quantidades = reactive({
+    quartos: 'qualquer',
+    banheiros: 'qualquer',
+    vagas: 'qualquer',
+})
 const precoMinimo = ref('')
 const precoMaximo = ref('')
 const areaMinima = ref('')
 const areaMaxima = ref('')
 const comodidadesSelecionadas = ref<string[]>([])
+
+const tiposImovel = [
+    { valor: 'apartamento', rotulo: 'Apartamento' },
+    { valor: 'casa', rotulo: 'Casa' },
+    { valor: 'sala', rotulo: 'Sala comercial' },
+    { valor: 'terreno', rotulo: 'Terreno' },
+]
+
+const gruposQuantidade = [
+    { campo: 'quartos', rotulo: 'Dormitórios' },
+    { campo: 'banheiros', rotulo: 'Banheiros' },
+    { campo: 'vagas', rotulo: 'Vagas' },
+] as const
+
+const cidades = [
+    { slug: 'presidente-prudente', nome: 'Presidente Prudente' },
+    { slug: 'sao-paulo', nome: 'São Paulo' },
+    { slug: 'santo-andre', nome: 'Santo André' },
+    { slug: 'campinas', nome: 'Campinas' },
+]
+
+const cidadeDaRota = computed(() => String(route.params.cidade ?? ''))
+const cidadesDisponiveis = computed(() => {
+    const slug = cidadeDaRota.value
+    if (!slug || cidades.some(cidade => cidade.slug === slug)) return cidades
+
+    return [...cidades, { slug, nome: slug.replaceAll('-', ' ') }]
+})
+
+watch(cidadeDaRota, (slug) => {
+    if (slug) cidade.value = slug
+}, { immediate: true })
 
 const comodidades = [
     { id: 'pet', nome: 'Aceita pets', icone: PawPrint },
@@ -28,9 +63,9 @@ const filtrosAtivos = computed(() => {
         finalidade.value !== 'comprar',
         tipoAcomodacao.value !== 'qualquer',
         bairro.value !== 'todos',
-        quartos.value !== 'qualquer',
-        banheiros.value !== 'qualquer',
-        vagas.value !== 'qualquer',
+        quantidades.quartos !== 'qualquer',
+        quantidades.banheiros !== 'qualquer',
+        quantidades.vagas !== 'qualquer',
         precoMinimo.value,
         precoMaximo.value,
         areaMinima.value,
@@ -91,21 +126,26 @@ defineExpose({ abrirModal })
                             <div class="secao-titulo">
                                 <h3>Finalidade e tipo</h3>
                             </div>
-                            <div class="campos-grid campos-grid-tipo">
-                                <label class="campo-filtro">
-                                    <span>Finalidade</span>
-                                    <select v-model="finalidade">
-                                        <option value="comprar">Comprar</option>
-                                        <option value="alugar">Alugar</option>
-                                    </select>
-                                </label>
+                            <div class="campos-grid">
+                                <fieldset class="grupo-opcoes">
+                                    <legend>Finalidade</legend>
+                                    <div class="opcoes-finalidade">
+                                        <label class="opcao-filtro">
+                                            <input v-model="finalidade" type="radio" name="finalidade" value="comprar">
+                                            <span>Comprar</span>
+                                        </label>
+                                        <label class="opcao-filtro">
+                                            <input v-model="finalidade" type="radio" name="finalidade" value="alugar">
+                                            <span>Alugar</span>
+                                        </label>
+                                    </div>
+                                </fieldset>
                                 <label class="campo-filtro">
                                     <span>Tipo de imóvel</span>
                                     <select v-model="tipoImovel">
-                                        <option value="apartamento">Apartamento</option>
-                                        <option value="casa">Casa</option>
-                                        <option value="sala">Sala comercial</option>
-                                        <option value="terreno">Terreno</option>
+                                        <option v-for="tipo in tiposImovel" :key="tipo.valor" :value="tipo.valor">
+                                            {{ tipo.rotulo }}
+                                        </option>
                                     </select>
                                 </label>
                             </div>
@@ -119,8 +159,9 @@ defineExpose({ abrirModal })
                                 <label class="campo-filtro">
                                     <span>Cidade</span>
                                     <select v-model="cidade">
-                                        <option value="presidente-prudente">Presidente Prudente</option>
-                                        <option value="sao-paulo">São Paulo</option>
+                                        <option v-for="opcao in cidadesDisponiveis" :key="opcao.slug" :value="opcao.slug">
+                                            {{ opcao.nome }}
+                                        </option>
                                     </select>
                                 </label>
                                 <label class="campo-filtro">
@@ -160,34 +201,21 @@ defineExpose({ abrirModal })
                                 <h3>Características</h3>
                             </div>
                             <div class="campos-grid">
-                                <label class="campo-filtro">
-                                    <span>Dormitórios</span>
-                                    <select v-model="quartos">
-                                        <option value="qualquer">Qualquer quantidade</option>
-                                        <option value="1">1 ou mais</option>
-                                        <option value="2">2 ou mais</option>
-                                        <option value="3">3 ou mais</option>
-                                        <option value="4">4 ou mais</option>
-                                    </select>
-                                </label>
-                                <label class="campo-filtro">
-                                    <span>Banheiros</span>
-                                    <select v-model="banheiros">
-                                        <option value="qualquer">Qualquer quantidade</option>
-                                        <option value="1">1 ou mais</option>
-                                        <option value="2">2 ou mais</option>
-                                        <option value="3">3 ou mais</option>
-                                    </select>
-                                </label>
-                                <label class="campo-filtro">
-                                    <span>Vagas</span>
-                                    <select v-model="vagas">
-                                        <option value="qualquer">Qualquer quantidade</option>
-                                        <option value="1">1 ou mais</option>
-                                        <option value="2">2 ou mais</option>
-                                        <option value="3">3 ou mais</option>
-                                    </select>
-                                </label>
+                                <fieldset v-for="grupo in gruposQuantidade" :key="grupo.campo" class="grupo-opcoes">
+                                    <legend>{{ grupo.rotulo }}</legend>
+                                    <div class="opcoes-quantidade">
+                                        <label class="opcao-filtro">
+                                            <input v-model="quantidades[grupo.campo]" type="radio" :name="grupo.campo"
+                                                value="qualquer">
+                                            <span>Qualquer</span>
+                                        </label>
+                                        <label v-for="numero in 5" :key="numero" class="opcao-filtro">
+                                            <input v-model="quantidades[grupo.campo]" type="radio" :name="grupo.campo"
+                                                :value="String(numero)">
+                                            <span>{{ numero }}+</span>
+                                        </label>
+                                    </div>
+                                </fieldset>
                                 <div class="campos-duplos">
                                     <label class="campo-filtro">
                                         <span>Área mínima</span>
@@ -244,6 +272,7 @@ defineExpose({ abrirModal })
     border: 1px solid var(--color-neutral-200);
     border-radius: var(--radius-lg);
     background: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
 }
 
 .filtro-listagem::-webkit-scrollbar {
@@ -266,8 +295,12 @@ defineExpose({ abrirModal })
 }
 
 .titulo-filtros svg {
+    box-sizing: content-box;
     width: 18px;
     height: 18px;
+    padding: var(--padding-xs);
+    border-radius: var(--radius-sm);
+    color: var(--color-accent-500);
 }
 
 .titulo-filtros h2 {
@@ -277,6 +310,9 @@ defineExpose({ abrirModal })
 }
 
 .contador-desktop {
+    padding: var(--padding-2xs) var(--padding-xs);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
     color: var(--color-neutral-600);
     font-size: var(--text-xs);
     white-space: nowrap;
@@ -389,7 +425,7 @@ defineExpose({ abrirModal })
 .comodidades-grid button:hover,
 .comodidades-grid button.selecionado {
     border-color: var(--color-accent-400);
-    background: var(--color-neutral-50);
+    background: var(--color-focus-ring);
 }
 
 .comodidade-icone {
@@ -404,8 +440,85 @@ defineExpose({ abrirModal })
     gap: var(--padding-sm);
 }
 
-.campos-grid-tipo {
-    grid-template-columns: 1fr;
+.grupo-opcoes {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.grupo-opcoes legend {
+    margin-bottom: var(--padding-2xs);
+    padding: 0;
+}
+
+.opcoes-finalidade {
+    display: inline-grid;
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--padding-2xs);
+}
+
+.opcoes-quantidade {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-2xs);
+}
+
+.opcao-filtro {
+    position: relative;
+    display: grid;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.opcao-filtro input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: inherit;
+}
+
+.opcao-filtro span {
+    display: grid;
+    min-height: 40px;
+    place-items: center;
+    padding: var(--padding-2xs) var(--padding-xs);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    color: var(--text-main);
+    font-size: var(--text-sm);
+    line-height: var(--leading-tight);
+    text-align: center;
+    overflow-wrap: anywhere;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.opcoes-finalidade .opcao-filtro span {
+    padding-inline: var(--padding-md);
+}
+
+.opcoes-quantidade .opcao-filtro:not(:first-child) span {
+    min-width: 40px;
+}
+
+.opcao-filtro:hover span {
+    border-color: var(--color-accent-400);
+}
+
+.opcao-filtro input:checked + span {
+    border-color: var(--color-accent-500);
+    background: var(--color-accent-500);
+    color: var(--color-neutral-0);
+}
+
+.opcao-filtro input:focus-visible + span {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
 }
 
 .campos-duplos {
@@ -421,7 +534,8 @@ defineExpose({ abrirModal })
     gap: var(--padding-3xs);
 }
 
-.campo-filtro span {
+.campo-filtro span,
+.grupo-opcoes legend {
     color: var(--color-neutral-600);
     font-size: var(--text-xs);
     font-weight: var(--font-semibold);
@@ -440,6 +554,16 @@ defineExpose({ abrirModal })
     color: var(--text-main);
     font: inherit;
     font-size: var(--text-sm);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.campo-filtro select {
+    cursor: pointer;
+}
+
+.campo-filtro input:hover,
+.campo-filtro select:hover {
+    border-color: var(--color-neutral-400);
 }
 
 .campo-filtro input:focus,
@@ -508,6 +632,7 @@ defineExpose({ abrirModal })
         padding: 0;
         border: 0;
         background: transparent;
+        box-shadow: none;
     }
 
     .filtro-cabecalho {
@@ -615,10 +740,6 @@ defineExpose({ abrirModal })
 
     .comodidades-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .campos-grid-tipo {
-        grid-template-columns: 1fr;
     }
 
     .modal-conteudo {

@@ -83,7 +83,7 @@ const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
     min-height: 56px;
     margin-bottom: var(--padding-md);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: var(--padding-md);
 }
