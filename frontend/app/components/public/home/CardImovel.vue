@@ -13,6 +13,7 @@ withDefaults(defineProps<{
     vagas?: string;
     preco?: string;
     imagem?: string;
+    imagens?: string[];
 }>(), {
     compacto: false,
     tipoImovel: 'Casa à venda',
@@ -28,7 +29,7 @@ withDefaults(defineProps<{
 
 <template>
     <div class="card-imovel" :class="{ 'card-imovel-compacto': compacto }">
-        <CardImovelImagem :imagem="imagem" :compacto="compacto" />
+        <CardImovelImagem :imagem="imagem" :imagens="imagens" :compacto="compacto" />
         <CardImovelDescricao
             :compacto="compacto"
             :tipo-imovel="tipoImovel"

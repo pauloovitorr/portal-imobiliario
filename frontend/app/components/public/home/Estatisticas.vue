@@ -47,7 +47,7 @@ const estatisticas = [
 
 .section-estatisticas {
     width: 100%;
-    background-color: var(--color-neutral-0);
+    background-color: var(--color-accent-600);
 }
 
 .container-estatisticas{
@@ -70,7 +70,7 @@ const estatisticas = [
     font-family: var(--font-secondary);
     font-size: var(--text-4xl);
     font-weight: var(--font-medium);
-    color: var(--color-neutral-900); 
+    color: var(--color-neutral-0);
     line-height: var(--leading-tight);
     margin-bottom: 12px;
 }
@@ -79,22 +79,43 @@ const estatisticas = [
 .estatisticas-titulo span {
     font-weight: var(--font-light);
     font-style: italic;
-    color: var(--color-accent-500); 
 }
 
 .estatisticas-descricao {
     font-size: var(--text-lg);
-    color: var(--color-neutral-600); 
+    color: var(--color-neutral-100);
     line-height: var(--leading-relaxed);
 }
 
 
 .estatisticas-cta {
     margin-top: var(--padding-lg);
+    background-color: var(--color-neutral-0);
+    color: var(--color-accent-600);
+}
+
+.estatisticas-cta:hover {
+    background-color: var(--color-neutral-100);
+    transform: translateY(-4px);
+}
+
+.estatisticas-cta:active {
+    transform: translateY(-4px) scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .estatisticas-cta {
+        transition: none;
+    }
+
+    .estatisticas-cta:hover,
+    .estatisticas-cta:active {
+        transform: none;
+    }
 }
 
 .estatisticas-cta:focus-visible {
-    outline: 2px solid var(--color-accent-500);
+    outline: 2px solid var(--color-neutral-0);
     outline-offset: 2px;
 }
 
@@ -114,12 +135,11 @@ const estatisticas = [
     border: 1px solid var(--color-neutral-200);
     text-align: center;
     box-shadow: var(--shadow-sm); 
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
 }
 
 
 .estatisticas-card:hover {
-    transform: translateY(-8px);
     box-shadow: var(--shadow-md);
     border-color: var(--color-neutral-300);
 }

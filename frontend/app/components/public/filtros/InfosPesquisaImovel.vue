@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { MapPin } from '@lucide/vue'
+import { cidadesBuscasPopulares } from '~/utils/cidadesBuscasPopulares'
 
 const route = useRoute();
 
@@ -51,13 +52,12 @@ const listaBairros = computed(() => {
     return typeof bairros === 'string' ? bairros.split(',').filter(Boolean).map(formatarTexto) : []
 })
 
-const nomeCidade = computed(() =>
-    sugestoesCidade.find(sugestao => sugestao.slug === cidade.value)?.nome ?? formatarTexto(cidade.value)
-)
+const dadosCidade = computed(() => cidadesBuscasPopulares.find(item => item.slug === cidade.value))
+const nomeCidade = computed(() => dadosCidade.value?.nome ?? formatarTexto(cidade.value))
 
 // Texto descritivo da localização (Bairros ou Cidade)
 const textoLocalizacao = computed(() => {
-    return `em ${nomeCidade.value}`
+    return `${dadosCidade.value?.preposicao ?? 'em'} ${nomeCidade.value}`
 })
 </script>
 
@@ -66,7 +66,7 @@ const textoLocalizacao = computed(() => {
         <nav class="breadcrumb-imoveis">
             <span>{{ formatarTexto(tipo) }} {{ textoFinalidade }}</span>
             <span>›</span>
-            <span>SP</span>
+            <span>{{ dadosCidade?.uf ?? 'SP' }}</span>
             <span>›</span>
             <span>{{ nomeCidade }}</span>
             <span v-if="listaBairros.length > 0">› {{ listaBairros.join(', ') }}</span>

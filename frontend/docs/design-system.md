@@ -67,6 +67,7 @@ Atalhos semânticos existentes: `--bg-app`, `--bg-surface`, `--border-color`, `-
 | Elevação | `--shadow-sm`, `--shadow-md`, `--shadow-lg`, `--shadow-hover`. |
 | Transições | `--transition-fast` (150ms), `--transition-normal` (250ms), `--transition-bounce` (500ms). |
 | Espaçamento | `--padding-3xs` (4px) até `--padding-3xl` (48px), com incrementos nomeados. |
+| Espaçamento entre blocos | `--espaco-entre-blocos` (64px, ou `--padding-3xl` até 768px) para separar blocos principais. |
 | Atalhos de componente | `--padding-btn-sm`, `--padding-btn-md`, `--padding-btn-lg`, `--padding-card`, `--padding-modal`, `--padding-drawer`. |
 | Camadas | `--z-banner`, `--z-dropdown`, `--z-sticky`, `--z-fixed`, `--z-modal-backdrop`, `--z-modal`, `--z-tooltip`. |
 | Largura | `--max-width` (1280px). |

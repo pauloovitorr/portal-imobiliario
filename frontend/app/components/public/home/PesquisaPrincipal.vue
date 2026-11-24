@@ -4,6 +4,7 @@ import { ref } from 'vue';
 
 // filtros de finalidade
 const tipoFinalidade = ref<'comprar' | 'alugar'>('comprar');
+
 </script>
 
 <template>

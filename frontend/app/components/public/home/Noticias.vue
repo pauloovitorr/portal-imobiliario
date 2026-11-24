@@ -88,6 +88,7 @@ const noticias: Noticia[] = [
 
 .section-noticias.noticias-contiguas {
     padding-top: 0;
+    padding-bottom: var(--espaco-entre-blocos);
 }
 
 .container-noticias {

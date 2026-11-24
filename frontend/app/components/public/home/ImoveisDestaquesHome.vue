@@ -1,5 +1,19 @@
 <script setup lang="ts">
+const capas = [
+    '/imovel.png',
+    '/home/destaques/mansao-classica.webp',
+    '/home/destaques/sala-pe-direito-duplo.webp',
+    '/home/destaques/casa-de-campo-aerea.webp',
+    '/home/destaques/cozinha-gourmet.webp',
+    '/home/destaques/piscina-ao-entardecer.webp',
+    '/home/destaques/patio-tropical.webp',
+    '/home/destaques/casa-serra.webp',
+]
 
+const galerias = capas.map(capa => ({
+    capa,
+    imagens: Array.from({ length: 5 }, () => capa),
+}))
 </script>
 
 
@@ -9,8 +23,8 @@
         <PublicTituloSecao titulo="Destaques" subtitulo="Encontre o Refúgio" detalhe="que você merece" link="" />
 
         <div class="imoveis-container">
-            <div v-for="card in 8" :key="card" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out">
-                <PublicHomeCardImovel compacto />
+            <div v-for="galeria in galerias" :key="galeria.capa" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out">
+                <PublicHomeCardImovel :imagens="galeria.imagens" compacto />
             </div>
         </div>
 

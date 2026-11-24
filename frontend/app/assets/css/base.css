@@ -179,6 +179,7 @@
 
   /* Atalhos Semânticos para Componentes (Facilitam Manutenção) */
   --padding-btn-sm: var(--padding-xs) var(--padding-sm); /* 8px 12px */
+  --espaco-entre-blocos: 64px;
   --padding-btn-md: var(--padding-sm) var(--padding-lg); /* 12px 20px */
   --padding-btn-lg: var(--padding-md) var(--padding-xl); /* 16px 24px */
 
@@ -190,4 +191,10 @@
 
   --max-width: 1280px;
 
+}
+
+@media (max-width: 768px) {
+  :root {
+    --espaco-entre-blocos: var(--padding-3xl);
+  }
 }

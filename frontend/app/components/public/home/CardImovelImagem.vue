@@ -6,13 +6,17 @@ import { ChevronLeft, ChevronRight } from '@lucide/vue'
 
 const props = defineProps<{
     imagem?: string;
+    imagens?: string[];
     compacto?: boolean;
 }>()
 
 // Referência para o elemento do carrossel
 const glideRef = ref<HTMLElement | null>(null)
 let glideInstance: any = null
-const imagens = computed(() => props.imagem ? [props.imagem] : Array(5).fill('/imovel.png'))
+const imagens = computed(() => {
+    if (props.imagens?.length) return props.imagens
+    return props.imagem ? [props.imagem] : Array(5).fill('/imovel.png')
+})
 
 onMounted(() => {
     if (glideRef.value) {

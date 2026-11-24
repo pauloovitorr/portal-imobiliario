@@ -21,16 +21,15 @@ getTestBackendUrl();
 
     <!-- <PublicHomeCallAction /> -->
     <div class="estatisticas">
-      <PublicHomeEstatisticas />
-      <PublicHomeNoticias class="noticias-contiguas" />
       <PublicHomePesquisas />
+      <PublicHomeNoticias class="noticias-contiguas" />
+      <PublicHomeEstatisticas />
     </div>
   </div>
 </template>
 
 <style scoped>
 .home-page {
-  --espaco-entre-blocos: 64px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -54,13 +53,11 @@ getTestBackendUrl();
   display: flex;
   flex-direction: column;
   margin-top: var(--espaco-entre-blocos);
+  padding-top: var(--espaco-entre-blocos);
+  background-color: var(--bg-surface);
 }
 
 @media (max-width: 768px) {
-  .home-page {
-    --espaco-entre-blocos: var(--padding-3xl);
-  }
-
   .empreendimentos {
     gap: var(--padding-xl);
   }

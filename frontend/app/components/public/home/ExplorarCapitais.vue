@@ -48,7 +48,6 @@ function scrollCards(direction: -1 | 1) {
                 to="/comprar/apartamento/presidente-prudente" class="capital-card">
                 <div class="card-image">
                     <img :src="capital.image" :alt="`Imagem ilustrativa de ${capital.name}`" loading="lazy">
-                    <span>Imagem ilustrativa</span>
                 </div>
 
                 <div class="card-info">
@@ -120,7 +119,6 @@ function scrollCards(direction: -1 | 1) {
 }
 
 .card-image {
-    position: relative;
     height: 124px;
 }
 
@@ -129,18 +127,6 @@ function scrollCards(direction: -1 | 1) {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.card-image span {
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
-    padding: 4px 8px;
-    color: var(--color-neutral-0);
-    background: rgba(31, 23, 26, 0.8);
-    border-radius: var(--radius-full);
-    font-size: var(--text-xs);
-    font-weight: var(--font-semibold);
 }
 
 .card-info {
