@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const tipoFinalidade = defineModel<'comprar' | 'alugar' | 'temporada'>('tipoFinalidade', {
+const tipoFinalidadeFilho = defineModel<'comprar' | 'alugar' | 'temporada'>('tipoFinalidadeFilho', {
     required: true
 })
 
@@ -10,12 +10,12 @@ const tipoFinalidade = defineModel<'comprar' | 'alugar' | 'temporada'>('tipoFina
 
 <template>
     <div class="container-finalidade">
-        <button type="button" :class="['finalidade-item', { active: tipoFinalidade === 'comprar' }]"
-            @click="tipoFinalidade = 'comprar'">Comprar</button>
-        <button type="button" :class="['finalidade-item', { active: tipoFinalidade === 'alugar' }]"
-            @click="tipoFinalidade = 'alugar'">Aluguar</button>
-        <!-- <button type="button" :class="['finalidade-item', { active: tipoFinalidade === 'temporada' }]"
-            @click="tipoFinalidade = 'temporada'">Temporada</button> -->
+        <button type="button" :class="['finalidade-item', { active: tipoFinalidadeFilho === 'comprar' }]"
+            @click="tipoFinalidadeFilho = 'comprar'">Comprar</button>
+        <button type="button" :class="['finalidade-item', { active: tipoFinalidadeFilho === 'alugar' }]"
+            @click="tipoFinalidadeFilho = 'alugar'">Aluguar</button>
+        <!-- <button type="button" :class="['finalidade-item', { active: tipoFinalidadeFilho === 'temporada' }]"
+            @click="tipoFinalidadeFilho = 'temporada'">Temporada</button> -->
     </div>
 </template>
 

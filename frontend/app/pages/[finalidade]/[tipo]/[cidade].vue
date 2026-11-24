@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { capasImoveisDemonstrativos } from '~/utils/capasImoveisDemonstrativos'
+
 const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
 
 
@@ -30,7 +32,8 @@ const visualizacaoAtiva = ref<'lista' | 'mapa'>('lista')
                 </div>
 
                 <div class="lista-cards-imoveis">
-                    <PublicFiltrosCardImovel v-for="i in 12" :key="i" />
+                    <PublicFiltrosCardImovel v-for="i in 12" :key="i"
+                        :imagem="capasImoveisDemonstrativos[(i - 1) % capasImoveisDemonstrativos.length]" />
                 </div>
             </main>
 

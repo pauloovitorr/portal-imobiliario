@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 
 
-// filtros de finalidade
 const tipoFinalidade = ref<'comprar' | 'alugar'>('comprar');
 
 </script>
@@ -15,8 +14,8 @@ const tipoFinalidade = ref<'comprar' | 'alugar'>('comprar');
                 Encontre o seu <span class="highlight">lugar</span>
             </h1>
 
-            <PublicHomeFiltroContainerFinalidade v-model:tipoFinalidade="tipoFinalidade" />
-            <PublicHomeFiltroContainerOpcoes  :tipoFinalidade="tipoFinalidade" />
+            <PublicHomeFiltroContainerFinalidade v-model:tipoFinalidadeFilho="tipoFinalidade" />
+            <PublicHomeFiltroContainerOpcoes :tipoFinalidade="tipoFinalidade" />
         </div>
     </div>
 </template>

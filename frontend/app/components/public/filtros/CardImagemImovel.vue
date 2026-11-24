@@ -4,6 +4,10 @@ import Glide from '@glidejs/glide'
 import '@glidejs/glide/dist/css/glide.core.css'
 import { ChevronLeft, ChevronRight } from '@lucide/vue'
 
+withDefaults(defineProps<{ imagem?: string }>(), {
+    imagem: '/imovel.png',
+})
+
 const glideRef = ref<HTMLElement | null>(null)
 let glideInstance: any = null
 
@@ -31,20 +35,8 @@ onUnmounted(() => {
     <div ref="glideRef" class="glide container-imagem">
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy" alt="Imóvel" />
-                </li>
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy" alt="Imóvel" />
-                </li>
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy" alt="Imóvel" />
-                </li>
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy" alt="Imóvel" />
-                </li>
-                <li class="glide__slide">
-                    <NuxtImg src="/imovel.png" format="webp" loading="lazy" alt="Imóvel" />
+                <li v-for="slide in 5" :key="slide" class="glide__slide">
+                    <NuxtImg :src="imagem" format="webp" loading="lazy" alt="Imóvel" />
                 </li>
             </ul>
         </div>

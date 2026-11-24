@@ -1,16 +1,7 @@
 <script setup lang="ts">
-const capas = [
-    '/imovel.png',
-    '/home/destaques/mansao-classica.webp',
-    '/home/destaques/sala-pe-direito-duplo.webp',
-    '/home/destaques/casa-de-campo-aerea.webp',
-    '/home/destaques/cozinha-gourmet.webp',
-    '/home/destaques/piscina-ao-entardecer.webp',
-    '/home/destaques/patio-tropical.webp',
-    '/home/destaques/casa-serra.webp',
-]
+import { capasImoveisDemonstrativos } from '~/utils/capasImoveisDemonstrativos'
 
-const galerias = capas.map(capa => ({
+const galerias = capasImoveisDemonstrativos.map(capa => ({
     capa,
     imagens: Array.from({ length: 5 }, () => capa),
 }))

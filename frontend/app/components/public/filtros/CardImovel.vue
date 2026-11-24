@@ -1,6 +1,10 @@
+<script setup lang="ts">
+defineProps<{ imagem?: string }>()
+</script>
+
 <template>
     <div class="card-imovel-wrapper">
-        <PublicFiltrosCardImagemImovel />
+        <PublicFiltrosCardImagemImovel :imagem="imagem" />
         <PublicFiltrosCardDescricaoImovel />
     </div>
 </template>
